@@ -99,17 +99,17 @@ namespace Gar.Root.Ui
 
         protected async Task ExecuteBusyActionAsync(Action busyAction)
         {
-            if (busyAction != null)
+            if (busyAction == null)
+                return;
+
+            StartBusy();
+            try
             {
-                StartBusy();
-                try
-                {
-                    await Task.Run(busyAction);
-                }
-                finally
-                {
-                    StopBusy();
-                }
+                await Task.Run(busyAction);
+            }
+            finally
+            {
+                StopBusy();
             }
         }
 

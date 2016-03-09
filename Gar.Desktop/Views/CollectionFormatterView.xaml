@@ -3,9 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:uid="http://gar.com/ClientDesign"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+             d:DesignWidth="1600"
+             d:DesignHeight="900" 
+             d:DataContext="{d:DesignInstance Type=uid:CollectionFormatterViewModel, IsDesignTimeCreatable=True}">
+    <xctk:BusyIndicator IsBusy="{Binding IsBusy}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="1" Grid.Column="1" 
+                 Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" 
+                 Style="{StaticResource TextAreaStyle}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" 
+                 Text="{Binding Output, Mode=OneWay}" 
+                 Style="{StaticResource TextAreaStyle}" 
+                 IsEnabled="False"/>
+            <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
+            <ScrollViewer Grid.Row="1" Grid.Column="3" Grid.RowSpan="3" 
+                      Width="200"
+                      Height="{Binding ActualHeight, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                      HorizontalScrollBarVisibility="Auto" 
+                      VerticalScrollBarVisibility="Auto">
+                <!-- ReSharper restore Xaml.BindingWithContextNotResolved -->
+                <ItemsControl ItemsSource="{Binding Collection}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Mode=OneWay}" 
+                                 Width="196" 
+                                 Margin="1"
+                                 TextWrapping="Wrap" 
+                                 IsEnabled="False"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </xctk:BusyIndicator>
 </UserControl>
