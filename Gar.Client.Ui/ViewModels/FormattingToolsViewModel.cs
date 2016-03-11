@@ -9,14 +9,14 @@ namespace Gar.Client.Ui.ViewModels
 
         public FormattingToolsViewModel(ICollectionFormatterViewModel collectionFormatterViewModel)
         {
-            CollectionFormatterViewModel = collectionFormatterViewModel;
+            InitializeValue(collectionFormatterViewModel, () => CollectionFormatterViewModel);
         }
 
         #endregion
 
         #region properties
 
-        public ICollectionFormatterViewModel CollectionFormatterViewModel { get; set; }
+        public ICollectionFormatterViewModel CollectionFormatterViewModel => GetValue(() => CollectionFormatterViewModel);
         public override string ViewTitle => "Formatting";
 
         #endregion

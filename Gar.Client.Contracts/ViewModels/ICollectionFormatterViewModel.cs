@@ -7,6 +7,7 @@ namespace Gar.Client.Contracts.ViewModels
         #region properties
 
         string[] Collection { get; }
+        IDelimitersViewModel DelimitersViewModel { get; }
         string Input { get; set; }
         string Output { get; }
 

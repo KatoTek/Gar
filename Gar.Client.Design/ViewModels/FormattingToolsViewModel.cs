@@ -7,7 +7,7 @@ namespace Gar.Client.Design.ViewModels
     {
         #region properties
 
-        public ICollectionFormatterViewModel CollectionFormatterViewModel { get; set; } = new CollectionFormatterViewModel();
+        public ICollectionFormatterViewModel CollectionFormatterViewModel { get; } = new CollectionFormatterViewModel();
         public override string ViewTitle => "Formatting";
 
         #endregion

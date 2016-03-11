@@ -8,8 +8,10 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public CollectionFormatterViewModel()
+        public CollectionFormatterViewModel(IDelimitersViewModel delimitersViewModel)
         {
+            InitializeValue(delimitersViewModel, () => DelimitersViewModel);
+
             PropertyOf(() => Collection).DependsOnProperty(() => Input);
         }
 
@@ -17,7 +19,8 @@ namespace Gar.Client.Ui.ViewModels
 
         #region properties
 
-        public string[] Collection => GetValue(() => Collection, () => Input.TrimWithin().WordArray(' '));
+        public string[] Collection => GetValue(() => Collection, () => Input.Words('"', new[] { ' ', '\t', '\r', '\n' }));
+        public IDelimitersViewModel DelimitersViewModel => GetValue(() => DelimitersViewModel);
 
         public string Input
         {

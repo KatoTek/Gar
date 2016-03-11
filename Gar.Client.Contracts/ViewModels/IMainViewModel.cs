@@ -6,7 +6,7 @@ namespace Gar.Client.Contracts.ViewModels
     {
         #region properties
 
-        IFormattingToolsViewModel FormattingToolsViewModel { get; set; }
+        IFormattingToolsViewModel FormattingToolsViewModel { get; }
 
         #endregion
     }

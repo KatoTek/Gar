@@ -9,14 +9,14 @@ namespace Gar.Client.Ui.ViewModels
 
         public MainViewModel(IFormattingToolsViewModel formattingToolsViewModel)
         {
-            FormattingToolsViewModel = formattingToolsViewModel;
+            InitializeValue(formattingToolsViewModel, () => FormattingToolsViewModel);
         }
 
         #endregion
 
         #region properties
 
-        public IFormattingToolsViewModel FormattingToolsViewModel { get; set; }
+        public IFormattingToolsViewModel FormattingToolsViewModel => GetValue(() => FormattingToolsViewModel);
         public override string ViewTitle => "GAR";
 
         #endregion

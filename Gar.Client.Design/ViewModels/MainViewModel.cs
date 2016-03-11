@@ -7,7 +7,7 @@ namespace Gar.Client.Design.ViewModels
     {
         #region properties
 
-        public IFormattingToolsViewModel FormattingToolsViewModel { get; set; } = new FormattingToolsViewModel();
+        public IFormattingToolsViewModel FormattingToolsViewModel { get; } = new FormattingToolsViewModel();
         public override string ViewTitle => "GAR";
 
         #endregion
