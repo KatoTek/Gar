@@ -12,6 +12,7 @@ namespace Gar.Client.Design.ViewModels
         public IDelimitersViewModel DelimitersViewModel { get; } = new DelimitersViewModel();
         public string Input { get; set; } = $"1000{NewLine}2000{NewLine}3000{NewLine}4000";
         public string Output => "\"1000\",\"2000\",\"3000\",\"4000\"";
+        public IQualifiersViewModel QualifiersViewModel { get; } = new QualifiersViewModel();
         public override string ViewTitle => "Collections";
 
         #endregion

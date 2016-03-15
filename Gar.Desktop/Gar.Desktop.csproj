@@ -115,6 +115,9 @@
     <Compile Include="Views\FormattingToolsView.xaml.cs">
       <DependentUpon>FormattingToolsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\QualifiersView.xaml.cs">
+      <DependentUpon>QualifiersView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FormattingToolsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualifiersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -55,6 +55,7 @@
     <Compile Include="ViewModels\DelimitersViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FormattingToolsViewModel.cs" />
+    <Compile Include="ViewModels\QualifiersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gar.Business\Gar.Business.csproj">

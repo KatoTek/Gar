@@ -42,6 +42,7 @@ namespace Gar.Client.Ui.ViewModels
                 .DependsOnProperty(() => PlusSign)
                 .DependsOnProperty(() => PoundSign)
                 .DependsOnProperty(() => QuestionMark)
+                .DependsOnProperty(() => Quotation)
                 .DependsOnProperty(() => Semicolon)
                 .DependsOnProperty(() => Slash)
                 .DependsOnProperty(() => Space)
@@ -214,6 +215,13 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(value, () => QuestionMark); }
         }
 
+        [CorrespondingCharacter('"')]
+        public bool Quotation
+        {
+            get { return GetValue(() => Quotation); }
+            set { SetValue(value, () => Quotation); }
+        }
+
         [CorrespondingCharacter(';')]
         public bool Semicolon
         {
@@ -257,6 +265,24 @@ namespace Gar.Client.Ui.ViewModels
         }
 
         public override string ViewTitle => "Delimiters";
+
+        #endregion
+
+        #region methods
+
+        public void Deselect(char c)
+        {
+            Custom?.RemoveAll(_ => _.Equals(c));
+
+            (from property in GetType().GetProperties(Public | Instance).Where(p => p.PropertyType == typeof(bool))
+             where (bool)property.GetValue(this)
+             select new { Property = property, CorrespondingCharacterAttribute = property.GetCustomAttributes<CorrespondingCharacterAttribute>().FirstOrDefault() }
+             into propertyAndCorrespondingCharacterAttribute
+             where
+                 propertyAndCorrespondingCharacterAttribute.CorrespondingCharacterAttribute != null &&
+                 propertyAndCorrespondingCharacterAttribute.CorrespondingCharacterAttribute.Character == c
+             select propertyAndCorrespondingCharacterAttribute.Property).FirstOrDefault()?.SetValue(this, false);
+        }
 
         #endregion
     }

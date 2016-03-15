@@ -8,18 +8,22 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public CollectionFormatterViewModel(IDelimitersViewModel delimitersViewModel)
+        public CollectionFormatterViewModel(IDelimitersViewModel delimitersViewModel, IQualifiersViewModel qualifiersViewModel)
         {
             InitializeValue(delimitersViewModel, () => DelimitersViewModel);
+            InitializeValue(qualifiersViewModel, () => QualifiersViewModel);
 
-            PropertyOf(() => Collection).DependsOnProperty(() => Input);
+            PropertyOf(() => Collection)
+                .DependsOnProperty(() => Input)
+                .DependsOnReferenceProperty(() => QualifiersViewModel, (IQualifiersViewModel qvm) => qvm.Qualifier)
+                .DependsOnReferenceProperty(() => DelimitersViewModel, (IDelimitersViewModel dvm) => dvm.Delimiters);
         }
 
         #endregion
 
         #region properties
 
-        public string[] Collection => GetValue(() => Collection, () => Input.Words('"', new[] { ' ', '\t', '\r', '\n' }));
+        public string[] Collection => GetValue(() => Collection, () => Input.Words(QualifiersViewModel?.Qualifier, DelimitersViewModel?.Delimiters));
         public IDelimitersViewModel DelimitersViewModel => GetValue(() => DelimitersViewModel);
 
         public string Input
@@ -29,6 +33,7 @@ namespace Gar.Client.Ui.ViewModels
         }
 
         public string Output => GetValue(() => Output);
+        public IQualifiersViewModel QualifiersViewModel => GetValue(() => QualifiersViewModel);
         public override string ViewTitle => "Collections";
 
         #endregion

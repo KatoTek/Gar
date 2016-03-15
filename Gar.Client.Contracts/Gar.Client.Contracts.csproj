@@ -53,6 +53,7 @@
     <Compile Include="ViewModels\IDelimitersViewModel.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="ViewModels\IFormattingToolsViewModel.cs" />
+    <Compile Include="ViewModels\IQualifiersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gar.Root.Contracts\Gar.Root.Contracts.csproj">

@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Gar.Root.Contracts;
-using INotify;
+﻿using Gar.Root.Contracts;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface IDelimitersViewModel : IViewModelRoot
+    public interface IQualifiersViewModel : IViewModelRoot
     {
         #region properties
 
@@ -14,11 +12,9 @@ namespace Gar.Client.Contracts.ViewModels
         bool AtSign { get; set; }
         bool Backslash { get; set; }
         bool Caret { get; set; }
-        bool CarriageReturn { get; set; }
         bool Colon { get; set; }
         bool Comma { get; set; }
-        NotifyingList<char> Custom { get; }
-        IEnumerable<char> Delimiters { get; }
+        char? Custom { get; set; }
         bool DollarSign { get; set; }
         bool EqualSign { get; set; }
         bool ExclamationPoint { get; set; }
@@ -28,12 +24,11 @@ namespace Gar.Client.Contracts.ViewModels
         bool Period { get; set; }
         bool PlusSign { get; set; }
         bool PoundSign { get; set; }
+        char? Qualifier { get; }
         bool QuestionMark { get; set; }
         bool Quotation { get; set; }
         bool Semicolon { get; set; }
         bool Slash { get; set; }
-        bool Space { get; set; }
-        bool Tab { get; set; }
         bool Tilde { get; set; }
         bool Underscore { get; set; }
 

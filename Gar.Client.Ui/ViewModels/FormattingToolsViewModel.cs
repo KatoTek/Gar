@@ -17,7 +17,7 @@ namespace Gar.Client.Ui.ViewModels
         #region properties
 
         public ICollectionFormatterViewModel CollectionFormatterViewModel => GetValue(() => CollectionFormatterViewModel);
-        public override string ViewTitle => "Formatting";
+        public override string ViewTitle => "Format";
 
         #endregion
     }
