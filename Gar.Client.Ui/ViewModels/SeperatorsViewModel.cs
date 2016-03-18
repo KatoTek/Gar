@@ -5,18 +5,19 @@ using Gar.Client.Contracts.ViewModels;
 using Gar.Client.Ui.Attributes;
 using Gar.Root.Ui;
 using static System.Reflection.BindingFlags;
+using static System.String;
 
 namespace Gar.Client.Ui.ViewModels
 {
-    public class QualifiersViewModel : ViewModelRoot, IQualifiersViewModel
+    public class SeperatorsViewModel : ViewModelRoot, ISeperatorsViewModel
     {
         #region constructors
 
-        public QualifiersViewModel()
+        public SeperatorsViewModel()
         {
-            InitializeValue(null, () => Custom);
+            InitializeValue(true, () => Comma);
 
-            PropertyOf(() => Qualifier)
+            PropertyOf(() => Seperator)
                 .DependsOnProperty(() => Ampersand)
                 .DependsOnProperty(() => Apostrophe)
                 .DependsOnProperty(() => Asterik)
@@ -39,6 +40,8 @@ namespace Gar.Client.Ui.ViewModels
                 .DependsOnProperty(() => Quotation)
                 .DependsOnProperty(() => Semicolon)
                 .DependsOnProperty(() => Slash)
+                .DependsOnProperty(() => Space)
+                .DependsOnProperty(() => Tab)
                 .DependsOnProperty(() => Tilde)
                 .DependsOnProperty(() => Underscore);
         }
@@ -103,7 +106,7 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(Synchronize(value), () => Comma); }
         }
 
-        public char? Custom
+        public string Custom
         {
             get { return GetValue(() => Custom); }
             set { SetValue(Synchronize(value), () => Custom); }
@@ -172,39 +175,6 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(Synchronize(value), () => PoundSign); }
         }
 
-        public char? Qualifier
-        {
-            get
-            {
-                return GetValue(() => Qualifier,
-                                () =>
-                                {
-                                    var qualifiers = (Custom.HasValue
-                                                          ? new[] { Custom.Value }
-                                                          : new char[0]).Union(from prop in GetType()
-                                                                                   .GetProperties(Public | Instance)
-                                                                                   .Where(p => p.PropertyType == typeof(bool))
-                                                                               where (bool)prop.GetValue(this)
-                                                                               select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                                                          .FirstOrDefault()
-                                                                               into attr
-                                                                               where attr != null
-                                                                               select attr.Character)
-                                                                        .ToArray();
-
-                                    switch (qualifiers.Length)
-                                    {
-                                        case 0:
-                                            return null;
-                                        case 1:
-                                            return qualifiers.Single();
-                                        default:
-                                            throw new IndexOutOfRangeException();
-                                    }
-                                });
-            }
-        }
-
         [CorrespondingCharacter('?')]
         public bool QuestionMark
         {
@@ -226,11 +196,57 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(Synchronize(value), () => Semicolon); }
         }
 
+        public string Seperator
+        {
+            get
+            {
+                return GetValue(() => Seperator,
+                                () =>
+                                {
+                                    var seperators = (IsNullOrEmpty(Custom)
+                                                          ? new string[0]
+                                                          : new[] { Custom }).Union(from prop in GetType()
+                                                                                        .GetProperties(Public | Instance)
+                                                                                        .Where(p => p.PropertyType == typeof(bool))
+                                                                                    where (bool)prop.GetValue(this)
+                                                                                    select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                                               .FirstOrDefault()
+                                                                                    into attr
+                                                                                    where attr != null
+                                                                                    select attr.Character.ToString())
+                                                                             .ToArray();
+                                    switch (seperators.Length)
+                                    {
+                                        case 0:
+                                            return null;
+                                        case 1:
+                                            return seperators.Single();
+                                        default:
+                                            throw new IndexOutOfRangeException();
+                                    }
+                                });
+            }
+        }
+
         [CorrespondingCharacter('/')]
         public bool Slash
         {
             get { return GetValue(() => Slash); }
             set { SetValue(Synchronize(value), () => Slash); }
+        }
+
+        [CorrespondingCharacter(' ')]
+        public bool Space
+        {
+            get { return GetValue(() => Space); }
+            set { SetValue(Synchronize(value), () => Space); }
+        }
+
+        [CorrespondingCharacter('\t')]
+        public bool Tab
+        {
+            get { return GetValue(() => Tab); }
+            set { SetValue(Synchronize(value), () => Tab); }
         }
 
         [CorrespondingCharacter('~')]
@@ -247,7 +263,7 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(Synchronize(value), () => Underscore); }
         }
 
-        public override string ViewTitle => "Qualifiers";
+        public override string ViewTitle => "Seperators";
 
         #endregion
 
@@ -258,7 +274,7 @@ namespace Gar.Client.Ui.ViewModels
             if (!c.HasValue)
                 return;
 
-            if (Custom == c)
+            if (Custom == c.ToString())
                 Custom = null;
 
             (from prop in GetType()
@@ -277,11 +293,11 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
-        private char? Synchronize(char? value)
+        private string Synchronize(string value)
         {
-            Synchronize(value.HasValue);
+            Synchronize(!IsNullOrEmpty(value));
 
-            if (!value.HasValue)
+            if (!IsNullOrEmpty(value))
                 return null;
 
             var property = (from prop in GetType()
@@ -295,7 +311,7 @@ namespace Gar.Client.Ui.ViewModels
                                                                              .FirstOrDefault()
                                    }
                             into _
-                            where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == value
+                            where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character.ToString() == value
                             select _.Property).FirstOrDefault();
 
             if (property == null)
@@ -332,6 +348,8 @@ namespace Gar.Client.Ui.ViewModels
             SetValue(false, () => Quotation);
             SetValue(false, () => Semicolon);
             SetValue(false, () => Slash);
+            SetValue(false, () => Space);
+            SetValue(false, () => Tab);
             SetValue(false, () => Tilde);
             SetValue(false, () => Underscore);
 

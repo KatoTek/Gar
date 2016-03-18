@@ -118,6 +118,9 @@
     <Compile Include="Views\QualifiersView.xaml.cs">
       <DependentUpon>QualifiersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SeperatorsView.xaml.cs">
+      <DependentUpon>SeperatorsView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -162,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\QualifiersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SeperatorsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -41,7 +41,7 @@ namespace Gar.Client.Contracts.ViewModels
 
         #region methods
 
-        void Deselect(char c);
+        void Deselect(char? c);
 
         #endregion
     }

@@ -28,7 +28,8 @@ namespace Gar.Root
         {
             _nonReactantProperties = new[] { GetName(() => IsValid), GetName(() => ValidationErrors) };
 
-            PropertyOf(() => IsValid).DependsOnCollection(() => ValidationErrors);
+            PropertyOf(() => IsValid)
+                .DependsOnCollection(() => ValidationErrors);
 
             PropertyChanged += Validate;
 
@@ -83,7 +84,8 @@ namespace Gar.Root
 
         public void Validate()
         {
-            var errors = _validator?.Validate(this)?.Errors;
+            var errors = _validator?.Validate(this)
+                ?.Errors;
             if (errors != null)
                 SetValue(new NotifyingList<ValidationFailure>(errors), () => ValidationErrors);
         }

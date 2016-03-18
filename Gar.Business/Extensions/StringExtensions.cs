@@ -10,15 +10,40 @@ namespace Gar.Business.Extensions
     {
         #region methods
 
-        public static string SlimTrim(this string value, char trimChar) => value.SlimTrimStart(trimChar).SlimTrimEnd(trimChar);
+        public static string SlimTrim(this string value, char trimChar) => value.SlimTrimStart(trimChar)
+                                                                                .SlimTrimEnd(trimChar);
 
-        public static string SlimTrimEnd(this string value, char trimChar)
-            => IsNullOrEmpty(value) ? value : value.EndsWith(trimChar.ToString()) ? value.Substring(0, value.Length - 1) : value;
+        public static string SlimTrim(this string value, string trimString) => value.SlimTrimStart(trimString)
+                                                                                    .SlimTrimEnd(trimString);
 
-        public static string SlimTrimStart(this string value, char trimChar)
-            => IsNullOrEmpty(value) ? value : value.StartsWith(trimChar.ToString()) ? value.Substring(1, value.Length - 1) : value;
+        public static string SlimTrimEnd(this string value, char trimChar) => IsNullOrEmpty(value)
+                                                                                  ? value
+                                                                                  : value.EndsWith(trimChar.ToString())
+                                                                                        ? value.Substring(0, value.Length - 1)
+                                                                                        : value;
 
-        public static string TrimWithin(this string value) => IsNullOrWhiteSpace(value) ? Empty : Replace(value, @"\s+|\t|\n|\r", " ").Trim();
+        public static string SlimTrimEnd(this string value, string trimString) => IsNullOrEmpty(value)
+                                                                                      ? value
+                                                                                      : value.EndsWith(trimString)
+                                                                                            ? value.Substring(0, value.Length - trimString.Length)
+                                                                                            : value;
+
+        public static string SlimTrimStart(this string value, char trimChar) => IsNullOrEmpty(value)
+                                                                                    ? value
+                                                                                    : value.StartsWith(trimChar.ToString())
+                                                                                          ? value.Substring(1, value.Length - 1)
+                                                                                          : value;
+
+        public static string SlimTrimStart(this string value, string trimString) => IsNullOrEmpty(value)
+                                                                                        ? value
+                                                                                        : value.StartsWith(trimString)
+                                                                                              ? value.Substring(trimString.Length, value.Length - trimString.Length)
+                                                                                              : value;
+
+        public static string TrimWithin(this string value) => IsNullOrWhiteSpace(value)
+                                                                  ? Empty
+                                                                  : Replace(value, @"\s+|\t|\n|\r", " ")
+                                                                        .Trim();
 
         public static string[] Words(this string value, IEnumerable<char> delimiters)
         {
@@ -34,7 +59,7 @@ namespace Gar.Business.Extensions
 
             return
                 Split(value,
-                      $"[{delimitersArray.Aggregate(new StringBuilder(), (sb, delimiter) => sb.Append($"{Escape(delimiter.ToString())}")).ToString().Trim('|').Replace(' ', 's')}]+")
+                      $"[{delimitersArray.Aggregate(new StringBuilder(), (sb, delimiter) => sb.Append($"{Escape(delimiter.ToString())}")) .ToString() .Trim('|') .Replace(' ', 's')}]+")
                     .Select(s => s?.Trim())
                     .Where(s => !IsNullOrEmpty(s))
                     .ToArray();
@@ -55,13 +80,15 @@ namespace Gar.Business.Extensions
             if (!delimitersArray.Any())
                 return new[] { value };
 
-            var d = $"[{delimitersArray.Aggregate(new StringBuilder(), (sb, delimiter) => sb.Append($"{Escape(delimiter.ToString())}")).ToString().Trim('|').Replace(' ', 's')}]+";
+            var d =
+                $"[{delimitersArray.Aggregate(new StringBuilder(), (sb, delimiter) => sb.Append($"{Escape(delimiter.ToString())}")) .ToString() .Trim('|') .Replace(' ', 's')}]+";
             var q = Escape(qualifier.ToString());
-            return
-                Split(value, $"{d}(?=(?:[^{q}]*{q}[^{q}]*{q})*(?![^{q}]*{q}))")
-                    .Select(s => s?.Trim().SlimTrim(qualifier.Value).Replace($"{qualifier.Value.ToString()}{qualifier.Value.ToString()}", qualifier.Value.ToString()))
-                    .Where(s => !IsNullOrEmpty(s))
-                    .ToArray();
+            return Split(value, $"{d}(?=(?:[^{q}]*{q}[^{q}]*{q})*(?![^{q}]*{q}))")
+                .Select(s => s?.Trim()
+                               .SlimTrim(qualifier.Value)
+                               .Replace($"{qualifier.Value.ToString()}{qualifier.Value.ToString()}", qualifier.Value.ToString()))
+                .Where(s => !IsNullOrEmpty(s))
+                .ToArray();
         }
 
         #endregion

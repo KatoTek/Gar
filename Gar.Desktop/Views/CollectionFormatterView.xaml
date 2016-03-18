@@ -26,6 +26,8 @@
                 <RowDefinition Height="1"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="1"/>
             </Grid.RowDefinitions>
@@ -40,12 +42,16 @@
             <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
                  Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" 
                  Style="{StaticResource TextAreaStyle}"/>
-            <TextBox Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3"
+            <GroupBox Grid.Row="5" Grid.Column="1" 
+                      DataContext="{Binding SeperatorsViewModel}" 
+                      Header="{Binding ViewTitle}"
+                      Content="{Binding}"/>
+            <TextBox Grid.Row="7" Grid.Column="1"  Grid.ColumnSpan="3"
                  Text="{Binding Output, Mode=OneWay}" 
                  Style="{StaticResource TextAreaStyle}" 
                  IsEnabled="False"/>
             <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
-            <ScrollViewer Grid.Row="3" Grid.Column="5" Grid.RowSpan="3" 
+            <ScrollViewer Grid.Row="1" Grid.Column="5" Grid.RowSpan="7" 
                       Width="200"
                       Height="{Binding ActualHeight, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                       HorizontalScrollBarVisibility="Auto" 

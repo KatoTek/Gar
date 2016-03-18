@@ -11,6 +11,7 @@ namespace Gar.Client.Contracts.ViewModels
         string Input { get; set; }
         string Output { get; }
         IQualifiersViewModel QualifiersViewModel { get; }
+        ISeperatorsViewModel SeperatorsViewModel { get; }
 
         #endregion
     }

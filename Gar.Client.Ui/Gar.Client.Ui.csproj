@@ -34,6 +34,7 @@
       <HintPath>..\packages\INotify.Wpf.19.4.15.1208\lib\net40-Client\INotify.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -56,6 +57,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FormattingToolsViewModel.cs" />
     <Compile Include="ViewModels\QualifiersViewModel.cs" />
+    <Compile Include="ViewModels\SeperatorsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gar.Business\Gar.Business.csproj">

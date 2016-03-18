@@ -3,5 +3,8 @@
     <Style x:Key="TextAreaStyle" TargetType="TextBox">
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
     </Style>
 </ResourceDictionary>

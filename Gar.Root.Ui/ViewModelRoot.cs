@@ -29,9 +29,11 @@ namespace Gar.Root.Ui
                 .DependsOnReferenceProperty(() => ValidationErrors, (NotifyingList<ValidationFailure> errors) => errors.Count)
                 .DependsOnProperty(() => IsValid);
 
-            PropertyOf(() => ValidationSummaryVisible).DependsOnCollection(() => ValidationErrors);
+            PropertyOf(() => ValidationSummaryVisible)
+                .DependsOnCollection(() => ValidationErrors);
 
-            PropertyChangeFor(() => IsValid).Raise(ToggleErrorsCommand);
+            PropertyChangeFor(() => IsValid)
+                .Raise(ToggleErrorsCommand);
         }
 
         protected ViewModelRoot(SynchronizationContext uiContext)
@@ -68,8 +70,12 @@ namespace Gar.Root.Ui
                 if (ValidationErrors == null)
                     return ret;
 
-                var verb = ValidationErrors.Count == 1 ? "is" : "are";
-                var suffix = ValidationErrors.Count == 1 ? string.Empty : "s";
+                var verb = ValidationErrors.Count == 1
+                               ? "is"
+                               : "are";
+                var suffix = ValidationErrors.Count == 1
+                                 ? string.Empty
+                                 : "s";
 
                 if (!IsValid)
                     ret = $"There {verb} {ValidationErrors.Count} validation error{suffix}.";
@@ -152,7 +158,10 @@ namespace Gar.Root.Ui
                     modelObject?.Validate();
 
                     if (modelObject != null)
-                        validationErrors = validationErrors.Union(modelObject.ValidationErrors).ToList();
+                    {
+                        validationErrors = validationErrors.Union(modelObject.ValidationErrors)
+                                                           .ToList();
+                    }
                 }
             }
 

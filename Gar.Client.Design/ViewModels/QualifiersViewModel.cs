@@ -1,5 +1,4 @@
-﻿using System;
-using Gar.Client.Contracts.ViewModels;
+﻿using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
 
 namespace Gar.Client.Design.ViewModels
@@ -39,10 +38,7 @@ namespace Gar.Client.Design.ViewModels
 
         #region methods
 
-        public void Deselect(char c)
-        {
-            throw new NotImplementedException();
-        }
+        public void Deselect(char? c) {}
 
         #endregion
     }

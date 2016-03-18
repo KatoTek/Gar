@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using Gar.Client.Contracts.ViewModels;
+﻿using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
-using INotify;
 
 namespace Gar.Client.Design.ViewModels
 {
-    public class DelimitersViewModel : ViewModelRoot, IDelimitersViewModel
+    public class SeperatorsViewModel : ViewModelRoot, ISeperatorsViewModel
     {
         #region properties
 
@@ -15,11 +13,9 @@ namespace Gar.Client.Design.ViewModels
         public bool AtSign { get; set; }
         public bool Backslash { get; set; }
         public bool Caret { get; set; }
-        public bool CarriageReturn { get; set; } = true;
         public bool Colon { get; set; }
-        public bool Comma { get; set; }
-        public NotifyingList<char> Custom { get; } = new NotifyingList<char>();
-        public IEnumerable<char> Delimiters { get; } = new[] { '\r', '\n', ' ', '\t' };
+        public bool Comma { get; set; } = true;
+        public string Custom { get; set; }
         public bool DollarSign { get; set; }
         public bool EqualSign { get; set; }
         public bool ExclamationPoint { get; set; }
@@ -32,12 +28,13 @@ namespace Gar.Client.Design.ViewModels
         public bool QuestionMark { get; set; }
         public bool Quotation { get; set; }
         public bool Semicolon { get; set; }
+        public string Seperator { get; } = string.Empty;
         public bool Slash { get; set; }
-        public bool Space { get; set; } = true;
-        public bool Tab { get; set; } = true;
+        public bool Space { get; set; }
+        public bool Tab { get; set; }
         public bool Tilde { get; set; }
         public bool Underscore { get; set; }
-        public override string ViewTitle => "Delimiters";
+        public override string ViewTitle => "Seperators";
 
         #endregion
 

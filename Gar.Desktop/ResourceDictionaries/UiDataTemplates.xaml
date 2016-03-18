@@ -14,4 +14,7 @@
     <DataTemplate DataType="{x:Type ui:QualifiersViewModel}">
         <v:QualifiersView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type ui:SeperatorsViewModel}">
+        <v:SeperatorsView />
+    </DataTemplate>
 </ResourceDictionary>

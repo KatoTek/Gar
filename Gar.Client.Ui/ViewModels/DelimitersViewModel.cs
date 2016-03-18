@@ -133,14 +133,15 @@ namespace Gar.Client.Ui.ViewModels
                                                                 delimiters.Add('\n');
                                                             }
 
-                                                            delimiters.AddRange(
-                                                                                from property in
-                                                                                    GetType().GetProperties(Public | Instance).Where(p => p.PropertyType == typeof(bool))
-                                                                                where (bool)property.GetValue(this)
-                                                                                select property.GetCustomAttributes<CorrespondingCharacterAttribute>().FirstOrDefault()
-                                                                                into correspondingCharacterAttribute
-                                                                                where correspondingCharacterAttribute != null
-                                                                                select correspondingCharacterAttribute.Character);
+                                                            delimiters.AddRange(from prop in GetType()
+                                                                                    .GetProperties(Public | Instance)
+                                                                                    .Where(p => p.PropertyType == typeof(bool))
+                                                                                where (bool)prop.GetValue(this)
+                                                                                select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                                           .FirstOrDefault()
+                                                                                into attr
+                                                                                where attr != null
+                                                                                select attr.Character);
 
                                                             return delimiters;
                                                         });
@@ -270,18 +271,27 @@ namespace Gar.Client.Ui.ViewModels
 
         #region methods
 
-        public void Deselect(char c)
+        public void Deselect(char? c)
         {
+            if (!c.HasValue)
+                return;
+
             Custom?.RemoveAll(_ => _.Equals(c));
 
-            (from property in GetType().GetProperties(Public | Instance).Where(p => p.PropertyType == typeof(bool))
-             where (bool)property.GetValue(this)
-             select new { Property = property, CorrespondingCharacterAttribute = property.GetCustomAttributes<CorrespondingCharacterAttribute>().FirstOrDefault() }
-             into propertyAndCorrespondingCharacterAttribute
-             where
-                 propertyAndCorrespondingCharacterAttribute.CorrespondingCharacterAttribute != null &&
-                 propertyAndCorrespondingCharacterAttribute.CorrespondingCharacterAttribute.Character == c
-             select propertyAndCorrespondingCharacterAttribute.Property).FirstOrDefault()?.SetValue(this, false);
+            (from prop in GetType()
+                 .GetProperties(Public | Instance)
+                 .Where(p => p.PropertyType == typeof(bool))
+             where (bool)prop.GetValue(this)
+             select new
+                    {
+                        Property = prop,
+                        CorrespondingCharacterAttribute = prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                              .FirstOrDefault()
+                    }
+             into _
+             where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == c
+             select _.Property).FirstOrDefault()
+                ?.SetValue(this, false);
         }
 
         #endregion
