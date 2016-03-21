@@ -58,6 +58,7 @@
     <Compile Include="Attributes\CorrespondingGroupCharactersAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CollectionFormatterViewModel.cs" />
+    <Compile Include="ViewModels\CollectionOptionsViewModel.cs" />
     <Compile Include="ViewModels\DelimitersViewModel.cs" />
     <Compile Include="ViewModels\GroupersViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

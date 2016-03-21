@@ -25,17 +25,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" MinHeight="5"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1"/>
+            <RowDefinition Height="5"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1"/>
+            <RowDefinition Height="5"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1"/>
+            <RowDefinition Height="5"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1"/>
+            <RowDefinition Height="5"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" MinHeight="5"/>
         </Grid.RowDefinitions>
         <CheckBox Grid.Column="1" Grid.Row="1" Content="&amp;" ToolTip="Ampersand" IsChecked="{Binding Ampersand}"/>
         <CheckBox Grid.Column="1" Grid.Row="3" Content="'" ToolTip="Apostrophe" IsChecked="{Binding Apostrophe}"/>

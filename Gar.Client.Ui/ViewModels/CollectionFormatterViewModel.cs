@@ -12,17 +12,22 @@ namespace Gar.Client.Ui.ViewModels
         public CollectionFormatterViewModel(IDelimitersViewModel delimitersViewModel,
                                             IQualifiersViewModel qualifiersViewModel,
                                             ISeperatorsViewModel seperatorsViewModel,
-                                            IGroupersViewModel groupersViewModel)
+                                            IGroupersViewModel groupersViewModel,
+                                            ICollectionOptionsViewModel collectionOptionsViewModel)
         {
             InitializeValue(delimitersViewModel, () => DelimitersViewModel);
             InitializeValue(qualifiersViewModel, () => QualifiersViewModel);
             InitializeValue(seperatorsViewModel, () => SeperatorsViewModel);
             InitializeValue(groupersViewModel, () => GroupersViewModel);
+            InitializeValue(collectionOptionsViewModel, () => CollectionOptionsViewModel);
 
             PropertyOf(() => Collection)
                 .DependsOnProperty(() => Input)
                 .DependsOnReferenceProperty(() => QualifiersViewModel, (IQualifiersViewModel qvm) => qvm.Qualifier)
-                .DependsOnReferenceProperty(() => DelimitersViewModel, (IDelimitersViewModel dvm) => dvm.Delimiters);
+                .DependsOnReferenceProperty(() => DelimitersViewModel, (IDelimitersViewModel dvm) => dvm.Delimiters)
+                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel covm) => covm.Distinct)
+                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel covm) => covm.Reversed)
+                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel covm) => covm.Sorted);
 
             PropertyOf(() => Output)
                 .DependsOnProperty(() => Collection)
@@ -54,7 +59,24 @@ namespace Gar.Client.Ui.ViewModels
 
         #region properties
 
-        public string[] Collection => GetValue(() => Collection, () => Input.Words(QualifiersViewModel?.Qualifier, DelimitersViewModel?.Delimiters));
+        public string[] Collection => GetValue(() => Collection,
+                                               () =>
+                                               {
+                                                   var collection = Input.Words(QualifiersViewModel?.Qualifier, DelimitersViewModel?.Delimiters)
+                                                                         .AsEnumerable();
+                                                   if (CollectionOptionsViewModel.Distinct)
+                                                       collection = collection.Distinct();
+
+                                                   if (CollectionOptionsViewModel.Sorted)
+                                                       collection = collection.OrderBy(item => item);
+
+                                                   if (CollectionOptionsViewModel.Reversed)
+                                                       collection = collection.Reverse();
+
+                                                   return collection.ToArray();
+                                               });
+
+        public ICollectionOptionsViewModel CollectionOptionsViewModel => GetValue(() => CollectionOptionsViewModel);
         public IDelimitersViewModel DelimitersViewModel => GetValue(() => DelimitersViewModel);
         public IGroupersViewModel GroupersViewModel => GetValue(() => GroupersViewModel);
 

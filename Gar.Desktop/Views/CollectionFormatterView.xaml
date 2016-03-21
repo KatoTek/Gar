@@ -4,75 +4,76 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:uid="http://gar.com/ClientDesign"
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
              d:DesignWidth="1600"
              d:DesignHeight="900" 
              d:DataContext="{d:DesignInstance Type=uid:CollectionFormatterViewModel, IsDesignTimeCreatable=True}">
-    <xctk:BusyIndicator IsBusy="{Binding IsBusy}">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="1"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="1"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="1"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="1"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="1"/>
-            </Grid.RowDefinitions>
-            <GroupBox Grid.Row="1" Grid.Column="1" 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="1" Grid.Column="1" 
                       DataContext="{Binding DelimitersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-            <GroupBox Grid.Row="1" Grid.Column="3" 
+        <GroupBox Grid.Row="1" Grid.Column="3" 
                       DataContext="{Binding QualifiersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
                  Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" 
                  Style="{StaticResource TextAreaStyle}"/>
-            <GroupBox Grid.Row="5" Grid.Column="1" 
+        <GroupBox Grid.Row="5" Grid.Column="1" 
                       DataContext="{Binding SeperatorsViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-            <GroupBox Grid.Row="5" Grid.Column="3" 
+        <GroupBox Grid.Row="5" Grid.Column="3" 
                       DataContext="{Binding GroupersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-            <TextBox Grid.Row="7" Grid.Column="1"  Grid.ColumnSpan="3"
+        <TextBox Grid.Row="7" Grid.Column="1"  Grid.ColumnSpan="3"
                  Text="{Binding Output, Mode=OneWay}" 
                  Style="{StaticResource TextAreaStyle}"
                  IsReadOnly="True"/>
-            <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
-            <ScrollViewer Grid.Row="3" Grid.Column="5" Grid.RowSpan="5" 
+        <GroupBox Grid.Row="1" Grid.Column="5" 
+                      DataContext="{Binding CollectionOptionsViewModel}" 
+                      Header="{Binding ViewTitle}"
+                      Content="{Binding}"/>
+        <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
+        <ScrollViewer Grid.Row="3" Grid.Column="5" Grid.RowSpan="5" 
                       Width="200"
                       Height="{Binding ActualHeight, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                       HorizontalScrollBarVisibility="Auto" 
                       VerticalScrollBarVisibility="Auto">
-                <!-- ReSharper restore Xaml.BindingWithContextNotResolved -->
-                <ItemsControl ItemsSource="{Binding Collection}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Mode=OneWay}" 
+            <!-- ReSharper restore Xaml.BindingWithContextNotResolved -->
+            <ItemsControl ItemsSource="{Binding Collection}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBox Text="{Binding Mode=OneWay}" 
                                  Width="196" 
                                  Margin="1"
                                  TextWrapping="Wrap" 
                                  IsReadOnly="True"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
-        </Grid>
-    </xctk:BusyIndicator>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
 </UserControl>

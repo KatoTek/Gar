@@ -50,6 +50,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ICollectionFormatterViewModel.cs" />
+    <Compile Include="ViewModels\ICollectionOptionsViewModel.cs" />
     <Compile Include="ViewModels\IDelimitersViewModel.cs" />
     <Compile Include="ViewModels\IGroupersViewModel.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />

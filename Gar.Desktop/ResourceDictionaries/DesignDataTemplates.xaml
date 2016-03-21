@@ -20,4 +20,7 @@
     <DataTemplate DataType="{x:Type uid:GroupersViewModel}">
         <v:GroupersView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type uid:CollectionOptionsViewModel}">
+        <v:CollectionOptionsView />
+    </DataTemplate>
 </ResourceDictionary>
