@@ -4,6 +4,7 @@ using System.Reflection;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Client.Ui.Attributes;
 using Gar.Root.Ui;
+using static System.Environment;
 using static System.Reflection.BindingFlags;
 using static System.String;
 
@@ -32,6 +33,8 @@ namespace Gar.Client.Ui.ViewModels
                 .DependsOnProperty(() => ExclamationPoint)
                 .DependsOnProperty(() => GraveAccent)
                 .DependsOnProperty(() => Hyphen)
+                .DependsOnProperty(() => InsertLineAfter)
+                .DependsOnProperty(() => InsertLineBefore)
                 .DependsOnProperty(() => PercentSign)
                 .DependsOnProperty(() => Period)
                 .DependsOnProperty(() => PlusSign)
@@ -54,213 +57,229 @@ namespace Gar.Client.Ui.ViewModels
         public bool Ampersand
         {
             get { return GetValue(() => Ampersand); }
-            set { SetValue(Synchronize(value), () => Ampersand); }
+            set { SetValue(SynchronizeSeperators(value), () => Ampersand); }
         }
 
         [CorrespondingCharacter('\'')]
         public bool Apostrophe
         {
             get { return GetValue(() => Apostrophe); }
-            set { SetValue(Synchronize(value), () => Apostrophe); }
+            set { SetValue(SynchronizeSeperators(value), () => Apostrophe); }
         }
 
         [CorrespondingCharacter('*')]
         public bool Asterik
         {
             get { return GetValue(() => Asterik); }
-            set { SetValue(Synchronize(value), () => Asterik); }
+            set { SetValue(SynchronizeSeperators(value), () => Asterik); }
         }
 
         [CorrespondingCharacter('@')]
         public bool AtSign
         {
             get { return GetValue(() => AtSign); }
-            set { SetValue(Synchronize(value), () => AtSign); }
+            set { SetValue(SynchronizeSeperators(value), () => AtSign); }
         }
 
         [CorrespondingCharacter('\\')]
         public bool Backslash
         {
             get { return GetValue(() => Backslash); }
-            set { SetValue(Synchronize(value), () => Backslash); }
+            set { SetValue(SynchronizeSeperators(value), () => Backslash); }
         }
 
         [CorrespondingCharacter('^')]
         public bool Caret
         {
             get { return GetValue(() => Caret); }
-            set { SetValue(Synchronize(value), () => Caret); }
+            set { SetValue(SynchronizeSeperators(value), () => Caret); }
         }
 
         [CorrespondingCharacter(':')]
         public bool Colon
         {
             get { return GetValue(() => Colon); }
-            set { SetValue(Synchronize(value), () => Colon); }
+            set { SetValue(SynchronizeSeperators(value), () => Colon); }
         }
 
         [CorrespondingCharacter(',')]
         public bool Comma
         {
             get { return GetValue(() => Comma); }
-            set { SetValue(Synchronize(value), () => Comma); }
+            set { SetValue(SynchronizeSeperators(value), () => Comma); }
         }
 
         public string Custom
         {
             get { return GetValue(() => Custom); }
-            set { SetValue(Synchronize(value), () => Custom); }
+            set { SetValue(SynchronizeSeperators(value), () => Custom); }
         }
 
         [CorrespondingCharacter('$')]
         public bool DollarSign
         {
             get { return GetValue(() => DollarSign); }
-            set { SetValue(Synchronize(value), () => DollarSign); }
+            set { SetValue(SynchronizeSeperators(value), () => DollarSign); }
         }
 
         [CorrespondingCharacter('=')]
         public bool EqualSign
         {
             get { return GetValue(() => EqualSign); }
-            set { SetValue(Synchronize(value), () => EqualSign); }
+            set { SetValue(SynchronizeSeperators(value), () => EqualSign); }
         }
 
         [CorrespondingCharacter('!')]
         public bool ExclamationPoint
         {
             get { return GetValue(() => ExclamationPoint); }
-            set { SetValue(Synchronize(value), () => ExclamationPoint); }
+            set { SetValue(SynchronizeSeperators(value), () => ExclamationPoint); }
         }
 
         [CorrespondingCharacter('`')]
         public bool GraveAccent
         {
             get { return GetValue(() => GraveAccent); }
-            set { SetValue(Synchronize(value), () => GraveAccent); }
+            set { SetValue(SynchronizeSeperators(value), () => GraveAccent); }
         }
 
         [CorrespondingCharacter('-')]
         public bool Hyphen
         {
             get { return GetValue(() => Hyphen); }
-            set { SetValue(Synchronize(value), () => Hyphen); }
+            set { SetValue(SynchronizeSeperators(value), () => Hyphen); }
+        }
+
+        public bool InsertLineAfter
+        {
+            get { return GetValue(() => InsertLineAfter); }
+            set { SetValue(SynchronizeLineInserts(value), () => InsertLineAfter); }
+        }
+
+        public bool InsertLineBefore
+        {
+            get { return GetValue(() => InsertLineBefore); }
+            set { SetValue(SynchronizeLineInserts(value), () => InsertLineBefore); }
         }
 
         [CorrespondingCharacter('%')]
         public bool PercentSign
         {
             get { return GetValue(() => PercentSign); }
-            set { SetValue(Synchronize(value), () => PercentSign); }
+            set { SetValue(SynchronizeSeperators(value), () => PercentSign); }
         }
 
         [CorrespondingCharacter('.')]
         public bool Period
         {
             get { return GetValue(() => Period); }
-            set { SetValue(Synchronize(value), () => Period); }
+            set { SetValue(SynchronizeSeperators(value), () => Period); }
         }
 
         [CorrespondingCharacter('+')]
         public bool PlusSign
         {
             get { return GetValue(() => PlusSign); }
-            set { SetValue(Synchronize(value), () => PlusSign); }
+            set { SetValue(SynchronizeSeperators(value), () => PlusSign); }
         }
 
         [CorrespondingCharacter('#')]
         public bool PoundSign
         {
             get { return GetValue(() => PoundSign); }
-            set { SetValue(Synchronize(value), () => PoundSign); }
+            set { SetValue(SynchronizeSeperators(value), () => PoundSign); }
         }
 
         [CorrespondingCharacter('?')]
         public bool QuestionMark
         {
             get { return GetValue(() => QuestionMark); }
-            set { SetValue(Synchronize(value), () => QuestionMark); }
+            set { SetValue(SynchronizeSeperators(value), () => QuestionMark); }
         }
 
         [CorrespondingCharacter('"')]
         public bool Quotation
         {
             get { return GetValue(() => Quotation); }
-            set { SetValue(Synchronize(value), () => Quotation); }
+            set { SetValue(SynchronizeSeperators(value), () => Quotation); }
         }
 
         [CorrespondingCharacter(';')]
         public bool Semicolon
         {
             get { return GetValue(() => Semicolon); }
-            set { SetValue(Synchronize(value), () => Semicolon); }
+            set { SetValue(SynchronizeSeperators(value), () => Semicolon); }
         }
 
-        public string Seperator
-        {
-            get
-            {
-                return GetValue(() => Seperator,
-                                () =>
-                                {
-                                    var seperators = (IsNullOrEmpty(Custom)
-                                                          ? new string[0]
-                                                          : new[] { Custom }).Union(from prop in GetType()
-                                                                                        .GetProperties(Public | Instance)
-                                                                                        .Where(p => p.PropertyType == typeof(bool))
-                                                                                    where (bool)prop.GetValue(this)
-                                                                                    select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                                                               .FirstOrDefault()
-                                                                                    into attr
-                                                                                    where attr != null
-                                                                                    select attr.Character.ToString())
-                                                                             .ToArray();
-                                    switch (seperators.Length)
-                                    {
-                                        case 0:
-                                            return null;
-                                        case 1:
-                                            return seperators.Single();
-                                        default:
-                                            throw new IndexOutOfRangeException();
-                                    }
-                                });
-            }
-        }
+        public string Seperator => GetValue(() => Seperator,
+                                            () =>
+                                            {
+                                                var seperators = (IsNullOrEmpty(Custom)
+                                                                      ? new string[0]
+                                                                      : new[] { Custom }).Union(from prop in GetType()
+                                                                                                    .GetProperties(Public | Instance)
+                                                                                                    .Where(p => p.PropertyType == typeof(bool))
+                                                                                                where (bool)prop.GetValue(this)
+                                                                                                select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                                                           .FirstOrDefault()
+                                                                                                into attr
+                                                                                                where attr != null
+                                                                                                select attr.Character.ToString())
+                                                                                         .ToArray();
+
+                                                string seperator;
+                                                switch (seperators.Length)
+                                                {
+                                                    case 0:
+                                                        seperator = Empty;
+                                                        break;
+                                                    case 1:
+                                                        seperator = seperators.Single();
+                                                        break;
+                                                    default:
+                                                        throw new IndexOutOfRangeException();
+                                                }
+
+                                                return InsertLineBefore
+                                                           ? $"{NewLine}{seperator}"
+                                                           : InsertLineAfter
+                                                                 ? $"{seperator}{NewLine}"
+                                                                 : seperator;
+                                            });
 
         [CorrespondingCharacter('/')]
         public bool Slash
         {
             get { return GetValue(() => Slash); }
-            set { SetValue(Synchronize(value), () => Slash); }
+            set { SetValue(SynchronizeSeperators(value), () => Slash); }
         }
 
         [CorrespondingCharacter(' ')]
         public bool Space
         {
             get { return GetValue(() => Space); }
-            set { SetValue(Synchronize(value), () => Space); }
+            set { SetValue(SynchronizeSeperators(value), () => Space); }
         }
 
         [CorrespondingCharacter('\t')]
         public bool Tab
         {
             get { return GetValue(() => Tab); }
-            set { SetValue(Synchronize(value), () => Tab); }
+            set { SetValue(SynchronizeSeperators(value), () => Tab); }
         }
 
         [CorrespondingCharacter('~')]
         public bool Tilde
         {
             get { return GetValue(() => Tilde); }
-            set { SetValue(Synchronize(value), () => Tilde); }
+            set { SetValue(SynchronizeSeperators(value), () => Tilde); }
         }
 
         [CorrespondingCharacter('_')]
         public bool Underscore
         {
             get { return GetValue(() => Underscore); }
-            set { SetValue(Synchronize(value), () => Underscore); }
+            set { SetValue(SynchronizeSeperators(value), () => Underscore); }
         }
 
         public override string ViewTitle => "Seperators";
@@ -293,9 +312,20 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
-        private string Synchronize(string value)
+        private bool SynchronizeLineInserts(bool reset)
         {
-            Synchronize(!IsNullOrEmpty(value));
+            if (!reset)
+                return false;
+
+            InsertLineAfter = false;
+            InsertLineBefore = false;
+
+            return true;
+        }
+
+        private string SynchronizeSeperators(string value)
+        {
+            SynchronizeSeperators(!IsNullOrEmpty(value));
 
             if (!IsNullOrEmpty(value))
                 return null;
@@ -321,37 +351,37 @@ namespace Gar.Client.Ui.ViewModels
             return null;
         }
 
-        private bool Synchronize(bool reset)
+        private bool SynchronizeSeperators(bool reset)
         {
             if (!reset)
                 return false;
 
-            SetValue(false, () => Ampersand);
-            SetValue(false, () => Apostrophe);
-            SetValue(false, () => Asterik);
-            SetValue(false, () => AtSign);
-            SetValue(false, () => Backslash);
-            SetValue(false, () => Caret);
-            SetValue(false, () => Colon);
-            SetValue(false, () => Comma);
-            SetValue(null, () => Custom);
-            SetValue(false, () => DollarSign);
-            SetValue(false, () => EqualSign);
-            SetValue(false, () => ExclamationPoint);
-            SetValue(false, () => GraveAccent);
-            SetValue(false, () => Hyphen);
-            SetValue(false, () => PercentSign);
-            SetValue(false, () => Period);
-            SetValue(false, () => PlusSign);
-            SetValue(false, () => PoundSign);
-            SetValue(false, () => QuestionMark);
-            SetValue(false, () => Quotation);
-            SetValue(false, () => Semicolon);
-            SetValue(false, () => Slash);
-            SetValue(false, () => Space);
-            SetValue(false, () => Tab);
-            SetValue(false, () => Tilde);
-            SetValue(false, () => Underscore);
+            Ampersand = false;
+            Apostrophe = false;
+            Asterik = false;
+            AtSign = false;
+            Backslash = false;
+            Caret = false;
+            Colon = false;
+            Comma = false;
+            Custom = null;
+            DollarSign = false;
+            EqualSign = false;
+            ExclamationPoint = false;
+            GraveAccent = false;
+            Hyphen = false;
+            PercentSign = false;
+            Period = false;
+            PlusSign = false;
+            PoundSign = false;
+            QuestionMark = false;
+            Quotation = false;
+            Semicolon = false;
+            Slash = false;
+            Space = false;
+            Tab = false;
+            Tilde = false;
+            Underscore = false;
 
             return true;
         }

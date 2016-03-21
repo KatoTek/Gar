@@ -20,6 +20,8 @@ namespace Gar.Client.Contracts.ViewModels
         bool ExclamationPoint { get; set; }
         bool GraveAccent { get; set; }
         bool Hyphen { get; set; }
+        bool InsertLineAfter { get; set; }
+        bool InsertLineBefore { get; set; }
         bool PercentSign { get; set; }
         bool Period { get; set; }
         bool PlusSign { get; set; }

@@ -21,6 +21,8 @@ namespace Gar.Client.Design.ViewModels
         public bool ExclamationPoint { get; set; }
         public bool GraveAccent { get; set; }
         public bool Hyphen { get; set; }
+        public bool InsertLineAfter { get; set; }
+        public bool InsertLineBefore { get; set; }
         public bool PercentSign { get; set; }
         public bool Period { get; set; }
         public bool PlusSign { get; set; }

@@ -46,12 +46,16 @@
                       DataContext="{Binding SeperatorsViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
+            <GroupBox Grid.Row="5" Grid.Column="3" 
+                      DataContext="{Binding GroupersViewModel}" 
+                      Header="{Binding ViewTitle}"
+                      Content="{Binding}"/>
             <TextBox Grid.Row="7" Grid.Column="1"  Grid.ColumnSpan="3"
                  Text="{Binding Output, Mode=OneWay}" 
-                 Style="{StaticResource TextAreaStyle}" 
-                 IsEnabled="False"/>
+                 Style="{StaticResource TextAreaStyle}"
+                 IsReadOnly="True"/>
             <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
-            <ScrollViewer Grid.Row="1" Grid.Column="5" Grid.RowSpan="7" 
+            <ScrollViewer Grid.Row="3" Grid.Column="5" Grid.RowSpan="5" 
                       Width="200"
                       Height="{Binding ActualHeight, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                       HorizontalScrollBarVisibility="Auto" 
@@ -64,7 +68,7 @@
                                  Width="196" 
                                  Margin="1"
                                  TextWrapping="Wrap" 
-                                 IsEnabled="False"/>
+                                 IsReadOnly="True"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

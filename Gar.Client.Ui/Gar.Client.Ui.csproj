@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Encompass.Simple, Version=7.7.16.319, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KatoTek.Encompass.Simple.7.7.16.319\lib\net40\Encompass.Simple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="INotify, Version=19.4.15.1208, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\INotify.Wpf.19.4.15.1208\lib\net40-Client\INotify.dll</HintPath>
       <Private>True</Private>
@@ -51,9 +55,11 @@
       <Link>Properties\AssemblyInfo.shared.cs</Link>
     </Compile>
     <Compile Include="Attributes\CorrespondingCharacterAttribute.cs" />
+    <Compile Include="Attributes\CorrespondingGroupCharactersAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CollectionFormatterViewModel.cs" />
     <Compile Include="ViewModels\DelimitersViewModel.cs" />
+    <Compile Include="ViewModels\GroupersViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FormattingToolsViewModel.cs" />
     <Compile Include="ViewModels\QualifiersViewModel.cs" />

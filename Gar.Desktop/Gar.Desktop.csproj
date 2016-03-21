@@ -109,6 +109,9 @@
     <Compile Include="Views\DelimetersView.xaml.cs">
       <DependentUpon>DelimetersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GroupersView.xaml.cs">
+      <DependentUpon>GroupersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DelimetersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

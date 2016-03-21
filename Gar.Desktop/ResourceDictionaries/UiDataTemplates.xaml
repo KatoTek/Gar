@@ -17,4 +17,7 @@
     <DataTemplate DataType="{x:Type ui:SeperatorsViewModel}">
         <v:SeperatorsView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type ui:GroupersViewModel}">
+        <v:GroupersView />
+    </DataTemplate>
 </ResourceDictionary>

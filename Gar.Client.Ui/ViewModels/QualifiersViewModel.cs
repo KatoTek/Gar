@@ -172,38 +172,32 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(Synchronize(value), () => PoundSign); }
         }
 
-        public char? Qualifier
-        {
-            get
-            {
-                return GetValue(() => Qualifier,
-                                () =>
-                                {
-                                    var qualifiers = (Custom.HasValue
-                                                          ? new[] { Custom.Value }
-                                                          : new char[0]).Union(from prop in GetType()
-                                                                                   .GetProperties(Public | Instance)
-                                                                                   .Where(p => p.PropertyType == typeof(bool))
-                                                                               where (bool)prop.GetValue(this)
-                                                                               select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                                                          .FirstOrDefault()
-                                                                               into attr
-                                                                               where attr != null
-                                                                               select attr.Character)
-                                                                        .ToArray();
+        public char? Qualifier => GetValue(() => Qualifier,
+                                           () =>
+                                           {
+                                               var qualifiers = (Custom.HasValue
+                                                                     ? new[] { Custom.Value }
+                                                                     : new char[0]).Union(from prop in GetType()
+                                                                                              .GetProperties(Public | Instance)
+                                                                                              .Where(p => p.PropertyType == typeof(bool))
+                                                                                          where (bool)prop.GetValue(this)
+                                                                                          select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                                                     .FirstOrDefault()
+                                                                                          into attr
+                                                                                          where attr != null
+                                                                                          select attr.Character)
+                                                                                   .ToArray();
 
-                                    switch (qualifiers.Length)
-                                    {
-                                        case 0:
-                                            return null;
-                                        case 1:
-                                            return qualifiers.Single();
-                                        default:
-                                            throw new IndexOutOfRangeException();
-                                    }
-                                });
-            }
-        }
+                                               switch (qualifiers.Length)
+                                               {
+                                                   case 0:
+                                                       return null;
+                                                   case 1:
+                                                       return qualifiers.Single();
+                                                   default:
+                                                       throw new IndexOutOfRangeException();
+                                               }
+                                           });
 
         [CorrespondingCharacter('?')]
         public bool QuestionMark
@@ -310,30 +304,30 @@ namespace Gar.Client.Ui.ViewModels
             if (!reset)
                 return false;
 
-            SetValue(false, () => Ampersand);
-            SetValue(false, () => Apostrophe);
-            SetValue(false, () => Asterik);
-            SetValue(false, () => AtSign);
-            SetValue(false, () => Backslash);
-            SetValue(false, () => Caret);
-            SetValue(false, () => Colon);
-            SetValue(false, () => Comma);
-            SetValue(null, () => Custom);
-            SetValue(false, () => DollarSign);
-            SetValue(false, () => EqualSign);
-            SetValue(false, () => ExclamationPoint);
-            SetValue(false, () => GraveAccent);
-            SetValue(false, () => Hyphen);
-            SetValue(false, () => PercentSign);
-            SetValue(false, () => Period);
-            SetValue(false, () => PlusSign);
-            SetValue(false, () => PoundSign);
-            SetValue(false, () => QuestionMark);
-            SetValue(false, () => Quotation);
-            SetValue(false, () => Semicolon);
-            SetValue(false, () => Slash);
-            SetValue(false, () => Tilde);
-            SetValue(false, () => Underscore);
+            Ampersand = false;
+            Apostrophe = false;
+            Asterik = false;
+            AtSign = false;
+            Backslash = false;
+            Caret = false;
+            Colon = false;
+            Comma = false;
+            Custom = null;
+            DollarSign = false;
+            EqualSign = false;
+            ExclamationPoint = false;
+            GraveAccent = false;
+            Hyphen = false;
+            PercentSign = false;
+            Period = false;
+            PlusSign = false;
+            PoundSign = false;
+            QuestionMark = false;
+            Quotation = false;
+            Semicolon = false;
+            Slash = false;
+            Tilde = false;
+            Underscore = false;
 
             return true;
         }

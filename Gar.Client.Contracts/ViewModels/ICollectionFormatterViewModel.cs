@@ -8,6 +8,7 @@ namespace Gar.Client.Contracts.ViewModels
 
         string[] Collection { get; }
         IDelimitersViewModel DelimitersViewModel { get; }
+        IGroupersViewModel GroupersViewModel { get; }
         string Input { get; set; }
         string Output { get; }
         IQualifiersViewModel QualifiersViewModel { get; }
