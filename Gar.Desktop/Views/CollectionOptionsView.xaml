@@ -23,8 +23,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <CheckBox Grid.Column="1" Grid.Row="1" Content="distinct" ToolTip="Remove Duplicates" IsChecked="{Binding Distinct}"/>
-        <CheckBox Grid.Column="1" Grid.Row="3" Content="reversed" ToolTip="Reverse the Order" IsChecked="{Binding Reversed}"/>
-        <CheckBox Grid.Column="1" Grid.Row="5" Content="sorted" ToolTip="Sort the Collection" IsChecked="{Binding Sorted}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="1" Content="distinct" ToolTip="Remove Duplicates" IsChecked="{Binding Distinct}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="3" Content="reversed" ToolTip="Reverse the Order" IsChecked="{Binding Reversed}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="5" Content="sorted" ToolTip="Sort the Collection" IsChecked="{Binding Sorted}"/>
     </Grid>
 </UserControl>

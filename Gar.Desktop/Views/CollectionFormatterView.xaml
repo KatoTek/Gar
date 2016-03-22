@@ -29,30 +29,33 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="1" Grid.Column="1" 
+        <Expander Grid.Row="1" Grid.Column="1" x:Name="DelimitersExpander"
                       DataContext="{Binding DelimitersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-        <GroupBox Grid.Row="1" Grid.Column="3" 
+        <Expander Grid.Row="1" Grid.Column="3" 
+                      IsExpanded="{Binding IsExpanded, ElementName=DelimitersExpander}"
                       DataContext="{Binding QualifiersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
         <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
                  Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" 
                  Style="{StaticResource TextAreaStyle}"/>
-        <GroupBox Grid.Row="5" Grid.Column="1" 
+        <Expander Grid.Row="5" Grid.Column="1" x:Name="SeperatorsExpander"
                       DataContext="{Binding SeperatorsViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-        <GroupBox Grid.Row="5" Grid.Column="3" 
+        <Expander Grid.Row="5" Grid.Column="3" 
+                      IsExpanded="{Binding IsExpanded, ElementName=SeperatorsExpander}"
                       DataContext="{Binding GroupersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-        <TextBox Grid.Row="7" Grid.Column="1"  Grid.ColumnSpan="3"
+        <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"
                  Text="{Binding Output, Mode=OneWay}" 
                  Style="{StaticResource TextAreaStyle}"
                  IsReadOnly="True"/>
-        <GroupBox Grid.Row="1" Grid.Column="5" 
+        <Expander Grid.Row="1" Grid.Column="5" 
+                      IsExpanded="{Binding IsExpanded, ElementName=DelimitersExpander}"
                       DataContext="{Binding CollectionOptionsViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>

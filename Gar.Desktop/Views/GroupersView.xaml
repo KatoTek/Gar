@@ -33,14 +33,14 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*" MinHeight="5"/>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Column="1" Grid.Row="1" Content="'apostrophes'" ToolTip="Apostrophes" IsChecked="{Binding Apostrophes}"/>
-            <CheckBox Grid.Column="1" Grid.Row="3" Content="{}{braces}" ToolTip="Braces" IsChecked="{Binding Braces}"/>
+            <ToggleButton Grid.Column="1" Grid.Row="1" Content="'apostrophes'" ToolTip="Apostrophes" IsChecked="{Binding Apostrophes}"/>
+            <ToggleButton Grid.Column="1" Grid.Row="3" Content="{}{braces}" ToolTip="Braces" IsChecked="{Binding Braces}"/>
 
-            <CheckBox Grid.Column="3" Grid.Row="1" Content="[brackets]" ToolTip="Brackets" IsChecked="{Binding Brackets}"/>
-            <CheckBox Grid.Column="3" Grid.Row="3" Content="&lt;less than/greater than&gt;" ToolTip="Less Than Greater Than" IsChecked="{Binding LtGt}"/>
+            <ToggleButton Grid.Column="3" Grid.Row="1" Content="[brackets]" ToolTip="Brackets" IsChecked="{Binding Brackets}"/>
+            <ToggleButton Grid.Column="3" Grid.Row="3" Content="&lt;less than/greater than&gt;" ToolTip="Less Than Greater Than" IsChecked="{Binding LtGt}"/>
 
-            <CheckBox Grid.Column="5" Grid.Row="1" Content="(parentheses)" ToolTip="Parentheses" IsChecked="{Binding Parentheses}"/>
-            <CheckBox Grid.Column="5" Grid.Row="3" Content="&quot;quotes&quot;" ToolTip="Quotes" IsChecked="{Binding Quotes}"/>
+            <ToggleButton Grid.Column="5" Grid.Row="1" Content="(parentheses)" ToolTip="Parentheses" IsChecked="{Binding Parentheses}"/>
+            <ToggleButton Grid.Column="5" Grid.Row="3" Content="&quot;quotes&quot;" ToolTip="Quotes" IsChecked="{Binding Quotes}"/>
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>

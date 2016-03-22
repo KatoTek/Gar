@@ -35,32 +35,32 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" MinHeight="5"/>
         </Grid.RowDefinitions>
-        <CheckBox Grid.Column="1" Grid.Row="1" Content="&amp;" ToolTip="Ampersand" IsChecked="{Binding Ampersand}"/>
-        <CheckBox Grid.Column="1" Grid.Row="3" Content="'" ToolTip="Apostrophe" IsChecked="{Binding Apostrophe}"/>
-        <CheckBox Grid.Column="1" Grid.Row="5" Content="*" ToolTip="Asterik" IsChecked="{Binding Asterik}"/>
-        <CheckBox Grid.Column="1" Grid.Row="7" Content="@" ToolTip="At Sign" IsChecked="{Binding AtSign}"/>
-        <CheckBox Grid.Column="1" Grid.Row="9" Content="\" ToolTip="Backslash" IsChecked="{Binding Backslash}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="1" Content="&amp; ampersand" ToolTip="Ampersand" IsChecked="{Binding Ampersand}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="3" Content="' apostrophe" ToolTip="Apostrophe" IsChecked="{Binding Apostrophe}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="5" Content="* asterik" ToolTip="Asterik" IsChecked="{Binding Asterik}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="7" Content="@ at sign" ToolTip="At Sign" IsChecked="{Binding AtSign}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="9" Content="\ backslash" ToolTip="Backslash" IsChecked="{Binding Backslash}"/>
 
-        <CheckBox Grid.Column="3" Grid.Row="1" Content="^" ToolTip="Caret" IsChecked="{Binding Caret}"/>
-        <CheckBox Grid.Column="3" Grid.Row="3" Content=":" ToolTip="Colon" IsChecked="{Binding Colon}"/>
-        <CheckBox Grid.Column="3" Grid.Row="5" Content="," ToolTip="Comma" IsChecked="{Binding Comma}"/>
-        <CheckBox Grid.Column="3" Grid.Row="7" Content="$" ToolTip="Dollar Sign" IsChecked="{Binding DollarSign}"/>
-        <CheckBox Grid.Column="3" Grid.Row="9" Content="=" ToolTip="Equals" IsChecked="{Binding EqualSign}"/>
+        <ToggleButton Grid.Column="3" Grid.Row="1" Content="^ caret" ToolTip="Caret" IsChecked="{Binding Caret}"/>
+        <ToggleButton Grid.Column="3" Grid.Row="3" Content=": colon" ToolTip="Colon" IsChecked="{Binding Colon}"/>
+        <ToggleButton Grid.Column="3" Grid.Row="5" Content=", comma" ToolTip="Comma" IsChecked="{Binding Comma}"/>
+        <ToggleButton Grid.Column="3" Grid.Row="7" Content="$ dollar" ToolTip="Dollar Sign" IsChecked="{Binding DollarSign}"/>
+        <ToggleButton Grid.Column="3" Grid.Row="9" Content="= equals" ToolTip="Equals" IsChecked="{Binding EqualSign}"/>
         
-        <CheckBox Grid.Column="5" Grid.Row="1" Content="!" ToolTip="Exclamation Point" IsChecked="{Binding ExclamationPoint}"/>
-        <CheckBox Grid.Column="5" Grid.Row="3" Content="`" ToolTip="Grave Accent" IsChecked="{Binding GraveAccent}"/>
-        <CheckBox Grid.Column="5" Grid.Row="5" Content="-" ToolTip="Hyphen" IsChecked="{Binding Hyphen}"/>
-        <CheckBox Grid.Column="5" Grid.Row="7" Content="%" ToolTip="Percent Sign" IsChecked="{Binding PercentSign}"/>
-        <CheckBox Grid.Column="5" Grid.Row="9" Content="." ToolTip="Period" IsChecked="{Binding Period}"/>
+        <ToggleButton Grid.Column="5" Grid.Row="1" Content="! exclamation" ToolTip="Exclamation Point" IsChecked="{Binding ExclamationPoint}"/>
+        <ToggleButton Grid.Column="5" Grid.Row="3" Content="` grave" ToolTip="Grave Accent" IsChecked="{Binding GraveAccent}"/>
+        <ToggleButton Grid.Column="5" Grid.Row="5" Content="- hyphen" ToolTip="Hyphen" IsChecked="{Binding Hyphen}"/>
+        <ToggleButton Grid.Column="5" Grid.Row="7" Content="% percent" ToolTip="Percent Sign" IsChecked="{Binding PercentSign}"/>
+        <ToggleButton Grid.Column="5" Grid.Row="9" Content=". period" ToolTip="Period" IsChecked="{Binding Period}"/>
         
-        <CheckBox Grid.Column="7" Grid.Row="1" Content="+" ToolTip="Plus Sign" IsChecked="{Binding PlusSign}"/>
-        <CheckBox Grid.Column="7" Grid.Row="3" Content="#" ToolTip="Pound Sign/Hash" IsChecked="{Binding PoundSign}"/>
-        <CheckBox Grid.Column="7" Grid.Row="5" Content="?" ToolTip="Question Mark" IsChecked="{Binding QuestionMark}"/>
-        <CheckBox Grid.Column="7" Grid.Row="7" Content="&quot;" ToolTip="Quotation Mark" IsChecked="{Binding Quotation}"/>
-        <CheckBox Grid.Column="7" Grid.Row="9" Content=";" ToolTip="Semicolon" IsChecked="{Binding Semicolon}"/>
+        <ToggleButton Grid.Column="7" Grid.Row="1" Content="+ plus" ToolTip="Plus Sign" IsChecked="{Binding PlusSign}"/>
+        <ToggleButton Grid.Column="7" Grid.Row="3" Content="# hash" ToolTip="Pound Sign/Hash" IsChecked="{Binding PoundSign}"/>
+        <ToggleButton Grid.Column="7" Grid.Row="5" Content="? question" ToolTip="Question Mark" IsChecked="{Binding QuestionMark}"/>
+        <ToggleButton Grid.Column="7" Grid.Row="7" Content="&quot; quote" ToolTip="Quotation Mark" IsChecked="{Binding Quotation}"/>
+        <ToggleButton Grid.Column="7" Grid.Row="9" Content="; semicolon" ToolTip="Semicolon" IsChecked="{Binding Semicolon}"/>
 
-        <CheckBox Grid.Column="9" Grid.Row="1" Content="/" ToolTip="Slash" IsChecked="{Binding Slash}"/>
-        <CheckBox Grid.Column="9" Grid.Row="3" Content="~" ToolTip="Tilde" IsChecked="{Binding Tilde}"/>
-        <CheckBox Grid.Column="9" Grid.Row="5" Content="_" ToolTip="Underscore" IsChecked="{Binding Underscore}"/>
+        <ToggleButton Grid.Column="9" Grid.Row="1" Content="/ slash" ToolTip="Slash" IsChecked="{Binding Slash}"/>
+        <ToggleButton Grid.Column="9" Grid.Row="3" Content="~ tilde" ToolTip="Tilde" IsChecked="{Binding Tilde}"/>
+        <ToggleButton Grid.Column="9" Grid.Row="5" Content="_ underscore" ToolTip="Underscore" IsChecked="{Binding Underscore}"/>
     </Grid>
 </UserControl>
