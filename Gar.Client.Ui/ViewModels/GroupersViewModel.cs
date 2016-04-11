@@ -171,7 +171,7 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
-        private bool Synchronize(bool reset)
+        bool Synchronize(bool reset)
         {
             if (!reset)
                 return false;

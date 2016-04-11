@@ -6,9 +6,12 @@
              xmlns:uid="http://gar.com/ClientDesign"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=uid:MainViewModel, IsDesignTimeCreatable=True}">
-    <TabControl>
-        <TabItem DataContext="{Binding FormattingToolsViewModel}" 
-                 Header="{Binding ViewTitle}" 
-                 Content="{Binding}"/>
-    </TabControl>
+    <DockPanel>
+        <ContentControl DockPanel.Dock="Top" DataContext="{Binding MainMenuViewModel}" Content="{Binding}"/>
+        <TabControl>
+            <TabItem DataContext="{Binding FormattingToolsViewModel}" 
+                     Header="{Binding ViewTitle}" 
+                     Content="{Binding}"/>
+        </TabControl>
+    </DockPanel>
 </UserControl>

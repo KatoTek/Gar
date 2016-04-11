@@ -7,8 +7,9 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public MainViewModel(IFormattingToolsViewModel formattingToolsViewModel)
+        public MainViewModel(IMainMenuViewModel mainMenuViewModel, IFormattingToolsViewModel formattingToolsViewModel)
         {
+            InitializeValue(mainMenuViewModel, () => MainMenuViewModel);
             InitializeValue(formattingToolsViewModel, () => FormattingToolsViewModel);
         }
 
@@ -17,6 +18,7 @@ namespace Gar.Client.Ui.ViewModels
         #region properties
 
         public IFormattingToolsViewModel FormattingToolsViewModel => GetValue(() => FormattingToolsViewModel);
+        public IMainMenuViewModel MainMenuViewModel => GetValue(() => MainMenuViewModel);
         public override string ViewTitle => "GAR";
 
         #endregion

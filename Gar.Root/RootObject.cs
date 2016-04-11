@@ -15,8 +15,8 @@ namespace Gar.Root
     {
         #region fields
 
-        private readonly string[] _nonReactantProperties;
-        private readonly IValidator _validator;
+        readonly string[] _nonReactantProperties;
+        readonly IValidator _validator;
 
         #endregion
 
@@ -105,7 +105,7 @@ namespace Gar.Root
             }
         }
 
-        private void Validate(object sender, PropertyChangedEventArgs args)
+        void Validate(object sender, PropertyChangedEventArgs args)
         {
             if (!_nonReactantProperties.Contains(args.PropertyName))
                 Validate();

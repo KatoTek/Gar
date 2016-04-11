@@ -312,7 +312,7 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
-        private bool SynchronizeLineInserts(bool reset)
+        bool SynchronizeLineInserts(bool reset)
         {
             if (!reset)
                 return false;
@@ -323,7 +323,7 @@ namespace Gar.Client.Ui.ViewModels
             return true;
         }
 
-        private string SynchronizeSeperators(string value)
+        string SynchronizeSeperators(string value)
         {
             SynchronizeSeperators(!IsNullOrEmpty(value));
 
@@ -351,7 +351,7 @@ namespace Gar.Client.Ui.ViewModels
             return null;
         }
 
-        private bool SynchronizeSeperators(bool reset)
+        bool SynchronizeSeperators(bool reset)
         {
             if (!reset)
                 return false;

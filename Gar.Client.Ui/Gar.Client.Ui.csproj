@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Encompass.Simple, Version=7.8.16.320, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KatoTek.Encompass.Simple.7.8.16.320\lib\net40\Encompass.Simple.dll</HintPath>
+    <Reference Include="Encompass.Simple, Version=7.9.16.330, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KatoTek.Encompass.Simple.7.9.16.330\lib\net40\Encompass.Simple.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="INotify, Version=19.4.15.1208, Culture=neutral, processorArchitecture=MSIL">
@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xaml" />
@@ -61,15 +62,16 @@
     <Compile Include="ViewModels\CollectionOptionsViewModel.cs" />
     <Compile Include="ViewModels\DelimitersViewModel.cs" />
     <Compile Include="ViewModels\GroupersViewModel.cs" />
+    <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FormattingToolsViewModel.cs" />
     <Compile Include="ViewModels\QualifiersViewModel.cs" />
     <Compile Include="ViewModels\SeperatorsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gar.Business\Gar.Business.csproj">
-      <Project>{AC77C187-AC2F-4C9A-AF93-D9C5C7D42574}</Project>
-      <Name>Gar.Business</Name>
+    <ProjectReference Include="..\Gar.Client.Configuration\Gar.Client.Configuration.csproj">
+      <Project>{5079B890-7264-49A5-98F2-571E030EBA02}</Project>
+      <Name>Gar.Client.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gar.Client.Contracts\Gar.Client.Contracts.csproj">
       <Project>{5E7F1D9B-2CD3-4E4F-98FA-015BC2C40485}</Project>

@@ -47,12 +47,12 @@
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="StructureMap, Version=4.1.1.372, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.4.1.1.372\lib\net40\StructureMap.dll</HintPath>
+    <Reference Include="StructureMap, Version=4.1.2.386, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.4.1.2.386\lib\net40\StructureMap.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="StructureMap.Net4, Version=4.1.1.372, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.4.1.1.372\lib\net40\StructureMap.Net4.dll</HintPath>
+    <Reference Include="StructureMap.Net4, Version=4.1.2.386, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.4.1.2.386\lib\net40\StructureMap.Net4.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -90,6 +90,9 @@
     </Compile>
     <Compile Include="Views\GroupersView.xaml.cs">
       <DependentUpon>GroupersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainMenuView.xaml.cs">
+      <DependentUpon>MainMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -146,6 +149,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MainMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,6 +203,10 @@
     <ProjectReference Include="..\Gar.Client.Bootstrapper\Gar.Client.Bootstrapper.csproj">
       <Project>{1D9A2FD4-5B80-401E-9F11-9C8DE7048C5A}</Project>
       <Name>Gar.Client.Bootstrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gar.Client.Configuration\Gar.Client.Configuration.csproj">
+      <Project>{5079b890-7264-49a5-98f2-571e030eba02}</Project>
+      <Name>Gar.Client.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gar.Client.Contracts\Gar.Client.Contracts.csproj">
       <Project>{5E7F1D9B-2CD3-4E4F-98FA-015BC2C40485}</Project>

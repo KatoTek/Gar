@@ -14,8 +14,8 @@ namespace Gar.Root.Ui
     {
         #region fields
 
-        private readonly Stack<object> _isBusyStack = new Stack<object>();
-        private List<RootObject> _models;
+        readonly Stack<object> _isBusyStack = new Stack<object>();
+        List<RootObject> _models;
 
         #endregion
 
@@ -168,7 +168,7 @@ namespace Gar.Root.Ui
             ValidationErrors = new NotifyingList<ValidationFailure>(validationErrors);
         }
 
-        private void StartBusy()
+        void StartBusy()
         {
             if (_isBusyStack.Count == 0)
                 IsBusy = true;
@@ -176,7 +176,7 @@ namespace Gar.Root.Ui
             _isBusyStack.Push(new { });
         }
 
-        private void StopBusy()
+        void StopBusy()
         {
             if (_isBusyStack.Count > 0)
                 _isBusyStack.Pop();

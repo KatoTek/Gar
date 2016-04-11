@@ -9,7 +9,7 @@ namespace Gar.Root.Ui
     {
         #region fields
 
-        private const string VIEW_LOADED = "ViewLoaded";
+        const string VIEW_LOADED = "ViewLoaded";
         public static readonly DependencyProperty ViewLoadedProperty = Register(VIEW_LOADED, typeof(object), typeof(UserControlViewRoot), new PropertyMetadata(null));
 
         #endregion
@@ -31,7 +31,7 @@ namespace Gar.Root.Ui
         protected virtual void OnUnwireViewModelEvents(ViewModelRoot viewModel) {}
         protected virtual void OnWireViewModelEvents(ViewModelRoot viewModel) {}
 
-        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue == null)
             {

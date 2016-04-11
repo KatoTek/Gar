@@ -35,6 +35,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -48,11 +49,13 @@
     <Compile Include="..\AssemblyInfo.shared.cs">
       <Link>Properties\AssemblyInfo.shared.cs</Link>
     </Compile>
+    <Compile Include="Configuration\IConfigurationSectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ICollectionFormatterViewModel.cs" />
     <Compile Include="ViewModels\ICollectionOptionsViewModel.cs" />
     <Compile Include="ViewModels\IDelimitersViewModel.cs" />
     <Compile Include="ViewModels\IGroupersViewModel.cs" />
+    <Compile Include="ViewModels\IMainMenuViewModel.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="ViewModels\IFormattingToolsViewModel.cs" />
     <Compile Include="ViewModels\IQualifiersViewModel.cs" />
@@ -63,10 +66,15 @@
       <Project>{3587561E-B029-4786-8B14-AE24C615F5C5}</Project>
       <Name>Gar.Root.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Gar.Root\Gar.Root.csproj">
+      <Project>{5AF16FF3-EFD3-43A6-987B-7EB3098E10BD}</Project>
+      <Name>Gar.Root</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

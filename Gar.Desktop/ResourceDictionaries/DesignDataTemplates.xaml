@@ -23,4 +23,7 @@
     <DataTemplate DataType="{x:Type uid:CollectionOptionsViewModel}">
         <v:CollectionOptionsView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type uid:MainMenuViewModel}">
+        <v:MainMenuView />
+    </DataTemplate>
 </ResourceDictionary>
