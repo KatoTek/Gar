@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gar.Client.Configuration\Gar.Client.Configuration.csproj">
-      <Project>{5079B890-7264-49A5-98F2-571E030EBA02}</Project>
+      <Project>{5079b890-7264-49a5-98f2-571e030eba02}</Project>
       <Name>Gar.Client.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gar.Client.Contracts\Gar.Client.Contracts.csproj">

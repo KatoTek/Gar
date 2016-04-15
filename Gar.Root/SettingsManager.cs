@@ -29,8 +29,8 @@ namespace Gar.Root
 
             if (!File.Exists(Location))
             {
-                OnInitialize += InitializeOnce;
                 Set(CreateInstance<T>());
+                OnInitialize += InitializeOnce;
             }
             else
             {
