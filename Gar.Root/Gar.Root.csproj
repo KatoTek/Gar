@@ -38,8 +38,13 @@
       <HintPath>..\packages\INotify.Wpf.19.4.15.1208\lib\net40-Client\INotify.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -53,10 +58,12 @@
     <Compile Include="..\AssemblyInfo.shared.cs">
       <Link>Properties\AssemblyInfo.shared.cs</Link>
     </Compile>
+    <Compile Include="ConfigurationSectionFactory.cs" />
     <Compile Include="EventArguments\SelectedValueEventArgs.cs" />
     <Compile Include="RootObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectableValueList.cs" />
+    <Compile Include="SettingsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

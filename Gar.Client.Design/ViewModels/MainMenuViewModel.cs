@@ -53,6 +53,13 @@ namespace Gar.Client.Design.ViewModels
 
         #endregion
 
+        #region methods
+
+        public void SetAccent(string accent) {}
+        public void SetTheme(string theme) {}
+
+        #endregion
+
         #region nested types
 
         public class Theme : ISelectableValue<string>

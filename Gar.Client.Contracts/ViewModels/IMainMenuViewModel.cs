@@ -20,5 +20,12 @@ namespace Gar.Client.Contracts.ViewModels
         SelectableValueList<string> Themes { get; }
 
         #endregion
+
+        #region methods
+
+        void SetAccent(string accent);
+        void SetTheme(string theme);
+
+        #endregion
     }
 }

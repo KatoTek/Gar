@@ -49,7 +49,6 @@
     <Compile Include="..\AssemblyInfo.shared.cs">
       <Link>Properties\AssemblyInfo.shared.cs</Link>
     </Compile>
-    <Compile Include="Configuration\IConfigurationSectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ICollectionFormatterViewModel.cs" />
     <Compile Include="ViewModels\ICollectionOptionsViewModel.cs" />

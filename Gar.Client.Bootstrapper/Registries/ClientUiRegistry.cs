@@ -1,6 +1,6 @@
-﻿using Gar.Client.Configuration.Themes;
-using Gar.Client.Contracts.Configuration;
-using Gar.Client.Ui.ViewModels;
+﻿using Gar.Client.Ui.ViewModels;
+using Gar.Root;
+using Gar.Root.Contracts;
 using StructureMap;
 
 namespace Gar.Client.Bootstrapper.Registries
@@ -13,9 +13,10 @@ namespace Gar.Client.Bootstrapper.Registries
         {
             Scan(_ =>
                  {
+                     _.AssemblyContainingType<RootObject>();
                      _.AssemblyContainingType<MainViewModel>();
-                     _.AssemblyContainingType<ThemesSection>();
                      _.AddAllTypesOf(typeof(IConfigurationSectionFactory<>));
+                     _.AddAllTypesOf(typeof(ISettingsManager<>));
                      _.WithDefaultConventions();
                  });
         }

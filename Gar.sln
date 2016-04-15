@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gar.Client.Design", "Gar.Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gar.Client.Configuration", "Gar.Client.Configuration\Gar.Client.Configuration.csproj", "{5079B890-7264-49A5-98F2-571E030EBA02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gar.Client.Settings", "Gar.Client.Settings\Gar.Client.Settings.csproj", "{79B081D7-9860-472D-882D-4F7BE0C49148}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{5079B890-7264-49A5-98F2-571E030EBA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5079B890-7264-49A5-98F2-571E030EBA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5079B890-7264-49A5-98F2-571E030EBA02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79B081D7-9860-472D-882D-4F7BE0C49148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79B081D7-9860-472D-882D-4F7BE0C49148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79B081D7-9860-472D-882D-4F7BE0C49148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79B081D7-9860-472D-882D-4F7BE0C49148}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +89,6 @@ Global
 		{5E7F1D9B-2CD3-4E4F-98FA-015BC2C40485} = {89CF42A1-9DC9-4191-8C38-48DEF6EA92B5}
 		{F01AAB4A-E5D7-422B-A213-F12D802E66A6} = {89CF42A1-9DC9-4191-8C38-48DEF6EA92B5}
 		{5079B890-7264-49A5-98F2-571E030EBA02} = {89CF42A1-9DC9-4191-8C38-48DEF6EA92B5}
+		{79B081D7-9860-472D-882D-4F7BE0C49148} = {89CF42A1-9DC9-4191-8C38-48DEF6EA92B5}
 	EndGlobalSection
 EndGlobal

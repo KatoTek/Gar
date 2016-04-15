@@ -1,8 +1,8 @@
 ﻿using System.Configuration;
-using Gar.Client.Contracts.Configuration;
+using Gar.Root.Contracts;
 using static System.Configuration.ConfigurationManager;
 
-namespace Gar.Client.Configuration
+namespace Gar.Root
 {
     public class ConfigurationSectionFactory<T> : IConfigurationSectionFactory<T> where T : ConfigurationSection
     {

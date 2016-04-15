@@ -56,6 +56,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -215,6 +216,10 @@
     <ProjectReference Include="..\Gar.Client.Design\Gar.Client.Design.csproj">
       <Project>{f01aab4a-e5d7-422b-a213-f12d802e66a6}</Project>
       <Name>Gar.Client.Design</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gar.Client.Settings\Gar.Client.Settings.csproj">
+      <Project>{79b081d7-9860-472d-882d-4f7be0c49148}</Project>
+      <Name>Gar.Client.Settings</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gar.Client.Ui\Gar.Client.Ui.csproj">
       <Project>{8d5ab5d5-2476-4e0b-8d7d-5fa22023c75f}</Project>

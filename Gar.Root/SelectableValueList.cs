@@ -102,6 +102,12 @@ namespace Gar.Root
             base.RemoveAt(index);
         }
 
+        public void SetSelected(ISelectableValue<T> item) => this.Single(_ => _.Equals(item))
+                                                                 .IsSelected = true;
+
+        public void SetSelected(T value) => this.Single(_ => _.Value.Equals(value))
+                                                .IsSelected = true;
+
         void Initialize()
         {
             PropertyOf(() => SelectedText)

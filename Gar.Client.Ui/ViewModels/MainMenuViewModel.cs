@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Gar.Client.Configuration.Themes;
-using Gar.Client.Contracts.Configuration;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Root;
+using Gar.Root.Contracts;
 using Gar.Root.EventArguments;
 using Gar.Root.Ui;
 
@@ -44,6 +44,13 @@ namespace Gar.Client.Ui.ViewModels
 
         public SelectableValueList<string> Accents => GetValue(() => Accents);
         public SelectableValueList<string> Themes => GetValue(() => Themes);
+
+        #endregion
+
+        #region methods
+
+        public void SetAccent(string accent) => Accents?.SetSelected(accent);
+        public void SetTheme(string theme) => Themes?.SetSelected(theme);
 
         #endregion
     }
