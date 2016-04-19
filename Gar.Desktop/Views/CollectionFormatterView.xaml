@@ -1,15 +1,18 @@
-﻿<UserControl x:Class="Gar.Desktop.Views.CollectionFormatterView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:uid="http://gar.com/ClientDesign"
-             mc:Ignorable="d" 
-             d:DesignWidth="1600"
-             d:DesignHeight="900" 
-             d:DataContext="{d:DesignInstance Type=uid:CollectionFormatterViewModel, IsDesignTimeCreatable=True}">
+﻿<rui:UserControlViewRoot x:Class="Gar.Desktop.Views.CollectionFormatterView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:rui="http://gar.katotek.com/RootUi"
+                         xmlns:uid="http://gar.katotek.com/ClientDesign"
+                         mc:Ignorable="d" 
+                         d:DesignWidth="1600"
+                         d:DesignHeight="900" 
+                         d:DataContext="{d:DesignInstance Type=uid:CollectionFormatterViewModel, IsDesignTimeCreatable=True}">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="1"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="1"/>
@@ -28,41 +31,50 @@
             <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
-        <Expander Grid.Row="1" Grid.Column="1" x:Name="DelimitersExpander"
+        <Expander Grid.Row="1" Grid.Column="3" x:Name="DelimitersExpander"
                       DataContext="{Binding DelimitersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-        <Expander Grid.Row="1" Grid.Column="3" 
+        <Expander Grid.Row="1" Grid.Column="5" 
                       IsExpanded="{Binding IsExpanded, ElementName=DelimitersExpander}"
                       DataContext="{Binding QualifiersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="INPUT" Style="{StaticResource EndCap}"/>
+        <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3"
                  Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" 
                  Style="{StaticResource TextAreaStyle}"/>
-        <Expander Grid.Row="5" Grid.Column="1" x:Name="SeperatorsExpander"
+        <Expander Grid.Row="5" Grid.Column="3" x:Name="SeperatorsExpander"
                       DataContext="{Binding SeperatorsViewModel}" 
                       Header="{Binding ViewTitle}"
-                      Content="{Binding}"/>
-        <Expander Grid.Row="5" Grid.Column="3" 
+                      Content="{Binding}"
+                      IsExpanded="True"/>
+        <Expander Grid.Row="5" Grid.Column="5" 
                       IsExpanded="{Binding IsExpanded, ElementName=SeperatorsExpander}"
                       DataContext="{Binding GroupersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
-        <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="OUTPUT" Style="{StaticResource EndCap}"/>
+        <TextBox Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="3"
                  Text="{Binding Output, Mode=OneWay}" 
                  Style="{StaticResource TextAreaStyle}"
                  IsReadOnly="True"/>
-        <Expander Grid.Row="1" Grid.Column="5" 
+        <StackPanel Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="3" 
+                    Orientation="Horizontal">
+            <Button Content="Copy Output" Command="{Binding CopyOutputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+        </StackPanel>
+        <Expander Grid.Row="1" Grid.Column="7" 
                       IsExpanded="{Binding IsExpanded, ElementName=DelimitersExpander}"
                       DataContext="{Binding CollectionOptionsViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
         <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
-        <ScrollViewer Grid.Row="3" Grid.Column="5" Grid.RowSpan="5" 
+        <ScrollViewer Grid.Row="3" Grid.Column="7" Grid.RowSpan="5" 
                       Width="200"
-                      Height="{Binding ActualHeight, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                      Height="{Binding ActualHeight, RelativeSource={RelativeSource TemplatedParent}}"
                       HorizontalScrollBarVisibility="Auto" 
                       VerticalScrollBarVisibility="Auto">
             <!-- ReSharper restore Xaml.BindingWithContextNotResolved -->
@@ -79,4 +91,4 @@
             </ItemsControl>
         </ScrollViewer>
     </Grid>
-</UserControl>
+</rui:UserControlViewRoot>

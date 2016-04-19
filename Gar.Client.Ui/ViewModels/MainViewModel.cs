@@ -19,7 +19,7 @@ namespace Gar.Client.Ui.ViewModels
 
         public IFormattingToolsViewModel FormattingToolsViewModel => GetValue(() => FormattingToolsViewModel);
         public IMainMenuViewModel MainMenuViewModel => GetValue(() => MainMenuViewModel);
-        public override string ViewTitle => "GAR";
+        public override string ViewTitle => "gar";
 
         #endregion
     }

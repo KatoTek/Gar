@@ -216,15 +216,15 @@ namespace Gar.Client.Ui.ViewModels
                                             {
                                                 var seperators = (IsNullOrEmpty(Custom)
                                                                       ? new string[0]
-                                                                      : new[] { Custom }).Union(from prop in GetType()
+                                                                      : new[] { Custom }).Union(from propertyInfo in GetType()
                                                                                                     .GetProperties(Public | Instance)
-                                                                                                    .Where(p => p.PropertyType == typeof(bool))
-                                                                                                where (bool)prop.GetValue(this)
-                                                                                                select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                                                                           .FirstOrDefault()
-                                                                                                into attr
-                                                                                                where attr != null
-                                                                                                select attr.Character.ToString())
+                                                                                                    .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
+                                                                                                where (bool)propertyInfo.GetValue(this)
+                                                                                                select propertyInfo.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                                                                   .FirstOrDefault()
+                                                                                                into correspondingCharacterAttribute
+                                                                                                where correspondingCharacterAttribute != null
+                                                                                                select correspondingCharacterAttribute.Character.ToString())
                                                                                          .ToArray();
 
                                                 string seperator;
@@ -296,15 +296,15 @@ namespace Gar.Client.Ui.ViewModels
             if (Custom == c.ToString())
                 Custom = null;
 
-            (from prop in GetType()
+            (from propertyInfo in GetType()
                  .GetProperties(Public | Instance)
-                 .Where(p => p.PropertyType == typeof(bool))
-             where (bool)prop.GetValue(this)
+                 .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
+             where (bool)propertyInfo.GetValue(this)
              select new
                     {
-                        Property = prop,
-                        CorrespondingCharacterAttribute = prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                              .FirstOrDefault()
+                        Property = propertyInfo,
+                        CorrespondingCharacterAttribute = propertyInfo.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                      .FirstOrDefault()
                     }
              into _
              where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == c
@@ -330,15 +330,15 @@ namespace Gar.Client.Ui.ViewModels
             if (!IsNullOrEmpty(value))
                 return null;
 
-            var property = (from prop in GetType()
+            var property = (from propertyInfo in GetType()
                                 .GetProperties(Public | Instance)
-                                .Where(p => p.PropertyType == typeof(bool))
-                            where (bool)prop.GetValue(this)
+                                .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
+                            where (bool)propertyInfo.GetValue(this)
                             select new
                                    {
-                                       Property = prop,
-                                       CorrespondingCharacterAttribute = prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                                             .FirstOrDefault()
+                                       Property = propertyInfo,
+                                       CorrespondingCharacterAttribute = propertyInfo.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                                     .FirstOrDefault()
                                    }
                             into _
                             where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character.ToString() == value

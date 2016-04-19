@@ -107,9 +107,9 @@ namespace Gar.Client.Ui.ViewModels
                                                                    where (bool)prop.GetValue(this)
                                                                    select prop.GetCustomAttributes<CorrespondingGroupCharactersAttribute>()
                                                                               .FirstOrDefault()
-                                                                   into attr
-                                                                   where attr != null
-                                                                   select attr.Start).ToArray();
+                                                                   into correspondingGroupCharactersAttribute
+                                                                   where correspondingGroupCharactersAttribute != null
+                                                                   select correspondingGroupCharactersAttribute.Start).ToArray();
 
                                                 switch (groupStarts.Length)
                                                 {
@@ -155,15 +155,15 @@ namespace Gar.Client.Ui.ViewModels
             if (!c.HasValue)
                 return;
 
-            (from prop in GetType()
+            (from propertyInfo in GetType()
                  .GetProperties(Public | Instance)
-                 .Where(p => p.PropertyType == typeof(bool))
-             where (bool)prop.GetValue(this)
+                 .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
+             where (bool)propertyInfo.GetValue(this)
              select new
                     {
-                        Property = prop,
-                        CorrespondingCharacterAttribute = prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                              .FirstOrDefault()
+                        Property = propertyInfo,
+                        CorrespondingCharacterAttribute = propertyInfo.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                      .FirstOrDefault()
                     }
              into _
              where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == c

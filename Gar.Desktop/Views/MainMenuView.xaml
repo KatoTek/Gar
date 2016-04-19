@@ -1,11 +1,12 @@
-﻿<UserControl x:Class="Gar.Desktop.Views.MainMenuView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:uid="http://gar.com/ClientDesign"
-             mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Type=uid:MainMenuViewModel, IsDesignTimeCreatable=True}">
+﻿<rui:UserControlViewRoot x:Class="Gar.Desktop.Views.MainMenuView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:rui="http://gar.katotek.com/RootUi" 
+                         xmlns:uid="http://gar.katotek.com/ClientDesign"
+                         mc:Ignorable="d" 
+                         d:DataContext="{d:DesignInstance Type=uid:MainMenuViewModel, IsDesignTimeCreatable=True}">
     <Menu>
         <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
         <MenuItem Header="_Theme" ItemsSource="{Binding Themes}">
@@ -28,4 +29,4 @@
         </MenuItem>
         <!-- ReSharper restore Xaml.BindingWithContextNotResolved -->
     </Menu>
-</UserControl>
+</rui:UserControlViewRoot>

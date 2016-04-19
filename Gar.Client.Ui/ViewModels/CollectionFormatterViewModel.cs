@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Encompass.Simple.Extensions;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
+using INotify;
 
 namespace Gar.Client.Ui.ViewModels
 {
@@ -15,6 +17,8 @@ namespace Gar.Client.Ui.ViewModels
                                             IGroupersViewModel groupersViewModel,
                                             ICollectionOptionsViewModel collectionOptionsViewModel)
         {
+            CopyOutputCommand = new RelayCommand<string>(OnCopyOutputCommandExecute, OnCopyOutputCommandCanExecute);
+
             InitializeValue(delimitersViewModel, () => DelimitersViewModel);
             InitializeValue(qualifiersViewModel, () => QualifiersViewModel);
             InitializeValue(seperatorsViewModel, () => SeperatorsViewModel);
@@ -23,37 +27,46 @@ namespace Gar.Client.Ui.ViewModels
 
             PropertyOf(() => Collection)
                 .DependsOnProperty(() => Input)
-                .DependsOnReferenceProperty(() => QualifiersViewModel, (IQualifiersViewModel qvm) => qvm.Qualifier)
-                .DependsOnReferenceProperty(() => DelimitersViewModel, (IDelimitersViewModel dvm) => dvm.Delimiters)
-                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel covm) => covm.Distinct)
-                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel covm) => covm.Reversed)
-                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel covm) => covm.Sorted);
+                .DependsOnReferenceProperty(() => QualifiersViewModel, (IQualifiersViewModel _) => _.Qualifier)
+                .DependsOnReferenceProperty(() => DelimitersViewModel, (IDelimitersViewModel _) => _.Delimiters)
+                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel _) => _.Distinct)
+                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel _) => _.Reversed)
+                .DependsOnReferenceProperty(() => CollectionOptionsViewModel, (ICollectionOptionsViewModel _) => _.Sorted);
 
             PropertyOf(() => Output)
                 .DependsOnProperty(() => Collection)
-                .DependsOnReferenceProperty(() => SeperatorsViewModel, (ISeperatorsViewModel svm) => svm.Seperator)
-                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel gvm) => gvm.GroupStart)
-                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel gvm) => gvm.GroupEnd)
-                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel gvm) => gvm.Forced);
+                .DependsOnReferenceProperty(() => SeperatorsViewModel, (ISeperatorsViewModel _) => _.Seperator)
+                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupStart)
+                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupEnd)
+                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.Forced);
 
-            PropertyChangeFor(() => QualifiersViewModel, (IQualifiersViewModel qvm) => qvm.Qualifier)
+            PropertyChangeFor(() => QualifiersViewModel, (IQualifiersViewModel _) => _.Qualifier)
                 .Execute(() => DelimitersViewModel?.Deselect(QualifiersViewModel?.Qualifier));
 
-            PropertyChangeFor(() => DelimitersViewModel, (IDelimitersViewModel dvm) => dvm.Delimiters)
+            PropertyChangeFor(() => DelimitersViewModel, (IDelimitersViewModel _) => _.Delimiters)
                 .Execute(() => DelimitersViewModel?.Delimiters?.ToList()
-                                                   .ForEach(d => QualifiersViewModel?.Deselect(d)));
+                                                   .ForEach(_ => QualifiersViewModel?.Deselect(_)));
 
-            PropertyChangeFor(() => GroupersViewModel, (IGroupersViewModel gvm) => gvm.GroupStart)
+            PropertyChangeFor(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupStart)
                 .Execute(() => SeperatorsViewModel?.Deselect(GroupersViewModel?.GroupStart));
 
-            PropertyChangeFor(() => GroupersViewModel, (IGroupersViewModel gvm) => gvm.GroupEnd)
+            PropertyChangeFor(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupEnd)
                 .Execute(() => SeperatorsViewModel?.Deselect(GroupersViewModel?.GroupEnd));
 
-            PropertyChangeFor(() => SeperatorsViewModel, (ISeperatorsViewModel svm) => svm.Seperator)
+            PropertyChangeFor(() => SeperatorsViewModel, (ISeperatorsViewModel _) => _.Seperator)
                 .Execute(() => SeperatorsViewModel?.Seperator?.ToCharArray()
                                                    .ToList()
-                                                   .ForEach(@char => GroupersViewModel?.Deselect(@char)));
+                                                   .ForEach(_ => GroupersViewModel?.Deselect(_)));
+
+            PropertyChangeFor(() => Output)
+                .Raise(CopyOutputCommand);
         }
+
+        #endregion
+
+        #region events
+
+        public event EventHandler<string> OutputCopied;
 
         #endregion
 
@@ -77,6 +90,7 @@ namespace Gar.Client.Ui.ViewModels
                                                });
 
         public ICollectionOptionsViewModel CollectionOptionsViewModel => GetValue(() => CollectionOptionsViewModel);
+        public RelayCommand<string> CopyOutputCommand { get; }
         public IDelimitersViewModel DelimitersViewModel => GetValue(() => DelimitersViewModel);
         public IGroupersViewModel GroupersViewModel => GetValue(() => GroupersViewModel);
 
@@ -99,6 +113,13 @@ namespace Gar.Client.Ui.ViewModels
         public IQualifiersViewModel QualifiersViewModel => GetValue(() => QualifiersViewModel);
         public ISeperatorsViewModel SeperatorsViewModel => GetValue(() => SeperatorsViewModel);
         public override string ViewTitle => "Collections";
+
+        #endregion
+
+        #region methods
+
+        bool OnCopyOutputCommandCanExecute(string obj) => Output.IsNotNullAndNotEmpty();
+        void OnCopyOutputCommandExecute(string obj) => OutputCopied?.Invoke(this, Output);
 
         #endregion
     }

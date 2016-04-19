@@ -177,15 +177,15 @@ namespace Gar.Client.Ui.ViewModels
                                            {
                                                var qualifiers = (Custom.HasValue
                                                                      ? new[] { Custom.Value }
-                                                                     : new char[0]).Union(from prop in GetType()
+                                                                     : new char[0]).Union(from propertyInfo in GetType()
                                                                                               .GetProperties(Public | Instance)
-                                                                                              .Where(p => p.PropertyType == typeof(bool))
-                                                                                          where (bool)prop.GetValue(this)
-                                                                                          select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                                                                     .FirstOrDefault()
-                                                                                          into attr
-                                                                                          where attr != null
-                                                                                          select attr.Character)
+                                                                                              .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
+                                                                                          where (bool)propertyInfo.GetValue(this)
+                                                                                          select propertyInfo.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                                                             .FirstOrDefault()
+                                                                                          into correspondingCharacterAttribute
+                                                                                          where correspondingCharacterAttribute != null
+                                                                                          select correspondingCharacterAttribute.Character)
                                                                                    .ToArray();
 
                                                switch (qualifiers.Length)

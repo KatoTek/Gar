@@ -1,29 +1,29 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:uid="http://gar.com/ClientDesign"
+                    xmlns:ui="http://gar.katotek.com/ClientUi"
                     xmlns:v="clr-namespace:Gar.Desktop.Views">
-    <DataTemplate DataType="{x:Type uid:FormattingToolsViewModel}">
+    <DataTemplate DataType="{x:Type ui:FormattingToolsViewModel}">
         <v:FormattingToolsView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type uid:CollectionFormatterViewModel}">
+    <DataTemplate DataType="{x:Type ui:CollectionFormatterViewModel}">
         <v:CollectionFormatterView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type uid:DelimitersViewModel}">
+    <DataTemplate DataType="{x:Type ui:DelimitersViewModel}">
         <v:DelimetersView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type uid:QualifiersViewModel}">
+    <DataTemplate DataType="{x:Type ui:QualifiersViewModel}">
         <v:QualifiersView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type uid:SeperatorsViewModel}">
+    <DataTemplate DataType="{x:Type ui:SeperatorsViewModel}">
         <v:SeperatorsView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type uid:GroupersViewModel}">
+    <DataTemplate DataType="{x:Type ui:GroupersViewModel}">
         <v:GroupersView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type uid:CollectionOptionsViewModel}">
+    <DataTemplate DataType="{x:Type ui:CollectionOptionsViewModel}">
         <v:CollectionOptionsView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type uid:MainMenuViewModel}">
+    <DataTemplate DataType="{x:Type ui:MainMenuViewModel}">
         <v:MainMenuView />
     </DataTemplate>
 </ResourceDictionary>

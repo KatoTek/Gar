@@ -8,4 +8,16 @@
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
     </Style>
+    <Style x:Key="EndCap" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    <RotateTransform Angle="270"/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

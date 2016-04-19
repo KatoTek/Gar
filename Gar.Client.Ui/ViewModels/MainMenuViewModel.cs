@@ -24,10 +24,10 @@ namespace Gar.Client.Ui.ViewModels
                                                             select theme),
                             () => Themes);
 
-            PropertyChangeFor(() => Accents, (SelectableValueList<string> acc) => acc.SelectedItem)
+            PropertyChangeFor(() => Accents, (SelectableValueList<string> _) => _.SelectedItem)
                 .Execute(() => AccentUpdated?.Invoke(this, new SelectedValueEventArgs<string>(Accents.SelectedItem)));
 
-            PropertyChangeFor(() => Themes, (SelectableValueList<string> thm) => thm.SelectedItem)
+            PropertyChangeFor(() => Themes, (SelectableValueList<string> _) => _.SelectedItem)
                 .Execute(() => ThemeUpdated?.Invoke(this, new SelectedValueEventArgs<string>(Themes.SelectedItem)));
         }
 
