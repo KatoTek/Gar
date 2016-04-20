@@ -4,6 +4,7 @@ using Encompass.Simple.Extensions;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
 using INotify;
+using static System.String;
 
 namespace Gar.Client.Ui.ViewModels
 {
@@ -18,6 +19,7 @@ namespace Gar.Client.Ui.ViewModels
                                             ICollectionOptionsViewModel collectionOptionsViewModel)
         {
             CopyOutputCommand = new RelayCommand<string>(OnCopyOutputCommandExecute, OnCopyOutputCommandCanExecute);
+            ClearInputCommand = new RelayCommand(ClearInputCommandExecute, ClearInputCommandCanExecute);
 
             InitializeValue(delimitersViewModel, () => DelimitersViewModel);
             InitializeValue(qualifiersViewModel, () => QualifiersViewModel);
@@ -60,6 +62,9 @@ namespace Gar.Client.Ui.ViewModels
 
             PropertyChangeFor(() => Output)
                 .Raise(CopyOutputCommand);
+
+            PropertyChangeFor(() => Input)
+                .Raise(ClearInputCommand);
         }
 
         #endregion
@@ -71,6 +76,8 @@ namespace Gar.Client.Ui.ViewModels
         #endregion
 
         #region properties
+
+        public RelayCommand ClearInputCommand { get; }
 
         public string[] Collection => GetValue(() => Collection,
                                                () =>
@@ -118,7 +125,9 @@ namespace Gar.Client.Ui.ViewModels
 
         #region methods
 
-        bool OnCopyOutputCommandCanExecute(string obj) => Output.IsNotNullAndNotEmpty();
+        bool ClearInputCommandCanExecute() => !IsNullOrEmpty(Input);
+        void ClearInputCommandExecute() => Input = Empty;
+        bool OnCopyOutputCommandCanExecute(string obj) => !IsNullOrEmpty(Output);
         void OnCopyOutputCommandExecute(string obj) => OutputCopied?.Invoke(this, Output);
 
         #endregion

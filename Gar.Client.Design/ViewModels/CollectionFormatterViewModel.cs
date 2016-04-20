@@ -13,6 +13,7 @@ namespace Gar.Client.Design.ViewModels
         public CollectionFormatterViewModel()
         {
             CopyOutputCommand = new RelayCommand<string>(CopyOutputCommandExecute);
+            ClearInputCommand = new RelayCommand(ClearInputCommandExecute);
         }
 
         #endregion
@@ -25,6 +26,7 @@ namespace Gar.Client.Design.ViewModels
 
         #region properties
 
+        public RelayCommand ClearInputCommand { get; }
         public string[] Collection => new[] { "1000", "2000", "3000", "4000" };
         public ICollectionOptionsViewModel CollectionOptionsViewModel { get; } = new CollectionOptionsViewModel();
         public RelayCommand<string> CopyOutputCommand { get; }
@@ -40,6 +42,7 @@ namespace Gar.Client.Design.ViewModels
 
         #region methods
 
+        static void ClearInputCommandExecute() {}
         void CopyOutputCommandExecute(string obj) => OutputCopied?.Invoke(this, Output);
 
         #endregion

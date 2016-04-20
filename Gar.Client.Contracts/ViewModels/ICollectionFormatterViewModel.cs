@@ -14,6 +14,7 @@ namespace Gar.Client.Contracts.ViewModels
 
         #region properties
 
+        RelayCommand ClearInputCommand { get; }
         string[] Collection { get; }
         ICollectionOptionsViewModel CollectionOptionsViewModel { get; }
         RelayCommand<string> CopyOutputCommand { get; }
