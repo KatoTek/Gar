@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Encompass.Simple, Version=7.9.16.330, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\KatoTek.Encompass.Simple.7.9.16.330\lib\net40\Encompass.Simple.dll</HintPath>
+    <Reference Include="Encompass.Simple, Version=8.1.16.421, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KatoTek.Encompass.Simple.8.1.16.421\lib\net40\Encompass.Simple.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="INotify, Version=19.4.15.1208, Culture=neutral, processorArchitecture=MSIL">

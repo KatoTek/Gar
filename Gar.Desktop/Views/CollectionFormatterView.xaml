@@ -78,7 +78,7 @@
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
         <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
-        <ScrollViewer Grid.Row="3" Grid.Column="7" Grid.RowSpan="5" 
+        <ScrollViewer Grid.Row="3" Grid.Column="7" Grid.RowSpan="7" 
                       Width="200"
                       Height="{Binding ActualHeight, RelativeSource={RelativeSource TemplatedParent}}"
                       HorizontalScrollBarVisibility="Auto" 

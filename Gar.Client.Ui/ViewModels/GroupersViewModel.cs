@@ -5,6 +5,7 @@ using Gar.Client.Contracts.ViewModels;
 using Gar.Client.Ui.Attributes;
 using Gar.Root.Ui;
 using static System.Reflection.BindingFlags;
+using static System.String;
 
 namespace Gar.Client.Ui.ViewModels
 {
@@ -16,7 +17,8 @@ namespace Gar.Client.Ui.ViewModels
         {
             InitializeValue(true, () => Forced);
 
-            PropertyOf(() => Conditional)
+            PropertyOf(() => Standard)
+                .DependsOnProperty(() => Conditional)
                 .DependsOnProperty(() => Forced);
 
             PropertyOf(() => GroupEnd)
@@ -64,14 +66,62 @@ namespace Gar.Client.Ui.ViewModels
 
         public bool Conditional
         {
-            get { return GetValue(() => Conditional, () => !Forced); }
-            set { Forced = !value; }
+            get { return GetValue(() => Conditional); }
+            set
+            {
+                if (!SetValue(value, () => Conditional) || !value)
+                    return;
+
+                Custom = false;
+                Forced = false;
+                CustomGroupStart = Empty;
+                CustomGroupEnd = Empty;
+            }
+        }
+
+        public bool Custom
+        {
+            get { return GetValue(() => Custom); }
+            set
+            {
+                if (!SetValue(value, () => Custom) || !value)
+                    return;
+
+                Apostrophes = false;
+                Braces = false;
+                Conditional = false;
+                Forced = false;
+                LtGt = false;
+                Parentheses = false;
+                Quotes = false;
+            }
+        }
+
+        public string CustomGroupEnd
+        {
+            get { return GetValue(() => CustomGroupEnd); }
+            set { SetValue(value, () => CustomGroupEnd); }
+        }
+
+        public string CustomGroupStart
+        {
+            get { return GetValue(() => CustomGroupStart); }
+            set { SetValue(value, () => CustomGroupStart); }
         }
 
         public bool Forced
         {
             get { return GetValue(() => Forced); }
-            set { SetValue(value, () => Forced); }
+            set
+            {
+                if (!SetValue(value, () => Forced) || !value)
+                    return;
+
+                Conditional = false;
+                Custom = false;
+                CustomGroupStart = Empty;
+                CustomGroupEnd = Empty;
+            }
         }
 
         public char? GroupEnd => GetValue(() => GroupEnd,
@@ -144,15 +194,16 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(Synchronize(value), () => Quotes); }
         }
 
+        public bool Standard => GetValue(() => Standard, () => Forced || Conditional);
         public override string ViewTitle => "Groupers";
 
         #endregion
 
         #region methods
 
-        public void Deselect(char? c)
+        public void Deselect(char? @char)
         {
-            if (!c.HasValue)
+            if (!@char.HasValue)
                 return;
 
             (from propertyInfo in GetType()
@@ -166,7 +217,7 @@ namespace Gar.Client.Ui.ViewModels
                                                                       .FirstOrDefault()
                     }
              into _
-             where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == c
+             where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == @char
              select _.Property).FirstOrDefault()
                 ?.SetValue(this, false);
         }

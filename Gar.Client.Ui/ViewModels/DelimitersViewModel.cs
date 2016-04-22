@@ -271,12 +271,12 @@ namespace Gar.Client.Ui.ViewModels
 
         #region methods
 
-        public void Deselect(char? c)
+        public void Deselect(char? @char)
         {
-            if (!c.HasValue)
+            if (!@char.HasValue)
                 return;
 
-            Custom?.RemoveAll(_ => _.Equals(c));
+            Custom?.RemoveAll(_ => _.Equals(@char));
 
             (from prop in GetType()
                  .GetProperties(Public | Instance)
@@ -289,7 +289,7 @@ namespace Gar.Client.Ui.ViewModels
                                                               .FirstOrDefault()
                     }
              into _
-             where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == c
+             where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == @char
              select _.Property).FirstOrDefault()
                 ?.SetValue(this, false);
         }

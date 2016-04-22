@@ -16,8 +16,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" IsEnabled="{Binding Standard}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -50,14 +52,36 @@
                 <ColumnDefinition Width="*" MinWidth="5"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*" MinWidth="5"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" MinWidth="5"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="*" MinHeight="5"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*" MinHeight="5"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*" MinHeight="5"/>
             </Grid.RowDefinitions>
             <RadioButton Grid.Column="1" Grid.Row="1" Content="Force Grouping" ToolTip="Forced Grouping" IsChecked="{Binding Forced}"/>
             <RadioButton Grid.Column="3" Grid.Row="1" Content="Use Conditional Grouping" ToolTip="Conditional Grouping" IsChecked="{Binding Conditional}"/>
+            <RadioButton Grid.Column="5" Grid.Row="1" Content="Custom Grouping" ToolTip="Custom Grouping" IsChecked="{Binding Custom}"/>
+        </Grid>
+        <Grid Grid.Row="5" IsEnabled="{Binding Custom}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="5"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*" MinWidth="5"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="Prefix"/>
+            <TextBox Grid.Column="3" Text="{Binding CustomGroupStart, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Column="5" Text="Suffix"/>
+            <TextBox Grid.Column="7" Text="{Binding CustomGroupEnd, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </rui:UserControlViewRoot>

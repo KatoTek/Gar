@@ -40,7 +40,10 @@ namespace Gar.Client.Ui.ViewModels
                 .DependsOnReferenceProperty(() => SeperatorsViewModel, (ISeperatorsViewModel _) => _.Seperator)
                 .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupStart)
                 .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupEnd)
-                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.Forced);
+                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.Forced)
+                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.Custom)
+                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.CustomGroupStart)
+                .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.CustomGroupEnd);
 
             PropertyChangeFor(() => QualifiersViewModel, (IQualifiersViewModel _) => _.Qualifier)
                 .Execute(() => DelimitersViewModel?.Deselect(QualifiersViewModel?.Qualifier));
@@ -84,6 +87,7 @@ namespace Gar.Client.Ui.ViewModels
                                                {
                                                    var collection = Input.Words(QualifiersViewModel?.Qualifier, DelimitersViewModel?.Delimiters)
                                                                          .AsEnumerable();
+
                                                    if (CollectionOptionsViewModel.Distinct)
                                                        collection = collection.Distinct();
 
@@ -107,15 +111,13 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(value, () => Input); }
         }
 
-        public string Output
-        {
-            get
-            {
-                return GetValue(() => Output,
-                                () =>
-                                Collection.GroupJoin(SeperatorsViewModel?.Seperator, GroupersViewModel?.GroupStart, GroupersViewModel?.GroupEnd, GroupersViewModel?.Forced ?? true));
-            }
-        }
+        public string Output => GetValue(() => Output,
+                                         () => GroupersViewModel?.Custom ?? false
+                                                   ? Collection.GroupJoin(SeperatorsViewModel?.Seperator, GroupersViewModel?.CustomGroupStart, GroupersViewModel?.CustomGroupEnd)
+                                                   : Collection.GroupJoin(SeperatorsViewModel?.Seperator,
+                                                                          GroupersViewModel?.GroupStart,
+                                                                          GroupersViewModel?.GroupEnd,
+                                                                          GroupersViewModel?.Forced ?? true));
 
         public IQualifiersViewModel QualifiersViewModel => GetValue(() => QualifiersViewModel);
         public ISeperatorsViewModel SeperatorsViewModel => GetValue(() => SeperatorsViewModel);

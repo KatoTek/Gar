@@ -11,12 +11,16 @@ namespace Gar.Client.Design.ViewModels
         public bool Braces { get; set; }
         public bool Brackets { get; set; }
         public bool Conditional { get; set; }
+        public bool Custom { get; set; }
+        public string CustomGroupEnd { get; set; }
+        public string CustomGroupStart { get; set; }
         public bool Forced { get; set; } = true;
         public char? GroupEnd { get; } = '\"';
         public char? GroupStart { get; } = '\"';
         public bool LtGt { get; set; }
         public bool Parentheses { get; set; }
         public bool Quotes { get; set; } = true;
+        public bool Standard { get; } = true;
         public override string ViewTitle => "Groupers";
 
         #endregion
