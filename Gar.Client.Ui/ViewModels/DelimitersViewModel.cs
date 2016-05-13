@@ -294,6 +294,25 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
+        public void SetCsvInputProfile()
+        {
+            CarriageReturn = false;
+            Delimiters.ToList()
+                      .ForEach(_ => Deselect(_));
+
+            Comma = true;
+        }
+
+        public void SetWhitespaceInputProfile()
+        {
+            Delimiters.ToList()
+                      .ForEach(_ => Deselect(_));
+
+            CarriageReturn = true;
+            Space = true;
+            Tab = true;
+        }
+
         #endregion
     }
 }

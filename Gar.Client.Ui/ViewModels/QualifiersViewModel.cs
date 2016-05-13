@@ -271,6 +271,9 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
+        public void SetCsvInputProfile() => Quotation = true;
+        public void SetWhitespaceInputProfile() => Deselect(Qualifier);
+
         char? Synchronize(char? value)
         {
             Synchronize(value.HasValue);

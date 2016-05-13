@@ -1,8 +1,9 @@
-﻿using Gar.Root.Contracts;
+﻿using Gar.Client.Contracts.Profiles;
+using Gar.Root.Contracts;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface IQualifiersViewModel : IViewModelRoot
+    public interface IQualifiersViewModel : IViewModelRoot, ICsvInputProfile, IWhitespaceInputProfile
     {
         #region properties
 

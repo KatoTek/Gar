@@ -1,8 +1,9 @@
-﻿using Gar.Root.Contracts;
+﻿using Gar.Client.Contracts.Profiles;
+using Gar.Root.Contracts;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface ISeperatorsViewModel : IViewModelRoot
+    public interface ISeperatorsViewModel : IViewModelRoot, ISqlOutputProfile
     {
         #region properties
 

@@ -1,8 +1,9 @@
-﻿using Gar.Root.Contracts;
+﻿using Gar.Client.Contracts.Profiles;
+using Gar.Root.Contracts;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface IGroupersViewModel : IViewModelRoot
+    public interface IGroupersViewModel : IViewModelRoot, ISqlOutputProfile
     {
         #region properties
 

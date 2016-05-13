@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using Gar.Client.Contracts.Profiles;
 using Gar.Root.Contracts;
 using INotify;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface IDelimitersViewModel : IViewModelRoot
+    public interface IDelimitersViewModel : IViewModelRoot, ICsvInputProfile, IWhitespaceInputProfile
     {
         #region properties
 

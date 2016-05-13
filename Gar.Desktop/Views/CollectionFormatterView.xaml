@@ -49,10 +49,11 @@
         <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3"
                  Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" 
                  Style="{StaticResource TextAreaStyle}"/>
-        <StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" 
-                    Orientation="Horizontal">
-            <Button Content="Clear" Command="{Binding ClearInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
-        </StackPanel>
+        <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" LastChildFill="False">
+            <Button DockPanel.Dock="Left" Content="Clear" Command="{Binding ClearInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+            <Button DockPanel.Dock="Left" Content="CSV" Command="{Binding CsvInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+            <Button DockPanel.Dock="Left" Content="Whitespace" Command="{Binding WhitespaceInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+        </DockPanel>
         <Expander Grid.Row="7" Grid.Column="3" x:Name="SeperatorsExpander"
                       DataContext="{Binding SeperatorsViewModel}" 
                       Header="{Binding ViewTitle}"
@@ -63,15 +64,35 @@
                       DataContext="{Binding GroupersViewModel}" 
                       Header="{Binding ViewTitle}"
                       Content="{Binding}"/>
+
         <TextBlock Grid.Row="9" Grid.Column="1" Text="OUTPUT" Style="{StaticResource EndCap}"/>
         <TextBox Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="3"
                  Text="{Binding Output, Mode=OneWay}" 
                  Style="{StaticResource TextAreaStyle}"
                  IsReadOnly="True"/>
-        <StackPanel Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="3" 
-                    Orientation="Horizontal">
-            <Button Content="Copy" Command="{Binding CopyOutputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
-        </StackPanel>
+        <DockPanel Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="3">
+            <Button DockPanel.Dock="Left" Content="Copy" Command="{Binding CopyOutputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+            <Button DockPanel.Dock="Left" Content="SQL" Command="{Binding SqlOutputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="3"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="3"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" Text="Prefix"/>
+                <TextBox Grid.Column="3" Text="{Binding Prefix, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="5" Text="Suffix"/>
+                <TextBox Grid.Column="7" Text="{Binding Suffix, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+        </DockPanel>
         <Expander Grid.Row="1" Grid.Column="7" 
                       IsExpanded="{Binding IsExpanded, ElementName=DelimitersExpander}"
                       DataContext="{Binding CollectionOptionsViewModel}" 

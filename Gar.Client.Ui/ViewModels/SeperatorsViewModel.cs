@@ -312,6 +312,8 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
+        public void SetSqlOutputProfile() => Comma = true;
+
         bool SynchronizeLineInserts(bool reset)
         {
             if (!reset)

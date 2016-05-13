@@ -49,6 +49,8 @@
     <Compile Include="..\AssemblyInfo.shared.cs">
       <Link>Properties\AssemblyInfo.shared.cs</Link>
     </Compile>
+    <Compile Include="Profiles\ISqlOutputProfile.cs" />
+    <Compile Include="Profiles\IWhitespaceInputProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ICollectionFormatterViewModel.cs" />
     <Compile Include="ViewModels\ICollectionOptionsViewModel.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="ViewModels\IFormattingToolsViewModel.cs" />
     <Compile Include="ViewModels\IQualifiersViewModel.cs" />
     <Compile Include="ViewModels\ISeperatorsViewModel.cs" />
+    <Compile Include="Profiles\ICsvInputProfile.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gar.Root.Contracts\Gar.Root.Contracts.csproj">

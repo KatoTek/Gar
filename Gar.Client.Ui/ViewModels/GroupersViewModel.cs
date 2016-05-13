@@ -222,6 +222,12 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
+        public void SetSqlOutputProfile()
+        {
+            Apostrophes = true;
+            Forced = true;
+        }
+
         bool Synchronize(bool reset)
         {
             if (!reset)
