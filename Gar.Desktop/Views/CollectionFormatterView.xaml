@@ -50,9 +50,10 @@
                  Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" 
                  Style="{StaticResource TextAreaStyle}"/>
         <DockPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" LastChildFill="False">
-            <Button DockPanel.Dock="Left" Content="Clear" Command="{Binding ClearInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
-            <Button DockPanel.Dock="Left" Content="CSV" Command="{Binding CsvInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
-            <Button DockPanel.Dock="Left" Content="Whitespace" Command="{Binding WhitespaceInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+            <Button DockPanel.Dock="Right" Content="Clear" Command="{Binding ClearInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+            <TextBlock DockPanel.Dock="Left" Text="Profiles" Margin="0 0 5 0"/>
+            <Button DockPanel.Dock="Left" Content="CSV" Command="{Binding CsvInputCommand}" Style="{DynamicResource SquareButtonStyle}" Margin="0 0 5 0"/>
+            <Button DockPanel.Dock="Left" Content="Whitespace" Command="{Binding WhitespaceInputCommand}" Style="{DynamicResource SquareButtonStyle}" Margin="0 0 5 0"/>
         </DockPanel>
         <Expander Grid.Row="7" Grid.Column="3" x:Name="SeperatorsExpander"
                       DataContext="{Binding SeperatorsViewModel}" 
@@ -71,9 +72,13 @@
                  Style="{StaticResource TextAreaStyle}"
                  IsReadOnly="True"/>
         <DockPanel Grid.Row="11" Grid.Column="3" Grid.ColumnSpan="3">
-            <Button DockPanel.Dock="Left" Content="Copy" Command="{Binding CopyOutputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
-            <Button DockPanel.Dock="Left" Content="SQL" Command="{Binding SqlOutputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
-            <Grid>
+            <Button DockPanel.Dock="Right" Content="Copy" Command="{Binding CopyOutputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
+            <TextBlock DockPanel.Dock="Left" Text="Profiles" Margin="0 0 5 0"/>
+            <Button DockPanel.Dock="Left" Content="C#" Command="{Binding CSharpOutputCommand}" Style="{DynamicResource SquareButtonStyle}" Margin="0 0 5 0"/>
+            <Button DockPanel.Dock="Left" Content="CSV" Command="{Binding CsvOutputCommand}" Style="{DynamicResource SquareButtonStyle}" Margin="0 0 5 0"/>
+            <Button DockPanel.Dock="Left" Content="JSON" Command="{Binding JsonOutputCommand}" Style="{DynamicResource SquareButtonStyle}" Margin="0 0 5 0"/>
+            <Button DockPanel.Dock="Left" Content="SQL" Command="{Binding SqlOutputCommand}" Style="{DynamicResource SquareButtonStyle}" Margin="0 0 5 0"/>
+            <Grid Margin="0 0 5 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>

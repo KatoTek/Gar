@@ -312,6 +312,9 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
+        public void SetCSharpOutputProfile() => Comma = true;
+        public void SetCsvOutputProfile() => Comma = true;
+        public void SetJsonOutputProfile() => Comma = true;
         public void SetSqlOutputProfile() => Comma = true;
 
         bool SynchronizeLineInserts(bool reset)

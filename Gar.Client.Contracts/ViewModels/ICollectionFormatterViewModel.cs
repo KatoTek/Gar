@@ -5,7 +5,7 @@ using INotify;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface ICollectionFormatterViewModel : IViewModelRoot, ISqlOutputProfile
+    public interface ICollectionFormatterViewModel : IViewModelRoot, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOuputProfile
     {
         #region events
 
@@ -19,10 +19,13 @@ namespace Gar.Client.Contracts.ViewModels
         string[] Collection { get; }
         ICollectionOptionsViewModel CollectionOptionsViewModel { get; }
         RelayCommand<string> CopyOutputCommand { get; }
+        RelayCommand CSharpOutputCommand { get; }
         RelayCommand CsvInputCommand { get; }
+        RelayCommand CsvOutputCommand { get; }
         IDelimitersViewModel DelimitersViewModel { get; }
         IGroupersViewModel GroupersViewModel { get; }
         string Input { get; set; }
+        RelayCommand JsonOutputCommand { get; }
         string Output { get; }
         string Prefix { get; set; }
         IQualifiersViewModel QualifiersViewModel { get; }

@@ -49,6 +49,9 @@
     <Compile Include="..\AssemblyInfo.shared.cs">
       <Link>Properties\AssemblyInfo.shared.cs</Link>
     </Compile>
+    <Compile Include="Profiles\ICSharpOutputProfile.cs" />
+    <Compile Include="Profiles\ICsvOuputProfile.cs" />
+    <Compile Include="Profiles\IJsonOutputProfile.cs" />
     <Compile Include="Profiles\ISqlOutputProfile.cs" />
     <Compile Include="Profiles\IWhitespaceInputProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

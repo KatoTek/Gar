@@ -24,6 +24,9 @@ namespace Gar.Client.Ui.ViewModels
             WhitespaceInputCommand = new RelayCommand(WhitespaceInputCommandExecute);
             CopyOutputCommand = new RelayCommand<string>(OnCopyOutputCommandExecute, OnCopyOutputCommandCanExecute);
             SqlOutputCommand = new RelayCommand(SqlOutputCommandExecute);
+            CSharpOutputCommand = new RelayCommand(CSharpOutputCommandExecute);
+            CsvOutputCommand = new RelayCommand(CsvOutputCommandExecute);
+            JsonOutputCommand = new RelayCommand(JsonOutputCommandExecute);
 
             InitializeValue(delimitersViewModel, () => DelimitersViewModel);
             InitializeValue(qualifiersViewModel, () => QualifiersViewModel);
@@ -108,7 +111,9 @@ namespace Gar.Client.Ui.ViewModels
 
         public ICollectionOptionsViewModel CollectionOptionsViewModel => GetValue(() => CollectionOptionsViewModel);
         public RelayCommand<string> CopyOutputCommand { get; }
+        public RelayCommand CSharpOutputCommand { get; }
         public RelayCommand CsvInputCommand { get; }
+        public RelayCommand CsvOutputCommand { get; }
         public IDelimitersViewModel DelimitersViewModel => GetValue(() => DelimitersViewModel);
         public IGroupersViewModel GroupersViewModel => GetValue(() => GroupersViewModel);
 
@@ -117,6 +122,8 @@ namespace Gar.Client.Ui.ViewModels
             get { return GetValue(() => Input); }
             set { SetValue(value, () => Input); }
         }
+
+        public RelayCommand JsonOutputCommand { get; }
 
         public string Output => GetValue(() => Output,
                                          () =>
@@ -156,22 +163,64 @@ namespace Gar.Client.Ui.ViewModels
 
         #region methods
 
+        public void SetCSharpOutputProfile()
+        {
+            Prefix = "{";
+            Suffix = "}";
+        }
+
+        public void SetCsvOutputProfile()
+        {
+            Prefix = Empty;
+            Suffix = Empty;
+        }
+
+        public void SetJsonOutputProfile()
+        {
+            Prefix = "[";
+            Suffix = "]";
+        }
+
         public void SetSqlOutputProfile()
         {
             Prefix = "(";
             Suffix = ")";
         }
 
+        static void SetCSharpOutputProfile(ICSharpOutputProfile cSharpOutputProfile) => cSharpOutputProfile.SetCSharpOutputProfile();
         static void SetCsvInputProfile(ICsvInputProfile csvInputProfile) => csvInputProfile.SetCsvInputProfile();
+        static void SetCsvOutputProfile(ICsvOuputProfile csvOutputProfile) => csvOutputProfile.SetCsvOutputProfile();
+        static void SetJsonOutputProfile(IJsonOutputProfile jsonOutputProfile) => jsonOutputProfile.SetJsonOutputProfile();
         static void SetSqlOutputProfile(ISqlOutputProfile sqlOutputProfile) => sqlOutputProfile.SetSqlOutputProfile();
         static void SetWhitespaceInputProfile(IWhitespaceInputProfile whitespaceInputProfile) => whitespaceInputProfile.SetWhitespaceInputProfile();
         bool ClearInputCommandCanExecute() => !IsNullOrEmpty(Input);
         void ClearInputCommandExecute() => Input = Empty;
 
+        void CSharpOutputCommandExecute()
+        {
+            SetCSharpOutputProfile(this);
+            SetCSharpOutputProfile(SeperatorsViewModel);
+            SetCSharpOutputProfile(GroupersViewModel);
+        }
+
         void CsvInputCommandExecute()
         {
             SetCsvInputProfile(DelimitersViewModel);
             SetCsvInputProfile(QualifiersViewModel);
+        }
+
+        void CsvOutputCommandExecute()
+        {
+            SetCsvOutputProfile(this);
+            SetCsvOutputProfile(SeperatorsViewModel);
+            SetCsvOutputProfile(GroupersViewModel);
+        }
+
+        void JsonOutputCommandExecute()
+        {
+            SetJsonOutputProfile(this);
+            SetJsonOutputProfile(SeperatorsViewModel);
+            SetJsonOutputProfile(GroupersViewModel);
         }
 
         bool OnCopyOutputCommandCanExecute(string obj) => !IsNullOrEmpty(Output);

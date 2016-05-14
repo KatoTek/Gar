@@ -43,6 +43,9 @@ namespace Gar.Client.Design.ViewModels
         #region methods
 
         public void Deselect(char? c) {}
+        public void SetCSharpOutputProfile() {}
+        public void SetCsvOutputProfile() {}
+        public void SetJsonOutputProfile() {}
         public void SetSqlOutputProfile() {}
 
         #endregion

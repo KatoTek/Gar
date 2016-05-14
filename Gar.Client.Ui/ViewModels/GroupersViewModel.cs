@@ -222,6 +222,24 @@ namespace Gar.Client.Ui.ViewModels
                 ?.SetValue(this, false);
         }
 
+        public void SetCSharpOutputProfile()
+        {
+            Quotes = true;
+            Forced = true;
+        }
+
+        public void SetCsvOutputProfile()
+        {
+            Quotes = true;
+            Conditional = true;
+        }
+
+        public void SetJsonOutputProfile()
+        {
+            Apostrophes = true;
+            Forced = true;
+        }
+
         public void SetSqlOutputProfile()
         {
             Apostrophes = true;
