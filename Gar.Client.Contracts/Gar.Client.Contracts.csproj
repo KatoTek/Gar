@@ -62,6 +62,7 @@
     <Compile Include="ViewModels\IQualifiersViewModel.cs" />
     <Compile Include="ViewModels\ISeperatorsViewModel.cs" />
     <Compile Include="Profiles\ICsvInputProfile.cs" />
+    <Compile Include="ViewModels\IXmlFormatterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gar.Root.Contracts\Gar.Root.Contracts.csproj">

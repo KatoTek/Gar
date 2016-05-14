@@ -1,0 +1,47 @@
+﻿using System;
+using Gar.Client.Contracts.ViewModels;
+using Gar.Root.Ui;
+using INotify;
+using static System.Environment;
+
+namespace Gar.Client.Design.ViewModels
+{
+    public class XmlFormatterViewModel : ViewModelRoot, IXmlFormatterViewModel
+    {
+        #region constructors
+
+        public XmlFormatterViewModel()
+        {
+            ClearInputCommand = new RelayCommand(ClearInputCommandExecute);
+            FormatInputCommand = new RelayCommand(FormatInputCommandExecute);
+            CopyOutputCommand = new RelayCommand<string>(CopyOutputCommandExecute);
+        }
+
+        #endregion
+
+        #region events
+
+        public event EventHandler<string> OutputCopied;
+
+        #endregion
+
+        #region properties
+
+        public RelayCommand ClearInputCommand { get; }
+        public RelayCommand<string> CopyOutputCommand { get; }
+        public RelayCommand FormatInputCommand { get; }
+        public string Input { get; set; } = "<xml><node>value</node></xml>";
+        public string Output { get; } = $"<?xml version=\"1.0\" encoding=\"UTF-8\"?>{NewLine}<xml>{NewLine}\t<node>{NewLine}\t\tvalue{NewLine}\t</node>{NewLine}</xml>";
+        public override string ViewTitle => "XML";
+
+        #endregion
+
+        #region methods
+
+        static void ClearInputCommandExecute() {}
+        static void FormatInputCommandExecute() {}
+        void CopyOutputCommandExecute(string obj) => OutputCopied?.Invoke(this, Output);
+
+        #endregion
+    }
+}

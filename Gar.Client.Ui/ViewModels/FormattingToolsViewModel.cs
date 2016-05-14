@@ -7,9 +7,10 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public FormattingToolsViewModel(ICollectionFormatterViewModel collectionFormatterViewModel)
+        public FormattingToolsViewModel(ICollectionFormatterViewModel collectionFormatterViewModel, IXmlFormatterViewModel xmlFormatterViewModel)
         {
             InitializeValue(collectionFormatterViewModel, () => CollectionFormatterViewModel);
+            InitializeValue(xmlFormatterViewModel, () => XmlFormatterViewModel);
         }
 
         #endregion
@@ -18,6 +19,7 @@ namespace Gar.Client.Ui.ViewModels
 
         public ICollectionFormatterViewModel CollectionFormatterViewModel => GetValue(() => CollectionFormatterViewModel);
         public override string ViewTitle => "Format";
+        public IXmlFormatterViewModel XmlFormatterViewModel => GetValue(() => XmlFormatterViewModel);
 
         #endregion
     }

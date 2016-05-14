@@ -9,6 +9,7 @@ namespace Gar.Client.Design.ViewModels
 
         public ICollectionFormatterViewModel CollectionFormatterViewModel { get; } = new CollectionFormatterViewModel();
         public override string ViewTitle => "Format";
+        public IXmlFormatterViewModel XmlFormatterViewModel { get; } = new XmlFormatterViewModel();
 
         #endregion
     }

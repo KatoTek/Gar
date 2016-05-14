@@ -8,6 +8,8 @@ namespace Gar.Client.Contracts.ViewModels
 
         ICollectionFormatterViewModel CollectionFormatterViewModel { get; }
 
+        IXmlFormatterViewModel XmlFormatterViewModel { get; }
+
         #endregion
     }
 }
