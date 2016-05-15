@@ -7,7 +7,7 @@ namespace Gar.Client.Contracts.ViewModels
         #region properties
 
         ICollectionFormatterViewModel CollectionFormatterViewModel { get; }
-
+        IJsonFormatterViewModel JsonFormatterViewModel { get; }
         IXmlFormatterViewModel XmlFormatterViewModel { get; }
 
         #endregion

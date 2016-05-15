@@ -11,6 +11,9 @@
     <DataTemplate DataType="{x:Type ui:XmlFormatterViewModel}">
         <v:XmlFormatterView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type ui:JsonFormatterViewModel}">
+        <v:JsonFormatterView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type ui:DelimitersViewModel}">
         <v:DelimetersView />
     </DataTemplate>

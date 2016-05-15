@@ -38,6 +38,10 @@
       <HintPath>..\packages\INotify.Wpf.19.4.15.1208\lib\net40-Client\INotify.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -62,6 +66,7 @@
     <Compile Include="ViewModels\CollectionOptionsViewModel.cs" />
     <Compile Include="ViewModels\DelimitersViewModel.cs" />
     <Compile Include="ViewModels\GroupersViewModel.cs" />
+    <Compile Include="ViewModels\JsonFormatterViewModel.cs" />
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FormattingToolsViewModel.cs" />

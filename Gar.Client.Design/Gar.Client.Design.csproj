@@ -54,6 +54,7 @@
     <Compile Include="ViewModels\CollectionOptionsViewModel.cs" />
     <Compile Include="ViewModels\DelimitersViewModel.cs" />
     <Compile Include="ViewModels\GroupersViewModel.cs" />
+    <Compile Include="ViewModels\JsonFormatterViewModel.cs" />
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FormattingToolsViewModel.cs" />

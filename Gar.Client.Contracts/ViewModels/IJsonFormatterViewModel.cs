@@ -3,5 +3,5 @@ using Gar.Root.Contracts;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface IXmlFormatterViewModel : IViewModelRoot, IInputOutputViewModel, ICopyOutput { }
+    public interface IJsonFormatterViewModel : IViewModelRoot, IInputOutputViewModel, ICopyOutput {}
 }

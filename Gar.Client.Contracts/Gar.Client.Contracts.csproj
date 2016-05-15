@@ -60,6 +60,8 @@
     <Compile Include="ViewModels\ICollectionOptionsViewModel.cs" />
     <Compile Include="ViewModels\IDelimitersViewModel.cs" />
     <Compile Include="ViewModels\IGroupersViewModel.cs" />
+    <Compile Include="ViewModels\IInputOutputViewModel.cs" />
+    <Compile Include="ViewModels\IJsonFormatterViewModel.cs" />
     <Compile Include="ViewModels\IMainMenuViewModel.cs" />
     <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="ViewModels\IFormattingToolsViewModel.cs" />

@@ -8,6 +8,7 @@ namespace Gar.Client.Design.ViewModels
         #region properties
 
         public ICollectionFormatterViewModel CollectionFormatterViewModel { get; } = new CollectionFormatterViewModel();
+        public IJsonFormatterViewModel JsonFormatterViewModel { get; } = new JsonFormatterViewModel();
         public override string ViewTitle => "Format";
         public IXmlFormatterViewModel XmlFormatterViewModel { get; } = new XmlFormatterViewModel();
 

@@ -11,6 +11,9 @@
         <TabItem DataContext="{Binding CollectionFormatterViewModel}"
              Header="{Binding ViewTitle}"
              Content="{Binding}"/>
+        <TabItem DataContext="{Binding JsonFormatterViewModel}"
+             Header="{Binding ViewTitle}"
+             Content="{Binding}"/>
         <TabItem DataContext="{Binding XmlFormatterViewModel}"
              Header="{Binding ViewTitle}"
              Content="{Binding}"/>

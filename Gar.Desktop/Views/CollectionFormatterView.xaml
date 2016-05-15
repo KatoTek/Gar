@@ -1,14 +1,14 @@
-﻿<rui:UserControlViewRoot x:Class="Gar.Desktop.Views.CollectionFormatterView"
-                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                         xmlns:rui="http://gar.katotek.com/RootUi"
-                         xmlns:uid="http://gar.katotek.com/ClientDesign"
-                         mc:Ignorable="d" 
-                         d:DesignWidth="1600"
-                         d:DesignHeight="900" 
-                         d:DataContext="{d:DesignInstance Type=uid:CollectionFormatterViewModel, IsDesignTimeCreatable=True}">
+﻿<gdr:CopyOutputViewRoot x:Class="Gar.Desktop.Views.CollectionFormatterView"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:uid="http://gar.katotek.com/ClientDesign"
+                        xmlns:gdr="clr-namespace:Gar.Desktop.Root"
+                        mc:Ignorable="d" 
+                        d:DesignWidth="1600"
+                        d:DesignHeight="900" 
+                        d:DataContext="{d:DesignInstance Type=uid:CollectionFormatterViewModel, IsDesignTimeCreatable=True}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1"/>
@@ -123,4 +123,4 @@
             </ItemsControl>
         </ScrollViewer>
     </Grid>
-</rui:UserControlViewRoot>
+</gdr:CopyOutputViewRoot>
