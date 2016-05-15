@@ -12,10 +12,12 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="1"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="1"/>
         </Grid.ColumnDefinitions>
@@ -26,17 +28,19 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="1" Grid.Column="1"
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="INPUT" Style="{StaticResource EndCap}"/>
+        <TextBox Grid.Row="1" Grid.Column="2"
                  Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" 
                  Style="{StaticResource TextAreaStyle}"/>
-        <DockPanel Grid.Row="3" Grid.Column="1" LastChildFill="False">
+        <DockPanel Grid.Row="3" Grid.Column="2" LastChildFill="False">
             <Button DockPanel.Dock="Right" Content="Clear" Command="{Binding ClearInputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
         </DockPanel>
-        <TextBox Grid.Row="1" Grid.Column="5"
+        <TextBlock Grid.Row="1" Grid.Column="6" Text="OUTPUT" Style="{StaticResource EndCap}"/>
+        <TextBox Grid.Row="1" Grid.Column="7"
                  Text="{Binding Output, Mode=OneWay}" 
                  Style="{StaticResource TextAreaStyle}"
                  IsReadOnly="True"/>
-        <DockPanel Grid.Row="3" Grid.Column="5" LastChildFill="False">
+        <DockPanel Grid.Row="3" Grid.Column="7" LastChildFill="False">
             <Button DockPanel.Dock="Right" Content="Copy" Command="{Binding CopyOutputCommand}" Style="{DynamicResource AccentedSquareButtonStyle}"/>
         </DockPanel>
     </Grid>
