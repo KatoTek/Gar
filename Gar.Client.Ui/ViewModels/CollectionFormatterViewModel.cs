@@ -72,18 +72,18 @@ namespace Gar.Client.Ui.ViewModels
                                                    .ToList()
                                                    .ForEach(_ => GroupersViewModel?.Deselect(_)));
 
-            PropertyChangeFor(() => Output)
-                .Raise(CopyOutputCommand);
-
             PropertyChangeFor(() => Input)
                 .Raise(ClearInputCommand);
+
+            PropertyChangeFor(() => Output)
+                .Raise(CopyOutputCommand);
         }
 
         #endregion
 
         #region events
 
-        public event EventHandler<string> OutputCopied;
+        public event EventHandler<string> CopyOutput;
 
         #endregion
 
@@ -224,7 +224,7 @@ namespace Gar.Client.Ui.ViewModels
         }
 
         bool OnCopyOutputCommandCanExecute(string obj) => !IsNullOrEmpty(Output);
-        void OnCopyOutputCommandExecute(string obj) => OutputCopied?.Invoke(this, Output);
+        void OnCopyOutputCommandExecute(string obj) => CopyOutput?.Invoke(this, Output);
 
         void SqlOutputCommandExecute()
         {

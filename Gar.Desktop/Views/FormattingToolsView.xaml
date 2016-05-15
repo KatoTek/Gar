@@ -11,5 +11,8 @@
         <TabItem DataContext="{Binding CollectionFormatterViewModel}"
              Header="{Binding ViewTitle}"
              Content="{Binding}"/>
+        <TabItem DataContext="{Binding XmlFormatterViewModel}"
+             Header="{Binding ViewTitle}"
+             Content="{Binding}"/>
     </TabControl>
 </rui:UserControlViewRoot>

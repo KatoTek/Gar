@@ -13,7 +13,6 @@ namespace Gar.Client.Design.ViewModels
         public XmlFormatterViewModel()
         {
             ClearInputCommand = new RelayCommand(ClearInputCommandExecute);
-            FormatInputCommand = new RelayCommand(FormatInputCommandExecute);
             CopyOutputCommand = new RelayCommand<string>(CopyOutputCommandExecute);
         }
 
@@ -21,7 +20,7 @@ namespace Gar.Client.Design.ViewModels
 
         #region events
 
-        public event EventHandler<string> OutputCopied;
+        public event EventHandler<string> CopyOutput;
 
         #endregion
 
@@ -29,7 +28,6 @@ namespace Gar.Client.Design.ViewModels
 
         public RelayCommand ClearInputCommand { get; }
         public RelayCommand<string> CopyOutputCommand { get; }
-        public RelayCommand FormatInputCommand { get; }
         public string Input { get; set; } = "<xml><node>value</node></xml>";
         public string Output { get; } = $"<?xml version=\"1.0\" encoding=\"UTF-8\"?>{NewLine}<xml>{NewLine}\t<node>{NewLine}\t\tvalue{NewLine}\t</node>{NewLine}</xml>";
         public override string ViewTitle => "XML";
@@ -39,8 +37,7 @@ namespace Gar.Client.Design.ViewModels
         #region methods
 
         static void ClearInputCommandExecute() {}
-        static void FormatInputCommandExecute() {}
-        void CopyOutputCommandExecute(string obj) => OutputCopied?.Invoke(this, Output);
+        void CopyOutputCommandExecute(string obj) => CopyOutput?.Invoke(this, Output);
 
         #endregion
     }

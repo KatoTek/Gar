@@ -49,6 +49,7 @@
     <Compile Include="..\AssemblyInfo.shared.cs">
       <Link>Properties\AssemblyInfo.shared.cs</Link>
     </Compile>
+    <Compile Include="Events\ICopyOutput.cs" />
     <Compile Include="Profiles\ICSharpOutputProfile.cs" />
     <Compile Include="Profiles\ICsvOuputProfile.cs" />
     <Compile Include="Profiles\IJsonOutputProfile.cs" />

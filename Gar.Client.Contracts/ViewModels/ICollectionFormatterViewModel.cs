@@ -1,18 +1,12 @@
-using System;
+using Gar.Client.Contracts.Events;
 using Gar.Client.Contracts.Profiles;
 using Gar.Root.Contracts;
 using INotify;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface ICollectionFormatterViewModel : IViewModelRoot, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOuputProfile
+    public interface ICollectionFormatterViewModel : IViewModelRoot, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOuputProfile, ICopyOutput
     {
-        #region events
-
-        event EventHandler<string> OutputCopied;
-
-        #endregion
-
         #region properties
 
         RelayCommand ClearInputCommand { get; }

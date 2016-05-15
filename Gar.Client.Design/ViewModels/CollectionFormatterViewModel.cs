@@ -26,7 +26,7 @@ namespace Gar.Client.Design.ViewModels
 
         #region events
 
-        public event EventHandler<string> OutputCopied;
+        public event EventHandler<string> CopyOutput;
 
         #endregion
 
@@ -67,7 +67,7 @@ namespace Gar.Client.Design.ViewModels
         static void JsonOutputCommandExecute() {}
         static void SqlOutputCommandExecute() {}
         static void WhitespaceInputCommandExecute() {}
-        void CopyOutputCommandExecute(string obj) => OutputCopied?.Invoke(this, Output);
+        void CopyOutputCommandExecute(string obj) => CopyOutput?.Invoke(this, Output);
 
         #endregion
     }

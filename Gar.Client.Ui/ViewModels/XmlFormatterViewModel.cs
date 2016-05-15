@@ -1,8 +1,10 @@
 ﻿using System;
+using Encompass.Simple.Extensions;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
 using INotify;
 using static System.String;
+using static System.Xml.Linq.XDocument;
 
 namespace Gar.Client.Ui.ViewModels
 {
@@ -13,19 +15,23 @@ namespace Gar.Client.Ui.ViewModels
         public XmlFormatterViewModel()
         {
             ClearInputCommand = new RelayCommand(ClearInputCommandExecute, ClearInputCommandCanExecute);
-            FormatInputCommand = new RelayCommand(FormatInputCommandExecute, FormatInputCommandCanExecute);
-            CopyOutputCommand = new RelayCommand<string>(CopyOutputCommandExecute);
+            CopyOutputCommand = new RelayCommand<string>(CopyOutputCommandExecute, OnCopyOutputCommandCanExecute);
+
+            PropertyOf(() => Output)
+                .DependsOnProperty(() => Input);
 
             PropertyChangeFor(() => Input)
-                .Raise(ClearInputCommand)
-                .Raise(FormatInputCommand);
+                .Raise(ClearInputCommand);
+
+            PropertyChangeFor(() => Output)
+                .Raise(CopyOutputCommand);
         }
 
         #endregion
 
         #region events
 
-        public event EventHandler<string> OutputCopied;
+        public event EventHandler<string> CopyOutput;
 
         #endregion
 
@@ -33,7 +39,6 @@ namespace Gar.Client.Ui.ViewModels
 
         public RelayCommand ClearInputCommand { get; }
         public RelayCommand<string> CopyOutputCommand { get; }
-        public RelayCommand FormatInputCommand { get; }
 
         public string Input
         {
@@ -43,7 +48,24 @@ namespace Gar.Client.Ui.ViewModels
 
         public string Output
         {
-            get { return GetValue(() => Output); }
+            get
+            {
+                return GetValue(() => Output,
+                                () =>
+                                {
+                                    try
+                                    {
+                                        return IsNullOrWhiteSpace(Input)
+                                                   ? Empty
+                                                   : Parse(Input)
+                                                         .ToString();
+                                    }
+                                    catch (Exception exception)
+                                    {
+                                        return exception.ToText();
+                                    }
+                                });
+            }
         }
 
         public override string ViewTitle => "XML";
@@ -54,13 +76,8 @@ namespace Gar.Client.Ui.ViewModels
 
         bool ClearInputCommandCanExecute() => !IsNullOrEmpty(Input);
         void ClearInputCommandExecute() => Input = Empty;
-        void CopyOutputCommandExecute(string obj) => OutputCopied?.Invoke(this, Output);
-        bool FormatInputCommandCanExecute() => !IsNullOrEmpty(Input); //TODO: verify input is xml
-
-        static void FormatInputCommandExecute()
-        {
-            //TODO: http://stackoverflow.com/questions/1123718/format-xml-string-to-print-friendly-xml-string
-        }
+        void CopyOutputCommandExecute(string obj) => CopyOutput?.Invoke(this, Output);
+        bool OnCopyOutputCommandCanExecute(string obj) => !IsNullOrEmpty(Output);
 
         #endregion
     }

@@ -108,6 +108,9 @@
     <Compile Include="Views\SeperatorsView.xaml.cs">
       <DependentUpon>SeperatorsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\XmlFormatterView.xaml.cs">
+      <DependentUpon>XmlFormatterView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SeperatorsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\XmlFormatterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

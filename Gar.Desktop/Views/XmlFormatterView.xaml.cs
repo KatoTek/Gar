@@ -4,11 +4,11 @@ using static System.Windows.Clipboard;
 
 namespace Gar.Desktop.Views
 {
-    public partial class CollectionFormatterView
+    public partial class XmlFormatterView
     {
         #region constructors
 
-        public CollectionFormatterView()
+        public XmlFormatterView()
         {
             InitializeComponent();
         }
