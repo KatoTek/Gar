@@ -44,6 +44,7 @@ namespace Gar.Client.Ui.ViewModels
 
         public SelectableValueList<string> Accents => GetValue(() => Accents);
         public SelectableValueList<string> Themes => GetValue(() => Themes);
+        public override string ViewTitle => "main menu";
 
         #endregion
 

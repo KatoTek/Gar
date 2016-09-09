@@ -49,7 +49,7 @@ namespace Gar.Client.Design.ViewModels
         public ISeperatorsViewModel SeperatorsViewModel { get; } = new SeperatorsViewModel();
         public RelayCommand SqlOutputCommand { get; }
         public string Suffix { get; set; } = ")";
-        public override string ViewTitle => "Collections";
+        public override string ViewTitle => "collections";
         public RelayCommand WhitespaceInputCommand { get; }
 
         #endregion

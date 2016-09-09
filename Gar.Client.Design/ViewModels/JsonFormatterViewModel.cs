@@ -29,7 +29,7 @@ namespace Gar.Client.Design.ViewModels
         public RelayCommand<string> CopyOutputCommand { get; }
         public string Input { get; set; } = "{\"name\":\"Bob\",\"age\":21}";
         public string Output { get; } = $"{{\"name\":\"Bob\",{Environment.NewLine}\"age\":21}}";
-        public override string ViewTitle => "JSON";
+        public override string ViewTitle => "json";
 
         #endregion
 

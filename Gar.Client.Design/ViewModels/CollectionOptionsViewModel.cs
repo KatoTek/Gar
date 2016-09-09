@@ -10,7 +10,7 @@ namespace Gar.Client.Design.ViewModels
         public bool Distinct { get; set; }
         public bool Reversed { get; set; }
         public bool Sorted { get; set; }
-        public override string ViewTitle => "Collection Options";
+        public override string ViewTitle => "collection options";
 
         #endregion
     }

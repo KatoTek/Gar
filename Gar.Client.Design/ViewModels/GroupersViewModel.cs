@@ -21,7 +21,7 @@ namespace Gar.Client.Design.ViewModels
         public bool Parentheses { get; set; }
         public bool Quotes { get; set; } = true;
         public bool Standard { get; } = true;
-        public override string ViewTitle => "Groupers";
+        public override string ViewTitle => "groupers";
 
         #endregion
 

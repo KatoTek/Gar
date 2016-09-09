@@ -7,16 +7,23 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public MainViewModel(IMainMenuViewModel mainMenuViewModel, IFormattingToolsViewModel formattingToolsViewModel)
+        public MainViewModel(IMainMenuViewModel mainMenuViewModel,
+                             IFormattingToolsViewModel formattingToolsViewModel,
+                             IEncodingToolsViewModel encodingToolsViewModel,
+                             IDecodingToolsViewModel decodingToolsViewModel)
         {
             InitializeValue(mainMenuViewModel, () => MainMenuViewModel);
             InitializeValue(formattingToolsViewModel, () => FormattingToolsViewModel);
+            InitializeValue(encodingToolsViewModel, () => EncodingToolsViewModel);
+            InitializeValue(decodingToolsViewModel, () => DecodingToolsViewModel);
         }
 
         #endregion
 
         #region properties
 
+        public IDecodingToolsViewModel DecodingToolsViewModel => GetValue(() => DecodingToolsViewModel);
+        public IEncodingToolsViewModel EncodingToolsViewModel => GetValue(() => EncodingToolsViewModel);
         public IFormattingToolsViewModel FormattingToolsViewModel => GetValue(() => FormattingToolsViewModel);
         public IMainMenuViewModel MainMenuViewModel => GetValue(() => MainMenuViewModel);
         public override string ViewTitle => "gar";

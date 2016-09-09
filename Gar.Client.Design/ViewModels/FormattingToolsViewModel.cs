@@ -9,7 +9,7 @@ namespace Gar.Client.Design.ViewModels
 
         public ICollectionFormatterViewModel CollectionFormatterViewModel { get; } = new CollectionFormatterViewModel();
         public IJsonFormatterViewModel JsonFormatterViewModel { get; } = new JsonFormatterViewModel();
-        public override string ViewTitle => "Format";
+        public override string ViewTitle => "format";
         public IXmlFormatterViewModel XmlFormatterViewModel { get; } = new XmlFormatterViewModel();
 
         #endregion

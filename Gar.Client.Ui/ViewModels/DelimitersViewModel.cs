@@ -265,7 +265,7 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(value, () => Underscore); }
         }
 
-        public override string ViewTitle => "Delimiters";
+        public override string ViewTitle => "delimiters";
 
         #endregion
 

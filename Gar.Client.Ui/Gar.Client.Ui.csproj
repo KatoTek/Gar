@@ -47,6 +47,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -64,14 +65,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CollectionFormatterViewModel.cs" />
     <Compile Include="ViewModels\CollectionOptionsViewModel.cs" />
+    <Compile Include="ViewModels\DecodingToolsViewModel.cs" />
     <Compile Include="ViewModels\DelimitersViewModel.cs" />
+    <Compile Include="ViewModels\EncodingToolsViewModel.cs" />
     <Compile Include="ViewModels\GroupersViewModel.cs" />
+    <Compile Include="ViewModels\InputOutputViewModel.cs" />
     <Compile Include="ViewModels\JsonFormatterViewModel.cs" />
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\FormattingToolsViewModel.cs" />
     <Compile Include="ViewModels\QualifiersViewModel.cs" />
     <Compile Include="ViewModels\SeperatorsViewModel.cs" />
+    <Compile Include="ViewModels\UrlDecoderViewModel.cs" />
+    <Compile Include="ViewModels\UrlEncoderViewModel.cs" />
     <Compile Include="ViewModels\XmlFormatterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,7 @@ namespace Gar.Client.Design.ViewModels
         public bool Slash { get; set; }
         public bool Tilde { get; set; }
         public bool Underscore { get; set; }
-        public override string ViewTitle => "Qualifiers";
+        public override string ViewTitle => "qualifiers";
 
         #endregion
 

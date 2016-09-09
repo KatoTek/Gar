@@ -156,7 +156,7 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(value, () => Suffix); }
         }
 
-        public override string ViewTitle => "Collections";
+        public override string ViewTitle => "collections";
         public RelayCommand WhitespaceInputCommand { get; }
 
         #endregion

@@ -7,6 +7,7 @@ using FluentValidation.Results;
 using Gar.Root.Contracts;
 using INotify;
 using static System.Threading.SynchronizationContext;
+using static System.Threading.Tasks.Task;
 
 namespace Gar.Root.Ui
 {
@@ -111,7 +112,7 @@ namespace Gar.Root.Ui
             StartBusy();
             try
             {
-                await Task.Run(busyAction);
+                await Run(busyAction);
             }
             finally
             {
@@ -128,7 +129,7 @@ namespace Gar.Root.Ui
             StartBusy();
             try
             {
-                t = await Task.Run(busyFunc);
+                t = await Run(busyFunc);
             }
             finally
             {

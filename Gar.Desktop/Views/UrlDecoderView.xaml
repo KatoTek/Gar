@@ -1,4 +1,4 @@
-﻿<gdr:CopyOutputViewRoot x:Class="Gar.Desktop.Views.JsonFormatterView"
+﻿<gdr:CopyOutputViewRoot x:Class="Gar.Desktop.Views.UrlDecoderView"
                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,8 +6,8 @@
                         xmlns:uid="http://gar.katotek.com/ClientDesign"
                         xmlns:gdr="clr-namespace:Gar.Desktop.Root"
                         xmlns:gc="clr-namespace:Gar.Desktop.Controls"
-                        mc:Ignorable="d" 
-                        d:DataContext="{d:DesignInstance Type=uid:JsonFormatterViewModel, IsDesignTimeCreatable=True}">
+                        mc:Ignorable="d"   
+                        d:DataContext="{d:DesignInstance Type=uid:UrlDecoderViewModel, IsDesignTimeCreatable=True}">
     <gc:InputOutputControl Input="{Binding Input}" 
                            Output="{Binding Output, Mode=OneWay}" 
                            ClearInputCommand="{Binding ClearInputCommand}" 

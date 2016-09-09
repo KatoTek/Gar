@@ -37,7 +37,7 @@ namespace Gar.Client.Design.ViewModels
         public bool Tab { get; set; } = true;
         public bool Tilde { get; set; }
         public bool Underscore { get; set; }
-        public override string ViewTitle => "Delimiters";
+        public override string ViewTitle => "delimiters";
 
         #endregion
 

@@ -1,52 +1,27 @@
 ﻿using System;
 using Encompass.Simple.Extensions;
 using Gar.Client.Contracts.ViewModels;
-using Gar.Root.Ui;
-using INotify;
 using static System.String;
 using static System.Xml.Linq.XDocument;
 
 namespace Gar.Client.Ui.ViewModels
 {
-    public class XmlFormatterViewModel : ViewModelRoot, IXmlFormatterViewModel
+    public class XmlFormatterViewModel : InputOutputViewModel, IXmlFormatterViewModel
     {
         #region constructors
 
         public XmlFormatterViewModel()
         {
-            ClearInputCommand = new RelayCommand(ClearInputCommandExecute, ClearInputCommandCanExecute);
-            CopyOutputCommand = new RelayCommand<string>(CopyOutputCommandExecute, OnCopyOutputCommandCanExecute);
-
             PropertyOf(() => Output)
+                .OverridesWithoutBaseReference()
                 .DependsOnProperty(() => Input);
-
-            PropertyChangeFor(() => Input)
-                .Raise(ClearInputCommand);
-
-            PropertyChangeFor(() => Output)
-                .Raise(CopyOutputCommand);
         }
-
-        #endregion
-
-        #region events
-
-        public event EventHandler<string> CopyOutput;
 
         #endregion
 
         #region properties
 
-        public RelayCommand ClearInputCommand { get; }
-        public RelayCommand<string> CopyOutputCommand { get; }
-
-        public string Input
-        {
-            get { return GetValue(() => Input); }
-            set { SetValue(value, () => Input); }
-        }
-
-        public string Output
+        public override string Output
         {
             get
             {
@@ -68,16 +43,7 @@ namespace Gar.Client.Ui.ViewModels
             }
         }
 
-        public override string ViewTitle => "XML";
-
-        #endregion
-
-        #region methods
-
-        bool ClearInputCommandCanExecute() => !IsNullOrEmpty(Input);
-        void ClearInputCommandExecute() => Input = Empty;
-        void CopyOutputCommandExecute(string obj) => CopyOutput?.Invoke(this, Output);
-        bool OnCopyOutputCommandCanExecute(string obj) => !IsNullOrEmpty(Output);
+        public override string ViewTitle => "xml";
 
         #endregion
     }

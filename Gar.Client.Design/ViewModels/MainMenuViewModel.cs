@@ -49,7 +49,7 @@ namespace Gar.Client.Design.ViewModels
                                                               };
 
         public SelectableValueList<string> Themes { get; } = new SelectableValueList<string> { new Theme("Light", "BaseLight"), new Theme("Dark", "BaseDark") };
-        public override string ViewTitle => "Main Menu";
+        public override string ViewTitle => "main menu";
 
         #endregion
 

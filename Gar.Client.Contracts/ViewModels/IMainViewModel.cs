@@ -6,6 +6,8 @@ namespace Gar.Client.Contracts.ViewModels
     {
         #region properties
 
+        IDecodingToolsViewModel DecodingToolsViewModel { get; }
+        IEncodingToolsViewModel EncodingToolsViewModel { get; }
         IFormattingToolsViewModel FormattingToolsViewModel { get; }
         IMainMenuViewModel MainMenuViewModel { get; }
 

@@ -81,6 +81,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\InputOutputControl.xaml.cs">
+      <DependentUpon>InputOutputControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Root\CopyOutputViewRoot.cs" />
     <Compile Include="Views\CollectionFormatterView.xaml.cs">
       <DependentUpon>CollectionFormatterView.xaml</DependentUpon>
@@ -88,8 +91,14 @@
     <Compile Include="Views\CollectionOptionsView.xaml.cs">
       <DependentUpon>CollectionOptionsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DecodingToolsView.xaml.cs">
+      <DependentUpon>DecodingToolsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DelimetersView.xaml.cs">
       <DependentUpon>DelimetersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EncodingToolsView.xaml.cs">
+      <DependentUpon>EncodingToolsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GroupersView.xaml.cs">
       <DependentUpon>GroupersView.xaml</DependentUpon>
@@ -112,9 +121,19 @@
     <Compile Include="Views\SeperatorsView.xaml.cs">
       <DependentUpon>SeperatorsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UrlDecoderView.xaml.cs">
+      <DependentUpon>UrlDecoderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UrlEncoderView.xaml.cs">
+      <DependentUpon>UrlEncoderView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\XmlFormatterView.xaml.cs">
       <DependentUpon>XmlFormatterView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\InputOutputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -158,7 +177,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DecodingToolsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DelimetersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EncodingToolsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,6 +214,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SeperatorsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UrlDecoderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UrlEncoderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,15 +2,14 @@
 using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
 using INotify;
-using static System.Environment;
 
 namespace Gar.Client.Design.ViewModels
 {
-    public class XmlFormatterViewModel : ViewModelRoot, IXmlFormatterViewModel
+    public class UrlDecoderViewModel : ViewModelRoot, IUrlDecoderViewModel
     {
         #region constructors
 
-        public XmlFormatterViewModel()
+        public UrlDecoderViewModel()
         {
             ClearInputCommand = new RelayCommand(ClearInputCommandExecute);
             CopyOutputCommand = new RelayCommand<string>(CopyOutputCommandExecute);
@@ -28,9 +27,9 @@ namespace Gar.Client.Design.ViewModels
 
         public RelayCommand ClearInputCommand { get; }
         public RelayCommand<string> CopyOutputCommand { get; }
-        public string Input { get; set; } = "<xml><node>value</node></xml>";
-        public string Output { get; } = $"<?xml version=\"1.0\" encoding=\"UTF-8\"?>{NewLine}<xml>{NewLine}\t<node>{NewLine}\t\tvalue{NewLine}\t</node>{NewLine}</xml>";
-        public override string ViewTitle => "xml";
+        public string Input { get; set; } = "http%3A%2F%2Fwww.google.com";
+        public string Output { get; } = "http://www.google.com";
+        public override string ViewTitle => "url";
 
         #endregion
 

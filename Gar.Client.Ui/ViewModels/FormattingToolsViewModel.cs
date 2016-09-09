@@ -22,7 +22,7 @@ namespace Gar.Client.Ui.ViewModels
 
         public ICollectionFormatterViewModel CollectionFormatterViewModel => GetValue(() => CollectionFormatterViewModel);
         public IJsonFormatterViewModel JsonFormatterViewModel => GetValue(() => JsonFormatterViewModel);
-        public override string ViewTitle => "Format";
+        public override string ViewTitle => "format";
         public IXmlFormatterViewModel XmlFormatterViewModel => GetValue(() => XmlFormatterViewModel);
 
         #endregion

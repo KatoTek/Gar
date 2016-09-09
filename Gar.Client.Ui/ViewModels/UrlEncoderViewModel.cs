@@ -1,17 +1,16 @@
-using System;
+﻿using System;
 using Encompass.Simple.Extensions;
 using Gar.Client.Contracts.ViewModels;
 using static System.String;
-using static Newtonsoft.Json.Formatting;
-using static Newtonsoft.Json.JsonConvert;
+using static System.Web.HttpUtility;
 
 namespace Gar.Client.Ui.ViewModels
 {
-    public class JsonFormatterViewModel : InputOutputViewModel, IJsonFormatterViewModel
+    public class UrlEncoderViewModel : InputOutputViewModel, IUrlEncoderViewModel
     {
         #region constructors
 
-        public JsonFormatterViewModel()
+        public UrlEncoderViewModel()
         {
             PropertyOf(() => Output)
                 .OverridesWithoutBaseReference()
@@ -33,7 +32,7 @@ namespace Gar.Client.Ui.ViewModels
                                     {
                                         return IsNullOrWhiteSpace(Input)
                                                    ? Empty
-                                                   : SerializeObject(DeserializeObject(Input), Indented);
+                                                   : UrlEncode(Input);
                                     }
                                     catch (Exception exception)
                                     {
@@ -43,7 +42,7 @@ namespace Gar.Client.Ui.ViewModels
             }
         }
 
-        public override string ViewTitle => "json";
+        public override string ViewTitle => "url";
 
         #endregion
     }

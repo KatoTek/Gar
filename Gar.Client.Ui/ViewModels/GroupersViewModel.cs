@@ -195,7 +195,7 @@ namespace Gar.Client.Ui.ViewModels
         }
 
         public bool Standard => GetValue(() => Standard, () => Forced || Conditional);
-        public override string ViewTitle => "Groupers";
+        public override string ViewTitle => "groupers";
 
         #endregion
 

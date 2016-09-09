@@ -58,7 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ICollectionFormatterViewModel.cs" />
     <Compile Include="ViewModels\ICollectionOptionsViewModel.cs" />
+    <Compile Include="ViewModels\IDecodingToolsViewModel.cs" />
     <Compile Include="ViewModels\IDelimitersViewModel.cs" />
+    <Compile Include="ViewModels\IEncodingToolsViewModel.cs" />
     <Compile Include="ViewModels\IGroupersViewModel.cs" />
     <Compile Include="ViewModels\IInputOutputViewModel.cs" />
     <Compile Include="ViewModels\IJsonFormatterViewModel.cs" />
@@ -68,6 +70,8 @@
     <Compile Include="ViewModels\IQualifiersViewModel.cs" />
     <Compile Include="ViewModels\ISeperatorsViewModel.cs" />
     <Compile Include="Profiles\ICsvInputProfile.cs" />
+    <Compile Include="ViewModels\IUrlDecoderViewModel.cs" />
+    <Compile Include="ViewModels\IUrlEncoderViewModel.cs" />
     <Compile Include="ViewModels\IXmlFormatterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

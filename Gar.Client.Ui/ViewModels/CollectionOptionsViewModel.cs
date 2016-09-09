@@ -25,7 +25,7 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(value, () => Sorted); }
         }
 
-        public override string ViewTitle => "Collection Options";
+        public override string ViewTitle => "collection options";
 
         #endregion
     }

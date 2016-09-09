@@ -13,6 +13,12 @@
             <TabItem DataContext="{Binding FormattingToolsViewModel}" 
                      Header="{Binding ViewTitle}" 
                      Content="{Binding}"/>
+            <TabItem DataContext="{Binding EncodingToolsViewModel}" 
+                     Header="{Binding ViewTitle}" 
+                     Content="{Binding}"/>
+            <TabItem DataContext="{Binding DecodingToolsViewModel}" 
+                     Header="{Binding ViewTitle}" 
+                     Content="{Binding}"/>
         </TabControl>
     </DockPanel>
 </rui:UserControlViewRoot>

@@ -241,7 +241,7 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(Synchronize(value), () => Underscore); }
         }
 
-        public override string ViewTitle => "Qualifiers";
+        public override string ViewTitle => "qualifiers";
 
         #endregion
 

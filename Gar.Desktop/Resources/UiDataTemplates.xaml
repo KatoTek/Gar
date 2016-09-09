@@ -2,6 +2,18 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ui="http://gar.katotek.com/ClientUi"
                     xmlns:v="clr-namespace:Gar.Desktop.Views">
+    <DataTemplate DataType="{x:Type ui:DecodingToolsViewModel}">
+        <v:DecodingToolsView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ui:UrlDecoderViewModel}">
+        <v:UrlDecoderView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ui:EncodingToolsViewModel}">
+        <v:EncodingToolsView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ui:UrlEncoderViewModel}">
+        <v:UrlEncoderView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type ui:FormattingToolsViewModel}">
         <v:FormattingToolsView />
     </DataTemplate>
