@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.Serialization;
 using FluentValidation.Results;
-using INotify;
+using INotify.Core;
 
 namespace Gar.Root.Contracts
 {

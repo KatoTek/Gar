@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Gar.Root.Contracts;
-using INotify;
+using INotify.Core;
 
 namespace Gar.Root
 {

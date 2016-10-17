@@ -4,7 +4,7 @@ using Encompass.Simple.Extensions;
 using Gar.Client.Contracts.Profiles;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
-using INotify;
+using INotify.Core.Commands;
 using static System.String;
 
 namespace Gar.Client.Ui.ViewModels
@@ -59,7 +59,7 @@ namespace Gar.Client.Ui.ViewModels
 
             PropertyChangeFor(() => DelimitersViewModel, (IDelimitersViewModel _) => _.Delimiters)
                 .Execute(() => DelimitersViewModel?.Delimiters?.ToList()
-                                                   .ForEach(_ => QualifiersViewModel?.Deselect(_)));
+                                                  .ForEach(_ => QualifiersViewModel?.Deselect(_)));
 
             PropertyChangeFor(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupStart)
                 .Execute(() => SeperatorsViewModel?.Deselect(GroupersViewModel?.GroupStart));
@@ -69,8 +69,8 @@ namespace Gar.Client.Ui.ViewModels
 
             PropertyChangeFor(() => SeperatorsViewModel, (ISeperatorsViewModel _) => _.Seperator)
                 .Execute(() => SeperatorsViewModel?.Seperator?.ToCharArray()
-                                                   .ToList()
-                                                   .ForEach(_ => GroupersViewModel?.Deselect(_)));
+                                                  .ToList()
+                                                  .ForEach(_ => GroupersViewModel?.Deselect(_)));
 
             PropertyChangeFor(() => Input)
                 .Raise(ClearInputCommand);

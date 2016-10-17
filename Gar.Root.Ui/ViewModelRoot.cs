@@ -5,7 +5,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation.Results;
 using Gar.Root.Contracts;
-using INotify;
+using INotify.Core;
+using INotify.Core.Commands;
 using static System.Threading.SynchronizationContext;
 using static System.Threading.Tasks.Task;
 
@@ -153,18 +154,14 @@ namespace Gar.Root.Ui
             var validationErrors = new List<ValidationFailure>();
 
             if (_models.Count > 0)
-            {
                 foreach (var modelObject in _models)
                 {
                     modelObject?.Validate();
 
                     if (modelObject != null)
-                    {
                         validationErrors = validationErrors.Union(modelObject.ValidationErrors)
                                                            .ToList();
-                    }
                 }
-            }
 
             ValidationErrors = new NotifyingList<ValidationFailure>(validationErrors);
         }

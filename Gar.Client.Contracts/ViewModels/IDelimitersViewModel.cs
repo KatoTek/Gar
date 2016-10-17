@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Gar.Client.Contracts.Profiles;
 using Gar.Root.Contracts;
-using INotify;
+using INotify.Core;
 
 namespace Gar.Client.Contracts.ViewModels
 {

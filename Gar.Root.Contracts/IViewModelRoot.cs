@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Threading;
-using INotify;
+using INotify.Core.Commands;
 
 namespace Gar.Root.Contracts
 {

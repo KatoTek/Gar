@@ -35,8 +35,12 @@
       <HintPath>..\packages\KatoTek.Encompass.Simple.8.1.16.421\lib\net40\Encompass.Simple.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="INotify, Version=19.4.15.1208, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\INotify.Wpf.19.4.15.1208\lib\net40-Client\INotify.dll</HintPath>
+    <Reference Include="INotify.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\INotify.Core.1.0.0\lib\net40\INotify.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="INotify.Core.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\INotify.Core.Commands.1.0.0\lib\net40\INotify.Core.Commands.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

@@ -5,7 +5,7 @@ using System.Reflection;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Client.Ui.Attributes;
 using Gar.Root.Ui;
-using INotify;
+using INotify.Core;
 using static System.Reflection.BindingFlags;
 
 namespace Gar.Client.Ui.ViewModels

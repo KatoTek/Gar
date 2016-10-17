@@ -1,7 +1,7 @@
 ﻿using System;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
-using INotify;
+using INotify.Core.Commands;
 using static System.Environment;
 
 namespace Gar.Client.Design.ViewModels

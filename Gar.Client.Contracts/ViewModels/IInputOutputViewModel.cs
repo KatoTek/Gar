@@ -1,4 +1,4 @@
-﻿using INotify;
+﻿using INotify.Core.Commands;
 
 namespace Gar.Client.Contracts.ViewModels
 {

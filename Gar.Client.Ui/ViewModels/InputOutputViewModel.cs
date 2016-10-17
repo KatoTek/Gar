@@ -2,7 +2,7 @@
 using Gar.Client.Contracts.Events;
 using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
-using INotify;
+using INotify.Core.Commands;
 using static System.String;
 
 namespace Gar.Client.Ui.ViewModels

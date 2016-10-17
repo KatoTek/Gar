@@ -7,7 +7,7 @@ using System.Text;
 using FluentValidation;
 using FluentValidation.Results;
 using Gar.Root.Contracts;
-using INotify;
+using INotify.Core;
 
 namespace Gar.Root
 {

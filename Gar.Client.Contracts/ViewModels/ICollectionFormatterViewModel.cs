@@ -1,7 +1,7 @@
 using Gar.Client.Contracts.Events;
 using Gar.Client.Contracts.Profiles;
 using Gar.Root.Contracts;
-using INotify;
+using INotify.Core.Commands;
 
 namespace Gar.Client.Contracts.ViewModels
 {
