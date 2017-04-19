@@ -7,6 +7,7 @@ using FluentValidation.Results;
 using Gar.Root.Contracts;
 using INotify.Core;
 using INotify.Core.Commands;
+using static System.String;
 using static System.Threading.SynchronizationContext;
 using static System.Threading.Tasks.Task;
 
@@ -39,10 +40,7 @@ namespace Gar.Root.Ui
         }
 
         protected ViewModelRoot(SynchronizationContext uiContext)
-            : this()
-        {
-            UiContext = uiContext;
-        }
+            : this() => UiContext = uiContext;
 
         #endregion
 
@@ -67,7 +65,7 @@ namespace Gar.Root.Ui
         {
             get
             {
-                var ret = string.Empty;
+                var ret = Empty;
 
                 if (ValidationErrors == null)
                     return ret;
@@ -76,7 +74,7 @@ namespace Gar.Root.Ui
                                ? "is"
                                : "are";
                 var suffix = ValidationErrors.Count == 1
-                                 ? string.Empty
+                                 ? Empty
                                  : "s";
 
                 if (!IsValid)
@@ -97,13 +95,13 @@ namespace Gar.Root.Ui
             }
         }
 
-        public virtual string ViewTitle => string.Empty;
+        public virtual string ViewTitle => Empty;
 
         #endregion
 
         #region methods
 
-        protected virtual void AddModels(List<RootObject> models) {}
+        protected virtual void AddModels(List<RootObject> models) { }
 
         protected async Task ExecuteBusyActionAsync(Action busyAction)
         {
@@ -128,6 +126,7 @@ namespace Gar.Root.Ui
                 return t;
 
             StartBusy();
+
             try
             {
                 t = await Run(busyFunc);
@@ -136,12 +135,13 @@ namespace Gar.Root.Ui
             {
                 StopBusy();
             }
+
             return t;
         }
 
         protected virtual bool OnToggleErrorsCommandCanExecute(object arg) => !IsValid;
         protected virtual void OnToggleErrorsCommandExecute(object arg) => ErrorsVisible = !ErrorsVisible;
-        protected virtual void OnViewLoaded() {}
+        protected virtual void OnViewLoaded() { }
 
         protected void ValidateModel()
         {

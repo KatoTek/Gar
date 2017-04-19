@@ -44,7 +44,7 @@ namespace Gar.Client.Design.ViewModels
         public string Input { get; set; } = $"1000{NewLine}2000{NewLine}3000{NewLine}4000";
         public RelayCommand JsonOutputCommand { get; }
         public string Output => "\"1000\",\"2000\",\"3000\",\"4000\"";
-        public string Prefix { get; set; } = "select * from table where colum in (";
+        public string Prefix { get; set; } = "select * from table where column in (";
         public IQualifiersViewModel QualifiersViewModel { get; } = new QualifiersViewModel();
         public ISeperatorsViewModel SeperatorsViewModel { get; } = new SeperatorsViewModel();
         public RelayCommand SqlOutputCommand { get; }
@@ -56,17 +56,17 @@ namespace Gar.Client.Design.ViewModels
 
         #region methods
 
-        public void SetCSharpOutputProfile() {}
-        public void SetCsvOutputProfile() {}
-        public void SetJsonOutputProfile() {}
-        public void SetSqlOutputProfile() {}
-        static void ClearInputCommandExecute() {}
-        static void CSharpOutputCommandExecute() {}
-        static void CsvInputCommandExecute() {}
-        static void CsvOutputCommandExecute() {}
-        static void JsonOutputCommandExecute() {}
-        static void SqlOutputCommandExecute() {}
-        static void WhitespaceInputCommandExecute() {}
+        public void SetCSharpOutputProfile() { }
+        public void SetCsvOutputProfile() { }
+        public void SetJsonOutputProfile() { }
+        public void SetSqlOutputProfile() { }
+        static void ClearInputCommandExecute() { }
+        static void CSharpOutputCommandExecute() { }
+        static void CsvInputCommandExecute() { }
+        static void CsvOutputCommandExecute() { }
+        static void JsonOutputCommandExecute() { }
+        static void SqlOutputCommandExecute() { }
+        static void WhitespaceInputCommandExecute() { }
         void CopyOutputCommandExecute(string obj) => CopyOutput?.Invoke(this, Output);
 
         #endregion

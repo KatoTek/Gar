@@ -291,7 +291,7 @@ namespace Gar.Client.Ui.ViewModels
              into _
              where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == @char
              select _.Property).FirstOrDefault()
-                ?.SetValue(this, false);
+                               ?.SetValue(this, false);
         }
 
         public void SetCsvInputProfile()

@@ -7,10 +7,7 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public EncodingToolsViewModel(IUrlEncoderViewModel urlEncoderViewModel)
-        {
-            InitializeValue(urlEncoderViewModel, () => UrlEncoderViewModel);
-        }
+        public EncodingToolsViewModel(IUrlEncoderViewModel urlEncoderViewModel) => InitializeValue(urlEncoderViewModel, () => UrlEncoderViewModel);
 
         #endregion
 

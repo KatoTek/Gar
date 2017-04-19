@@ -282,7 +282,7 @@ namespace Gar.Client.Ui.ViewModels
             set { SetValue(SynchronizeSeperators(value), () => Underscore); }
         }
 
-        public override string ViewTitle => "seperators";
+        public override string ViewTitle => "separators";
 
         #endregion
 

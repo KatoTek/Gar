@@ -37,10 +37,7 @@ namespace Gar.Root
             Validate();
         }
 
-        ~RootObject()
-        {
-            PropertyChanged -= Validate;
-        }
+        ~RootObject() => PropertyChanged -= Validate;
 
         #endregion
 
@@ -85,7 +82,7 @@ namespace Gar.Root
         public void Validate()
         {
             var errors = _validator?.Validate(this)
-                ?.Errors;
+                                   ?.Errors;
             if (errors != null)
                 SetValue(new NotifyingList<ValidationFailure>(errors), () => ValidationErrors);
         }

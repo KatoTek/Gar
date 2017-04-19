@@ -18,7 +18,7 @@ namespace Gar.Root.Ui
 
         public UserControlViewRoot()
         {
-            // Programmatically bind the view-model's ViewLoaded property to the view's ViewLoaded property.
+            // Programmatic-ally bind the view-model's ViewLoaded property to the view's ViewLoaded property.
             BindingOperations.SetBinding(this, ViewLoadedProperty, new Binding(VIEW_LOADED));
 
             DataContextChanged += OnDataContextChanged;
@@ -28,22 +28,20 @@ namespace Gar.Root.Ui
 
         #region methods
 
-        protected virtual void OnUnwireViewModelEvents(ViewModelRoot viewModel) {}
-        protected virtual void OnWireViewModelEvents(ViewModelRoot viewModel) {}
+        protected virtual void OnUnwireViewModelEvents(ViewModelRoot viewModel) { }
+        protected virtual void OnWireViewModelEvents(ViewModelRoot viewModel) { }
 
         void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue == null)
             {
                 if (e.OldValue != null)
-                {
-                    // view going out of scope and view-model disconnected (but still around in the parent)
-                    // unwire events to allow view to dispose
                     OnUnwireViewModelEvents(e.OldValue as ViewModelRoot);
-                }
             }
             else
+            {
                 OnWireViewModelEvents(e.NewValue as ViewModelRoot);
+            }
         }
 
         #endregion

@@ -10,38 +10,29 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public XmlFormatterViewModel()
-        {
-            PropertyOf(() => Output)
-                .OverridesWithoutBaseReference()
-                .DependsOnProperty(() => Input);
-        }
+        public XmlFormatterViewModel() => PropertyOf(() => Output)
+            .OverridesWithoutBaseReference()
+            .DependsOnProperty(() => Input);
 
         #endregion
 
         #region properties
 
-        public override string Output
-        {
-            get
-            {
-                return GetValue(() => Output,
-                                () =>
-                                {
-                                    try
-                                    {
-                                        return IsNullOrWhiteSpace(Input)
-                                                   ? Empty
-                                                   : Parse(Input)
-                                                         .ToString();
-                                    }
-                                    catch (Exception exception)
-                                    {
-                                        return exception.ToText();
-                                    }
-                                });
-            }
-        }
+        public override string Output => GetValue(() => Output,
+                                                  () =>
+                                                  {
+                                                      try
+                                                      {
+                                                          return IsNullOrWhiteSpace(Input)
+                                                                     ? Empty
+                                                                     : Parse(Input)
+                                                                         .ToString();
+                                                      }
+                                                      catch (Exception exception)
+                                                      {
+                                                          return exception.ToText();
+                                                      }
+                                                  });
 
         public override string ViewTitle => "xml";
 

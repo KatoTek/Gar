@@ -190,12 +190,9 @@ namespace Gar.Client.Ui.ViewModels
 
                                                switch (qualifiers.Length)
                                                {
-                                                   case 0:
-                                                       return null;
-                                                   case 1:
-                                                       return qualifiers.Single();
-                                                   default:
-                                                       throw new IndexOutOfRangeException();
+                                                   case 0: return null;
+                                                   case 1: return qualifiers.Single();
+                                                   default: throw new IndexOutOfRangeException();
                                                }
                                            });
 
@@ -268,7 +265,7 @@ namespace Gar.Client.Ui.ViewModels
              into _
              where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == @char
              select _.Property).FirstOrDefault()
-                ?.SetValue(this, false);
+                               ?.SetValue(this, false);
         }
 
         public void SetCsvInputProfile() => Quotation = true;

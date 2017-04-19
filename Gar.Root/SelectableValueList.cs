@@ -10,16 +10,10 @@ namespace Gar.Root
     {
         #region constructors
 
-        public SelectableValueList()
-        {
-            Initialize();
-        }
+        public SelectableValueList() => Initialize();
 
         public SelectableValueList(int capacity)
-            : base(capacity)
-        {
-            Initialize();
-        }
+            : base(capacity) => Initialize();
 
         public SelectableValueList(IEnumerable<ISelectableValue<T>> collection)
             : base(collection)
@@ -34,7 +28,7 @@ namespace Gar.Root
 
         public override ISelectableValue<T> this[int index]
         {
-            get { return base[index]; }
+            get => base[index];
             set
             {
                 if (base[index] == SelectedItem)
@@ -125,7 +119,6 @@ namespace Gar.Root
                                     .ToArray();
 
             if (selectedItems.Any())
-            {
                 switch (selectedItems.Length)
                 {
                     case 1:
@@ -137,10 +130,8 @@ namespace Gar.Root
                         SelectedItem = newItem;
                         oldItem.IsSelected = false;
                         break;
-                    default:
-                        throw new IndexOutOfRangeException("Too many items simultaneously selected.");
+                    default: throw new IndexOutOfRangeException("Too many items simultaneously selected.");
                 }
-            }
             else
                 SelectedItem = null;
         }

@@ -38,9 +38,9 @@ namespace Gar.Client.Design.ViewModels
 
         #region methods
 
-        public void Deselect(char? c) {}
-        public void SetCsvInputProfile() {}
-        public void SetWhitespaceInputProfile() {}
+        public void Deselect(char? c) { }
+        public void SetCsvInputProfile() { }
+        public void SetWhitespaceInputProfile() { }
 
         #endregion
     }

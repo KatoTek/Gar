@@ -36,7 +36,7 @@ namespace Gar.Client.Design.ViewModels
 
         #region methods
 
-        static void ClearInputCommandExecute() {}
+        static void ClearInputCommandExecute() { }
         void CopyOutputCommandExecute(string obj) => CopyOutput?.Invoke(this, Output);
 
         #endregion

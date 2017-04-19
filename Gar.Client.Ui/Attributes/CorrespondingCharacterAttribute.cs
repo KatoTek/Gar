@@ -7,10 +7,7 @@ namespace Gar.Client.Ui.Attributes
     {
         #region constructors
 
-        public CorrespondingCharacterAttribute(char character)
-        {
-            Character = character;
-        }
+        public CorrespondingCharacterAttribute(char character) => Character = character;
 
         #endregion
 

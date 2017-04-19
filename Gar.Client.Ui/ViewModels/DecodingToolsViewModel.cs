@@ -7,10 +7,7 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public DecodingToolsViewModel(IUrlDecoderViewModel urlDecoderViewModel)
-        {
-            InitializeValue(urlDecoderViewModel, () => UrlDecoderViewModel);
-        }
+        public DecodingToolsViewModel(IUrlDecoderViewModel urlDecoderViewModel) => InitializeValue(urlDecoderViewModel, () => UrlDecoderViewModel);
 
         #endregion
 

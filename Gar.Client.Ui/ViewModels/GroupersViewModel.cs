@@ -139,12 +139,9 @@ namespace Gar.Client.Ui.ViewModels
 
                                               switch (groupEnds.Length)
                                               {
-                                                  case 0:
-                                                      return null;
-                                                  case 1:
-                                                      return groupEnds.Single();
-                                                  default:
-                                                      throw new IndexOutOfRangeException();
+                                                  case 0: return null;
+                                                  case 1: return groupEnds.Single();
+                                                  default: throw new IndexOutOfRangeException();
                                               }
                                           });
 
@@ -163,12 +160,9 @@ namespace Gar.Client.Ui.ViewModels
 
                                                 switch (groupStarts.Length)
                                                 {
-                                                    case 0:
-                                                        return null;
-                                                    case 1:
-                                                        return groupStarts.Single();
-                                                    default:
-                                                        throw new IndexOutOfRangeException();
+                                                    case 0: return null;
+                                                    case 1: return groupStarts.Single();
+                                                    default: throw new IndexOutOfRangeException();
                                                 }
                                             });
 
@@ -219,7 +213,7 @@ namespace Gar.Client.Ui.ViewModels
              into _
              where _.CorrespondingCharacterAttribute != null && _.CorrespondingCharacterAttribute.Character == @char
              select _.Property).FirstOrDefault()
-                ?.SetValue(this, false);
+                               ?.SetValue(this, false);
         }
 
         public void SetCSharpOutputProfile()
