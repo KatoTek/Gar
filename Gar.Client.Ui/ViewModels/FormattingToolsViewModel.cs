@@ -7,9 +7,7 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public FormattingToolsViewModel(ICollectionFormatterViewModel collectionFormatterViewModel,
-                                        IXmlFormatterViewModel xmlFormatterViewModel,
-                                        IJsonFormatterViewModel jsonFormatterViewModel)
+        public FormattingToolsViewModel(ICollectionFormatterViewModel collectionFormatterViewModel, IXmlFormatterViewModel xmlFormatterViewModel, IJsonFormatterViewModel jsonFormatterViewModel)
         {
             InitializeValue(collectionFormatterViewModel, () => CollectionFormatterViewModel);
             InitializeValue(xmlFormatterViewModel, () => XmlFormatterViewModel);

@@ -39,9 +39,7 @@ namespace Gar.Root.Ui
                     OnUnwireViewModelEvents(e.OldValue as ViewModelRoot);
             }
             else
-            {
                 OnWireViewModelEvents(e.NewValue as ViewModelRoot);
-            }
         }
 
         #endregion

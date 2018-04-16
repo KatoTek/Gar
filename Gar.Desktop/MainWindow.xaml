@@ -1,16 +1,16 @@
 ﻿<metro:MetroWindow x:Class="Gar.Desktop.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:v="clr-namespace:Gar.Desktop.Views"
-        mc:Ignorable="d"
-        Title="GAR" Width="1280" MinWidth="1024" Height="800" MinHeight="768">
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                   xmlns:v="clr-namespace:Gar.Desktop.Views"
+                   mc:Ignorable="d"
+                   Title="GAR" Width="1280" MinWidth="1024" Height="800" MinHeight="768">
     <metro:MetroWindow.WindowButtonCommands>
         <metro:WindowButtonCommands Style="{DynamicResource MahApps.Metro.Styles.WindowButtonCommands.Win10}" />
     </metro:MetroWindow.WindowButtonCommands>
     <Grid>
-        <v:MainView x:Name="MainView"/>
+        <v:MainView x:Name="MainView" />
     </Grid>
 </metro:MetroWindow>

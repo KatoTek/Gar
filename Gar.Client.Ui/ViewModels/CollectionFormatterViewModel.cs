@@ -91,23 +91,24 @@ namespace Gar.Client.Ui.ViewModels
 
         public RelayCommand ClearInputCommand { get; }
 
-        public string[] Collection => GetValue(() => Collection,
-                                               () =>
-                                               {
-                                                   var collection = Input.Words(QualifiersViewModel?.Qualifier, DelimitersViewModel?.Delimiters)
-                                                                         .AsEnumerable();
+        public string[] Collection =>
+            GetValue(() => Collection,
+                     () =>
+                     {
+                         var collection = Input.Words(QualifiersViewModel?.Qualifier, DelimitersViewModel?.Delimiters)
+                                               .AsEnumerable();
 
-                                                   if (CollectionOptionsViewModel.Distinct)
-                                                       collection = collection.Distinct();
+                         if (CollectionOptionsViewModel.Distinct)
+                             collection = collection.Distinct();
 
-                                                   if (CollectionOptionsViewModel.Sorted)
-                                                       collection = collection.OrderBy(item => item);
+                         if (CollectionOptionsViewModel.Sorted)
+                             collection = collection.OrderBy(item => item);
 
-                                                   if (CollectionOptionsViewModel.Reversed)
-                                                       collection = collection.Reverse();
+                         if (CollectionOptionsViewModel.Reversed)
+                             collection = collection.Reverse();
 
-                                                   return collection.ToArray();
-                                               });
+                         return collection.ToArray();
+                     });
 
         public ICollectionOptionsViewModel CollectionOptionsViewModel => GetValue(() => CollectionOptionsViewModel);
         public RelayCommand<string> CopyOutputCommand { get; }
@@ -119,31 +120,27 @@ namespace Gar.Client.Ui.ViewModels
 
         public string Input
         {
-            get { return GetValue(() => Input); }
-            set { SetValue(value, () => Input); }
+            get => GetValue(() => Input);
+            set => SetValue(value, () => Input);
         }
 
         public RelayCommand JsonOutputCommand { get; }
 
-        public string Output => GetValue(() => Output,
-                                         () =>
-                                         {
-                                             var output = GroupersViewModel?.Custom ?? false
-                                                              ? Collection.GroupJoin(SeperatorsViewModel?.Seperator,
-                                                                                     GroupersViewModel?.CustomGroupStart,
-                                                                                     GroupersViewModel?.CustomGroupEnd)
-                                                              : Collection.GroupJoin(SeperatorsViewModel?.Seperator,
-                                                                                     GroupersViewModel?.GroupStart,
-                                                                                     GroupersViewModel?.GroupEnd,
-                                                                                     GroupersViewModel?.Forced ?? true);
+        public string Output =>
+            GetValue(() => Output,
+                     () =>
+                     {
+                         var output = GroupersViewModel?.Custom ?? false
+                                          ? Collection.GroupJoin(SeperatorsViewModel?.Seperator, GroupersViewModel?.CustomGroupStart, GroupersViewModel?.CustomGroupEnd)
+                                          : Collection.GroupJoin(SeperatorsViewModel?.Seperator, GroupersViewModel?.GroupStart, GroupersViewModel?.GroupEnd, GroupersViewModel?.Forced ?? true);
 
-                                             return $"{Prefix ?? Empty}{output ?? Empty}{Suffix ?? Empty}";
-                                         });
+                         return $"{Prefix ?? Empty}{output ?? Empty}{Suffix ?? Empty}";
+                     });
 
         public string Prefix
         {
-            get { return GetValue(() => Prefix); }
-            set { SetValue(value, () => Prefix); }
+            get => GetValue(() => Prefix);
+            set => SetValue(value, () => Prefix);
         }
 
         public IQualifiersViewModel QualifiersViewModel => GetValue(() => QualifiersViewModel);
@@ -152,8 +149,8 @@ namespace Gar.Client.Ui.ViewModels
 
         public string Suffix
         {
-            get { return GetValue(() => Suffix); }
-            set { SetValue(value, () => Suffix); }
+            get => GetValue(() => Suffix);
+            set => SetValue(value, () => Suffix);
         }
 
         public override string ViewTitle => "collections";

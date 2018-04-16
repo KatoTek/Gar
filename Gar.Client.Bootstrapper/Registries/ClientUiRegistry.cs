@@ -9,8 +9,7 @@ namespace Gar.Client.Bootstrapper.Registries
     {
         #region constructors
 
-        public ClientUiRegistry()
-        {
+        public ClientUiRegistry() =>
             Scan(_ =>
                  {
                      _.AssemblyContainingType<RootObject>();
@@ -19,7 +18,6 @@ namespace Gar.Client.Bootstrapper.Registries
                      _.AddAllTypesOf(typeof(ISettingsManager<>));
                      _.WithDefaultConventions();
                  });
-        }
 
         #endregion
     }

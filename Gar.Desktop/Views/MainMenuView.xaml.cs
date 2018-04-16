@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public MainMenuView()
-        {
-            InitializeComponent();
-        }
+        public MainMenuView() => InitializeComponent();
 
         #endregion
     }

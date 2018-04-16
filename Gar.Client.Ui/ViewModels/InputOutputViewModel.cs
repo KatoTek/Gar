@@ -38,8 +38,8 @@ namespace Gar.Client.Ui.ViewModels
 
         public string Input
         {
-            get { return GetValue(() => Input); }
-            set { SetValue(value, () => Input); }
+            get => GetValue(() => Input);
+            set => SetValue(value, () => Input);
         }
 
         public abstract string Output { get; }

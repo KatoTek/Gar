@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public DelimetersView()
-        {
-            InitializeComponent();
-        }
+        public DelimetersView() => InitializeComponent();
 
         #endregion
     }

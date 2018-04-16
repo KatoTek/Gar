@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public FormattingToolsView()
-        {
-            InitializeComponent();
-        }
+        public FormattingToolsView() => InitializeComponent();
 
         #endregion
     }

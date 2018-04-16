@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public XmlFormatterView()
-        {
-            InitializeComponent();
-        }
+        public XmlFormatterView() => InitializeComponent();
 
         #endregion
     }

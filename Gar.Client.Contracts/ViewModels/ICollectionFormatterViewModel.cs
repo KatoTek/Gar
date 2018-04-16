@@ -5,13 +5,7 @@ using INotify.Core.Commands;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface ICollectionFormatterViewModel : IViewModelRoot,
-                                                     IInputOutputViewModel,
-                                                     ISqlOutputProfile,
-                                                     ICSharpOutputProfile,
-                                                     IJsonOutputProfile,
-                                                     ICsvOuputProfile,
-                                                     ICopyOutput
+    public interface ICollectionFormatterViewModel : IViewModelRoot, IInputOutputViewModel, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOuputProfile, ICopyOutput
     {
         #region properties
 

@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public QualifiersView()
-        {
-            InitializeComponent();
-        }
+        public QualifiersView() => InitializeComponent();
 
         #endregion
     }

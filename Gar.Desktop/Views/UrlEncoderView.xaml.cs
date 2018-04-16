@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public UrlEncoderView()
-        {
-            InitializeComponent();
-        }
+        public UrlEncoderView() => InitializeComponent();
 
         #endregion
     }

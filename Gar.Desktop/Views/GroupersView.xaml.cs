@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public GroupersView()
-        {
-            InitializeComponent();
-        }
+        public GroupersView() => InitializeComponent();
 
         #endregion
     }

@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public SeperatorsView()
-        {
-            InitializeComponent();
-        }
+        public SeperatorsView() => InitializeComponent();
 
         #endregion
     }

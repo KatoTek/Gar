@@ -11,12 +11,9 @@ namespace Gar.Root
         #region constructors
 
         public SelectableValueList() => Initialize();
+        public SelectableValueList(int capacity) : base(capacity) => Initialize();
 
-        public SelectableValueList(int capacity)
-            : base(capacity) => Initialize();
-
-        public SelectableValueList(IEnumerable<ISelectableValue<T>> collection)
-            : base(collection)
+        public SelectableValueList(IEnumerable<ISelectableValue<T>> collection) : base(collection)
         {
             Initialize();
             SetSelectedItem();
@@ -40,16 +37,17 @@ namespace Gar.Root
 
         public ISelectableValue<T> SelectedItem
         {
-            get { return GetValue(() => SelectedItem); }
-            private set { SetValue(value, () => SelectedItem); }
+            get => GetValue(() => SelectedItem);
+            private set => SetValue(value, () => SelectedItem);
         }
 
         public string SelectedText => GetValue(() => SelectedText, () => SelectedItem?.Text);
 
-        public T SelectedValue => GetValue(() => SelectedValue,
-                                           () => SelectedItem != null
-                                                     ? SelectedItem.Value
-                                                     : default(T));
+        public T SelectedValue =>
+            GetValue(() => SelectedValue,
+                     () => SelectedItem != null
+                               ? SelectedItem.Value
+                               : default(T));
 
         #endregion
 
@@ -96,11 +94,13 @@ namespace Gar.Root
             base.RemoveAt(index);
         }
 
-        public void SetSelected(ISelectableValue<T> item) => this.Single(_ => _.Equals(item))
-                                                                 .IsSelected = true;
+        public void SetSelected(ISelectableValue<T> item) =>
+            this.Single(_ => _.Equals(item))
+                .IsSelected = true;
 
-        public void SetSelected(T value) => this.Single(_ => _.Value.Equals(value))
-                                                .IsSelected = true;
+        public void SetSelected(T value) =>
+            this.Single(_ => _.Value.Equals(value))
+                .IsSelected = true;
 
         void Initialize()
         {
@@ -119,6 +119,7 @@ namespace Gar.Root
                                     .ToArray();
 
             if (selectedItems.Any())
+            {
                 switch (selectedItems.Length)
                 {
                     case 1:
@@ -130,8 +131,10 @@ namespace Gar.Root
                         SelectedItem = newItem;
                         oldItem.IsSelected = false;
                         break;
-                    default: throw new IndexOutOfRangeException("Too many items simultaneously selected.");
+                    default:
+                        throw new IndexOutOfRangeException("Too many items simultaneously selected.");
                 }
+            }
             else
                 SelectedItem = null;
         }

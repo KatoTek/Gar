@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public EncodingToolsView()
-        {
-            InitializeComponent();
-        }
+        public EncodingToolsView() => InitializeComponent();
 
         #endregion
     }

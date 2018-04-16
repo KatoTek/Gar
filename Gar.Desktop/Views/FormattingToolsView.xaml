@@ -1,21 +1,21 @@
 ﻿<rui:UserControlViewRoot x:Class="Gar.Desktop.Views.FormattingToolsView"
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                          xmlns:rui="http://gar.katotek.com/RootUi"
                          xmlns:uid="http://gar.katotek.com/ClientDesign"
-                         mc:Ignorable="d" 
+                         mc:Ignorable="d"
                          d:DataContext="{d:DesignInstance Type=uid:FormattingToolsViewModel, IsDesignTimeCreatable=True}">
     <TabControl>
         <TabItem DataContext="{Binding CollectionFormatterViewModel}"
                  Header="{Binding ViewTitle}"
-                 Content="{Binding}"/>
+                 Content="{Binding}" />
         <TabItem DataContext="{Binding JsonFormatterViewModel}"
                  Header="{Binding ViewTitle}"
-                 Content="{Binding}"/>
+                 Content="{Binding}" />
         <TabItem DataContext="{Binding XmlFormatterViewModel}"
                  Header="{Binding ViewTitle}"
-                 Content="{Binding}"/>
+                 Content="{Binding}" />
     </TabControl>
 </rui:UserControlViewRoot>

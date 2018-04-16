@@ -39,8 +39,7 @@ namespace Gar.Root.Ui
                 .Raise(ToggleErrorsCommand);
         }
 
-        protected ViewModelRoot(SynchronizationContext uiContext)
-            : this() => UiContext = uiContext;
+        protected ViewModelRoot(SynchronizationContext uiContext) : this() => UiContext = uiContext;
 
         #endregion
 
@@ -48,14 +47,14 @@ namespace Gar.Root.Ui
 
         public virtual bool ErrorsVisible
         {
-            get { return GetValue(() => ErrorsVisible); }
-            set { SetValue(value, () => ErrorsVisible); }
+            get => GetValue(() => ErrorsVisible);
+            set => SetValue(value, () => ErrorsVisible);
         }
 
         public bool IsBusy
         {
-            get { return GetValue(() => IsBusy); }
-            private set { SetValue(value, () => IsBusy); }
+            get => GetValue(() => IsBusy);
+            private set => SetValue(value, () => IsBusy);
         }
 
         public RelayCommand<object> ToggleErrorsCommand { get; }
@@ -154,14 +153,18 @@ namespace Gar.Root.Ui
             var validationErrors = new List<ValidationFailure>();
 
             if (_models.Count > 0)
+            {
                 foreach (var modelObject in _models)
                 {
                     modelObject?.Validate();
 
                     if (modelObject != null)
+                    {
                         validationErrors = validationErrors.Union(modelObject.ValidationErrors)
                                                            .ToList();
+                    }
                 }
+            }
 
             ValidationErrors = new NotifyingList<ValidationFailure>(validationErrors);
         }

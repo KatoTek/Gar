@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public CollectionOptionsView()
-        {
-            InitializeComponent();
-        }
+        public CollectionOptionsView() => InitializeComponent();
 
         #endregion
     }

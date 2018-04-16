@@ -9,20 +9,20 @@ namespace Gar.Client.Ui.ViewModels
 
         public bool Distinct
         {
-            get { return GetValue(() => Distinct); }
-            set { SetValue(value, () => Distinct); }
+            get => GetValue(() => Distinct);
+            set => SetValue(value, () => Distinct);
         }
 
         public bool Reversed
         {
-            get { return GetValue(() => Reversed); }
-            set { SetValue(value, () => Reversed); }
+            get => GetValue(() => Reversed);
+            set => SetValue(value, () => Reversed);
         }
 
         public bool Sorted
         {
-            get { return GetValue(() => Sorted); }
-            set { SetValue(value, () => Sorted); }
+            get => GetValue(() => Sorted);
+            set => SetValue(value, () => Sorted);
         }
 
         public override string ViewTitle => "collection options";

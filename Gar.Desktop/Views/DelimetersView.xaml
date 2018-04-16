@@ -1,73 +1,86 @@
 ﻿<rui:UserControlViewRoot x:Class="Gar.Desktop.Views.DelimetersView"
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                          xmlns:rui="http://gar.katotek.com/RootUi"
                          xmlns:uid="http://gar.katotek.com/ClientDesign"
-                         mc:Ignorable="d" 
-                         d:DesignHeight="300" 
+                         mc:Ignorable="d"
+                         d:DesignHeight="300"
                          d:DesignWidth="300"
                          d:DataContext="{d:DesignInstance Type=uid:DelimitersViewModel, IsDesignTimeCreatable=True}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" MinHeight="5"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*" MinHeight="5"/>
+            <RowDefinition Height="*" MinHeight="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" MinHeight="5" />
         </Grid.RowDefinitions>
-        <ToggleButton Grid.Column="1" Grid.Row="1" Content="&amp; ampersand" ToolTip="Ampersand" IsChecked="{Binding Ampersand}"/>
-        <ToggleButton Grid.Column="1" Grid.Row="3" Content="' apostrophe" ToolTip="Apostrophe" IsChecked="{Binding Apostrophe}"/>
-        <ToggleButton Grid.Column="1" Grid.Row="5" Content="* asterik" ToolTip="Asterik" IsChecked="{Binding Asterik}"/>
-        <ToggleButton Grid.Column="1" Grid.Row="7" Content="@ at sign" ToolTip="At Sign" IsChecked="{Binding AtSign}"/>
-        <ToggleButton Grid.Column="1" Grid.Row="9" Content="\ backslash" ToolTip="Backslash" IsChecked="{Binding Backslash}"/>
+        <ToggleButton Grid.Column="1" Grid.Row="1" Content="&amp; ampersand" ToolTip="Ampersand"
+                      IsChecked="{Binding Ampersand}" />
+        <ToggleButton Grid.Column="1" Grid.Row="3" Content="' apostrophe" ToolTip="Apostrophe"
+                      IsChecked="{Binding Apostrophe}" />
+        <ToggleButton Grid.Column="1" Grid.Row="5" Content="* asterik" ToolTip="Asterik" IsChecked="{Binding Asterik}" />
+        <ToggleButton Grid.Column="1" Grid.Row="7" Content="@ at sign" ToolTip="At Sign" IsChecked="{Binding AtSign}" />
+        <ToggleButton Grid.Column="1" Grid.Row="9" Content="\ backslash" ToolTip="Backslash"
+                      IsChecked="{Binding Backslash}" />
 
-        <ToggleButton Grid.Column="3" Grid.Row="1" Content="^ caret" ToolTip="Caret" IsChecked="{Binding Caret}"/>
-        <ToggleButton Grid.Column="3" Grid.Row="3" Content="carriage rtrn" ToolTip="Carriage Return/Linefeed" IsChecked="{Binding CarriageReturn}"/>
-        <ToggleButton Grid.Column="3" Grid.Row="5" Content=": colon" ToolTip="Colon" IsChecked="{Binding Colon}"/>
-        <ToggleButton Grid.Column="3" Grid.Row="7" Content=", comma" ToolTip="Comma" IsChecked="{Binding Comma}"/>
-        <ToggleButton Grid.Column="3" Grid.Row="9" Content="$ dollar" ToolTip="Dollar Sign" IsChecked="{Binding DollarSign}"/>
-        
-        <ToggleButton Grid.Column="5" Grid.Row="1" Content="= equals" ToolTip="Equals" IsChecked="{Binding EqualSign}"/>
-        <ToggleButton Grid.Column="5" Grid.Row="3" Content="! exclamation" ToolTip="Exclamation Point" IsChecked="{Binding ExclamationPoint}"/>
-        <ToggleButton Grid.Column="5" Grid.Row="5" Content="` grave" ToolTip="Grave Accent" IsChecked="{Binding GraveAccent}"/>
-        <ToggleButton Grid.Column="5" Grid.Row="7" Content="- hyphen" ToolTip="Hyphen" IsChecked="{Binding Hyphen}"/>
-        <ToggleButton Grid.Column="5" Grid.Row="9" Content="% percent" ToolTip="Percent Sign" IsChecked="{Binding PercentSign}"/>
-        
-        <ToggleButton Grid.Column="7" Grid.Row="1" Content=". period" ToolTip="Period" IsChecked="{Binding Period}"/>
-        <ToggleButton Grid.Column="7" Grid.Row="3" Content="+ plus" ToolTip="Plus Sign" IsChecked="{Binding PlusSign}"/>
-        <ToggleButton Grid.Column="7" Grid.Row="5" Content="# hash" ToolTip="Pound Sign/Hash" IsChecked="{Binding PoundSign}"/>
-        <ToggleButton Grid.Column="7" Grid.Row="7" Content="? question" ToolTip="Question Mark" IsChecked="{Binding QuestionMark}"/>
-        <ToggleButton Grid.Column="7" Grid.Row="9" Content="&quot; quote" ToolTip="Quotation Mark" IsChecked="{Binding Quotation}"/>
-        
-        <ToggleButton Grid.Column="9" Grid.Row="1" Content="; semicolon" ToolTip="Semicolon" IsChecked="{Binding Semicolon}"/>
-        <ToggleButton Grid.Column="9" Grid.Row="3" Content="/ slash" ToolTip="Slash" IsChecked="{Binding Slash}"/>
-        <ToggleButton Grid.Column="9" Grid.Row="5" Content="space" ToolTip="Space" IsChecked="{Binding Space}"/>
-        <ToggleButton Grid.Column="9" Grid.Row="7" Content="tab" ToolTip="Tab" IsChecked="{Binding Tab}"/>
-        <ToggleButton Grid.Column="9" Grid.Row="9" Content="~ tilde" ToolTip="Tilde" IsChecked="{Binding Tilde}"/>
-        
-        <ToggleButton Grid.Column="11" Grid.Row="1" Content="_ underscore" ToolTip="Underscore" IsChecked="{Binding Underscore}"/>
+        <ToggleButton Grid.Column="3" Grid.Row="1" Content="^ caret" ToolTip="Caret" IsChecked="{Binding Caret}" />
+        <ToggleButton Grid.Column="3" Grid.Row="3" Content="carriage rtrn" ToolTip="Carriage Return/Linefeed"
+                      IsChecked="{Binding CarriageReturn}" />
+        <ToggleButton Grid.Column="3" Grid.Row="5" Content=": colon" ToolTip="Colon" IsChecked="{Binding Colon}" />
+        <ToggleButton Grid.Column="3" Grid.Row="7" Content=", comma" ToolTip="Comma" IsChecked="{Binding Comma}" />
+        <ToggleButton Grid.Column="3" Grid.Row="9" Content="$ dollar" ToolTip="Dollar Sign"
+                      IsChecked="{Binding DollarSign}" />
+
+        <ToggleButton Grid.Column="5" Grid.Row="1" Content="= equals" ToolTip="Equals" IsChecked="{Binding EqualSign}" />
+        <ToggleButton Grid.Column="5" Grid.Row="3" Content="! exclamation" ToolTip="Exclamation Point"
+                      IsChecked="{Binding ExclamationPoint}" />
+        <ToggleButton Grid.Column="5" Grid.Row="5" Content="` grave" ToolTip="Grave Accent"
+                      IsChecked="{Binding GraveAccent}" />
+        <ToggleButton Grid.Column="5" Grid.Row="7" Content="- hyphen" ToolTip="Hyphen" IsChecked="{Binding Hyphen}" />
+        <ToggleButton Grid.Column="5" Grid.Row="9" Content="% percent" ToolTip="Percent Sign"
+                      IsChecked="{Binding PercentSign}" />
+
+        <ToggleButton Grid.Column="7" Grid.Row="1" Content=". period" ToolTip="Period" IsChecked="{Binding Period}" />
+        <ToggleButton Grid.Column="7" Grid.Row="3" Content="+ plus" ToolTip="Plus Sign" IsChecked="{Binding PlusSign}" />
+        <ToggleButton Grid.Column="7" Grid.Row="5" Content="# hash" ToolTip="Pound Sign/Hash"
+                      IsChecked="{Binding PoundSign}" />
+        <ToggleButton Grid.Column="7" Grid.Row="7" Content="? question" ToolTip="Question Mark"
+                      IsChecked="{Binding QuestionMark}" />
+        <ToggleButton Grid.Column="7" Grid.Row="9" Content="&quot; quote" ToolTip="Quotation Mark"
+                      IsChecked="{Binding Quotation}" />
+
+        <ToggleButton Grid.Column="9" Grid.Row="1" Content="; semicolon" ToolTip="Semicolon"
+                      IsChecked="{Binding Semicolon}" />
+        <ToggleButton Grid.Column="9" Grid.Row="3" Content="/ slash" ToolTip="Slash" IsChecked="{Binding Slash}" />
+        <ToggleButton Grid.Column="9" Grid.Row="5" Content="space" ToolTip="Space" IsChecked="{Binding Space}" />
+        <ToggleButton Grid.Column="9" Grid.Row="7" Content="tab" ToolTip="Tab" IsChecked="{Binding Tab}" />
+        <ToggleButton Grid.Column="9" Grid.Row="9" Content="~ tilde" ToolTip="Tilde" IsChecked="{Binding Tilde}" />
+
+        <ToggleButton Grid.Column="11" Grid.Row="1" Content="_ underscore" ToolTip="Underscore"
+                      IsChecked="{Binding Underscore}" />
     </Grid>
 </rui:UserControlViewRoot>

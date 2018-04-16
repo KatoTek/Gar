@@ -7,10 +7,7 @@ namespace Gar.Client.Ui.ViewModels
     {
         #region constructors
 
-        public MainViewModel(IMainMenuViewModel mainMenuViewModel,
-                             IFormattingToolsViewModel formattingToolsViewModel,
-                             IEncodingToolsViewModel encodingToolsViewModel,
-                             IDecodingToolsViewModel decodingToolsViewModel)
+        public MainViewModel(IMainMenuViewModel mainMenuViewModel, IFormattingToolsViewModel formattingToolsViewModel, IEncodingToolsViewModel encodingToolsViewModel, IDecodingToolsViewModel decodingToolsViewModel)
         {
             InitializeValue(mainMenuViewModel, () => MainMenuViewModel);
             InitializeValue(formattingToolsViewModel, () => FormattingToolsViewModel);

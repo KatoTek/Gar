@@ -46,27 +46,27 @@ namespace Gar.Client.Ui.ViewModels
         [CorrespondingGroupCharacters('\'', '\'')]
         public bool Apostrophes
         {
-            get { return GetValue(() => Apostrophes); }
-            set { SetValue(Synchronize(value), () => Apostrophes); }
+            get => GetValue(() => Apostrophes);
+            set => SetValue(Synchronize(value), () => Apostrophes);
         }
 
         [CorrespondingGroupCharacters('{', '}')]
         public bool Braces
         {
-            get { return GetValue(() => Braces); }
-            set { SetValue(Synchronize(value), () => Braces); }
+            get => GetValue(() => Braces);
+            set => SetValue(Synchronize(value), () => Braces);
         }
 
         [CorrespondingGroupCharacters('[', ']')]
         public bool Brackets
         {
-            get { return GetValue(() => Brackets); }
-            set { SetValue(Synchronize(value), () => Brackets); }
+            get => GetValue(() => Brackets);
+            set => SetValue(Synchronize(value), () => Brackets);
         }
 
         public bool Conditional
         {
-            get { return GetValue(() => Conditional); }
+            get => GetValue(() => Conditional);
             set
             {
                 if (!SetValue(value, () => Conditional) || !value)
@@ -81,7 +81,7 @@ namespace Gar.Client.Ui.ViewModels
 
         public bool Custom
         {
-            get { return GetValue(() => Custom); }
+            get => GetValue(() => Custom);
             set
             {
                 if (!SetValue(value, () => Custom) || !value)
@@ -99,19 +99,19 @@ namespace Gar.Client.Ui.ViewModels
 
         public string CustomGroupEnd
         {
-            get { return GetValue(() => CustomGroupEnd); }
-            set { SetValue(value, () => CustomGroupEnd); }
+            get => GetValue(() => CustomGroupEnd);
+            set => SetValue(value, () => CustomGroupEnd);
         }
 
         public string CustomGroupStart
         {
-            get { return GetValue(() => CustomGroupStart); }
-            set { SetValue(value, () => CustomGroupStart); }
+            get => GetValue(() => CustomGroupStart);
+            set => SetValue(value, () => CustomGroupStart);
         }
 
         public bool Forced
         {
-            get { return GetValue(() => Forced); }
+            get => GetValue(() => Forced);
             set
             {
                 if (!SetValue(value, () => Forced) || !value)
@@ -124,68 +124,76 @@ namespace Gar.Client.Ui.ViewModels
             }
         }
 
-        public char? GroupEnd => GetValue(() => GroupEnd,
-                                          () =>
-                                          {
-                                              var groupEnds = (from prop in GetType()
-                                                                   .GetProperties(Public | Instance)
-                                                                   .Where(p => p.PropertyType == typeof(bool))
-                                                               where (bool)prop.GetValue(this)
-                                                               select prop.GetCustomAttributes<CorrespondingGroupCharactersAttribute>()
-                                                                          .FirstOrDefault()
-                                                               into attr
-                                                               where attr != null
-                                                               select attr.End).ToArray();
+        public char? GroupEnd =>
+            GetValue(() => GroupEnd,
+                     () =>
+                     {
+                         var groupEnds = (from prop in GetType()
+                                                       .GetProperties(Public | Instance)
+                                                       .Where(p => p.PropertyType == typeof(bool))
+                                          where (bool)prop.GetValue(this)
+                                          select prop.GetCustomAttributes<CorrespondingGroupCharactersAttribute>()
+                                                     .FirstOrDefault()
+                                          into attr
+                                          where attr != null
+                                          select attr.End).ToArray();
 
-                                              switch (groupEnds.Length)
-                                              {
-                                                  case 0: return null;
-                                                  case 1: return groupEnds.Single();
-                                                  default: throw new IndexOutOfRangeException();
-                                              }
-                                          });
+                         switch (groupEnds.Length)
+                         {
+                             case 0:
+                                 return null;
+                             case 1:
+                                 return groupEnds.Single();
+                             default:
+                                 throw new IndexOutOfRangeException();
+                         }
+                     });
 
-        public char? GroupStart => GetValue(() => GroupStart,
-                                            () =>
-                                            {
-                                                var groupStarts = (from prop in GetType()
-                                                                       .GetProperties(Public | Instance)
-                                                                       .Where(p => p.PropertyType == typeof(bool))
-                                                                   where (bool)prop.GetValue(this)
-                                                                   select prop.GetCustomAttributes<CorrespondingGroupCharactersAttribute>()
-                                                                              .FirstOrDefault()
-                                                                   into correspondingGroupCharactersAttribute
-                                                                   where correspondingGroupCharactersAttribute != null
-                                                                   select correspondingGroupCharactersAttribute.Start).ToArray();
+        public char? GroupStart =>
+            GetValue(() => GroupStart,
+                     () =>
+                     {
+                         var groupStarts = (from prop in GetType()
+                                                         .GetProperties(Public | Instance)
+                                                         .Where(p => p.PropertyType == typeof(bool))
+                                            where (bool)prop.GetValue(this)
+                                            select prop.GetCustomAttributes<CorrespondingGroupCharactersAttribute>()
+                                                       .FirstOrDefault()
+                                            into correspondingGroupCharactersAttribute
+                                            where correspondingGroupCharactersAttribute != null
+                                            select correspondingGroupCharactersAttribute.Start).ToArray();
 
-                                                switch (groupStarts.Length)
-                                                {
-                                                    case 0: return null;
-                                                    case 1: return groupStarts.Single();
-                                                    default: throw new IndexOutOfRangeException();
-                                                }
-                                            });
+                         switch (groupStarts.Length)
+                         {
+                             case 0:
+                                 return null;
+                             case 1:
+                                 return groupStarts.Single();
+                             default:
+                                 throw new IndexOutOfRangeException();
+                         }
+                     });
 
         [CorrespondingGroupCharacters('<', '>')]
         public bool LtGt
         {
-            get { return GetValue(() => LtGt); }
-            set { SetValue(Synchronize(value), () => LtGt); }
+            get => GetValue(() => LtGt);
+            set => SetValue(Synchronize(value), () => LtGt);
         }
 
         [CorrespondingGroupCharacters('(', ')')]
         public bool Parentheses
         {
-            get { return GetValue(() => Parentheses); }
-            set { SetValue(Synchronize(value), () => Parentheses); }
+            get => GetValue(() => Parentheses);
+            set => SetValue(Synchronize(value), () => Parentheses);
         }
 
         [CorrespondingCharacter('"')]
         [CorrespondingGroupCharacters('\"', '\"')]
         public bool Quotes
         {
-            get { return GetValue(() => Quotes); }
-            set { SetValue(Synchronize(value), () => Quotes); }
+            get => GetValue(() => Quotes);
+            set => SetValue(Synchronize(value), () => Quotes);
         }
 
         public bool Standard => GetValue(() => Standard, () => Forced || Conditional);
@@ -201,8 +209,8 @@ namespace Gar.Client.Ui.ViewModels
                 return;
 
             (from propertyInfo in GetType()
-                 .GetProperties(Public | Instance)
-                 .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
+                                  .GetProperties(Public | Instance)
+                                  .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
              where (bool)propertyInfo.GetValue(this)
              select new
                     {

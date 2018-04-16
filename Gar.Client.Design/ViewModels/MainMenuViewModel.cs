@@ -21,35 +21,39 @@ namespace Gar.Client.Design.ViewModels
 
         #region properties
 
-        public SelectableValueList<string> Accents { get; } =
-            new SelectableValueList<string>
-            {
-                new Accent("Red"),
-                new Accent("Green"),
-                new Accent("Blue"),
-                new Accent("Purple"),
-                new Accent("Orange"),
-                new Accent("Lime"),
-                new Accent("Emerald"),
-                new Accent("Teal"),
-                new Accent("Cyan"),
-                new Accent("Cobalt"),
-                new Accent("Indigo"),
-                new Accent("Violet"),
-                new Accent("Pink"),
-                new Accent("Magenta"),
-                new Accent("Crimson"),
-                new Accent("Amber"),
-                new Accent("Yellow"),
-                new Accent("Brown"),
-                new Accent("Olive"),
-                new Accent("Steel"),
-                new Accent("Mauve"),
-                new Accent("Taupe"),
-                new Accent("Sienna")
-            };
+        public SelectableValueList<string> Accents { get; } = new SelectableValueList<string>
+                                                              {
+                                                                  new Accent("Red"),
+                                                                  new Accent("Green"),
+                                                                  new Accent("Blue"),
+                                                                  new Accent("Purple"),
+                                                                  new Accent("Orange"),
+                                                                  new Accent("Lime"),
+                                                                  new Accent("Emerald"),
+                                                                  new Accent("Teal"),
+                                                                  new Accent("Cyan"),
+                                                                  new Accent("Cobalt"),
+                                                                  new Accent("Indigo"),
+                                                                  new Accent("Violet"),
+                                                                  new Accent("Pink"),
+                                                                  new Accent("Magenta"),
+                                                                  new Accent("Crimson"),
+                                                                  new Accent("Amber"),
+                                                                  new Accent("Yellow"),
+                                                                  new Accent("Brown"),
+                                                                  new Accent("Olive"),
+                                                                  new Accent("Steel"),
+                                                                  new Accent("Mauve"),
+                                                                  new Accent("Taupe"),
+                                                                  new Accent("Sienna")
+                                                              };
 
-        public SelectableValueList<string> Themes { get; } = new SelectableValueList<string> { new Theme("Light", "BaseLight"), new Theme("Dark", "BaseDark") };
+        public SelectableValueList<string> Themes { get; } = new SelectableValueList<string>
+                                                             {
+                                                                 new Theme("Light", "BaseLight"),
+                                                                 new Theme("Dark", "BaseDark")
+                                                             };
+
         public override string ViewTitle => "main menu";
 
         #endregion
@@ -63,13 +67,13 @@ namespace Gar.Client.Design.ViewModels
 
         #region nested types
 
-        public class Theme : ISelectableValue<string>
+        public class Accent : ISelectableValue<string>
         {
             #region constructors
 
-            public Theme(string text, string value)
+            public Accent(string value)
             {
-                Text = text;
+                Text = value;
                 Value = value;
             }
 
@@ -90,13 +94,13 @@ namespace Gar.Client.Design.ViewModels
             #endregion
         }
 
-        public class Accent : ISelectableValue<string>
+        public class Theme : ISelectableValue<string>
         {
             #region constructors
 
-            public Accent(string value)
+            public Theme(string text, string value)
             {
-                Text = value;
+                Text = text;
                 Value = value;
             }
 

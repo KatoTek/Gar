@@ -4,10 +4,7 @@
     {
         #region constructors
 
-        public JsonFormatterView()
-        {
-            InitializeComponent();
-        }
+        public JsonFormatterView() => InitializeComponent();
 
         #endregion
     }

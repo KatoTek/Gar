@@ -19,7 +19,15 @@ namespace Gar.Client.Design.ViewModels
         public bool Colon { get; set; }
         public bool Comma { get; set; }
         public NotifyingList<char> Custom { get; } = new NotifyingList<char>();
-        public IEnumerable<char> Delimiters { get; } = new[] { '\r', '\n', ' ', '\t' };
+
+        public IEnumerable<char> Delimiters { get; } = new[]
+                                                       {
+                                                           '\r',
+                                                           '\n',
+                                                           ' ',
+                                                           '\t'
+                                                       };
+
         public bool DollarSign { get; set; }
         public bool EqualSign { get; set; }
         public bool ExclamationPoint { get; set; }

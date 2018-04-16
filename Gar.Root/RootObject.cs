@@ -26,7 +26,11 @@ namespace Gar.Root
         [SuppressMessage("ReSharper", "DoNotCallOverridableMethodsInConstructor")]
         protected RootObject()
         {
-            _nonReactantProperties = new[] { GetName(() => IsValid), GetName(() => ValidationErrors) };
+            _nonReactantProperties = new[]
+                                     {
+                                         GetName(() => IsValid),
+                                         GetName(() => ValidationErrors)
+                                     };
 
             PropertyOf(() => IsValid)
                 .DependsOnCollection(() => ValidationErrors);
@@ -45,16 +49,16 @@ namespace Gar.Root
 
         public ExtensionDataObject ExtensionData
         {
-            get { return GetValue(() => ExtensionData); }
-            set { SetValue(value, () => ExtensionData); }
+            get => GetValue(() => ExtensionData);
+            set => SetValue(value, () => ExtensionData);
         }
 
         public virtual bool IsValid => !(ValidationErrors?.Any() ?? false);
 
         public NotifyingList<ValidationFailure> ValidationErrors
         {
-            get { return GetValue(() => ValidationErrors); }
-            set { SetValue(value, () => ValidationErrors); }
+            get => GetValue(() => ValidationErrors);
+            set => SetValue(value, () => ValidationErrors);
         }
 
         string IDataErrorInfo.Error => string.Empty;

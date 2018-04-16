@@ -1,29 +1,29 @@
 ﻿<rui:UserControlViewRoot x:Class="Gar.Desktop.Views.MainMenuView"
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                         xmlns:rui="http://gar.katotek.com/RootUi" 
+                         xmlns:rui="http://gar.katotek.com/RootUi"
                          xmlns:uid="http://gar.katotek.com/ClientDesign"
-                         mc:Ignorable="d" 
+                         mc:Ignorable="d"
                          d:DataContext="{d:DesignInstance Type=uid:MainMenuViewModel, IsDesignTimeCreatable=True}">
     <Menu>
         <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
         <MenuItem Header="_Theme" ItemsSource="{Binding Themes}">
             <MenuItem.ItemContainerStyle>
                 <Style TargetType="MenuItem">
-                    <Setter Property="IsCheckable" Value="True"/>
-                    <Setter Property="Header" Value="{Binding Text}"/>
-                    <Setter Property="IsChecked" Value="{Binding IsSelected}"/>
+                    <Setter Property="IsCheckable" Value="True" />
+                    <Setter Property="Header" Value="{Binding Text}" />
+                    <Setter Property="IsChecked" Value="{Binding IsSelected}" />
                 </Style>
             </MenuItem.ItemContainerStyle>
         </MenuItem>
         <MenuItem Header="_Accent" ItemsSource="{Binding Accents}">
             <MenuItem.ItemContainerStyle>
                 <Style TargetType="MenuItem">
-                    <Setter Property="IsCheckable" Value="True"/>
-                    <Setter Property="Header" Value="{Binding Text}"/>
-                    <Setter Property="IsChecked" Value="{Binding IsSelected}"/>
+                    <Setter Property="IsCheckable" Value="True" />
+                    <Setter Property="Header" Value="{Binding Text}" />
+                    <Setter Property="IsChecked" Value="{Binding IsSelected}" />
                 </Style>
             </MenuItem.ItemContainerStyle>
         </MenuItem>

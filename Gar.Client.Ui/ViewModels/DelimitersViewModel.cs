@@ -58,211 +58,209 @@ namespace Gar.Client.Ui.ViewModels
         [CorrespondingCharacter('&')]
         public bool Ampersand
         {
-            get { return GetValue(() => Ampersand); }
-            set { SetValue(value, () => Ampersand); }
+            get => GetValue(() => Ampersand);
+            set => SetValue(value, () => Ampersand);
         }
 
         [CorrespondingCharacter('\'')]
         public bool Apostrophe
         {
-            get { return GetValue(() => Apostrophe); }
-            set { SetValue(value, () => Apostrophe); }
+            get => GetValue(() => Apostrophe);
+            set => SetValue(value, () => Apostrophe);
         }
 
         [CorrespondingCharacter('*')]
         public bool Asterik
         {
-            get { return GetValue(() => Asterik); }
-            set { SetValue(value, () => Asterik); }
+            get => GetValue(() => Asterik);
+            set => SetValue(value, () => Asterik);
         }
 
         [CorrespondingCharacter('@')]
         public bool AtSign
         {
-            get { return GetValue(() => AtSign); }
-            set { SetValue(value, () => AtSign); }
+            get => GetValue(() => AtSign);
+            set => SetValue(value, () => AtSign);
         }
 
         [CorrespondingCharacter('\\')]
         public bool Backslash
         {
-            get { return GetValue(() => Backslash); }
-            set { SetValue(value, () => Backslash); }
+            get => GetValue(() => Backslash);
+            set => SetValue(value, () => Backslash);
         }
 
         [CorrespondingCharacter('^')]
         public bool Caret
         {
-            get { return GetValue(() => Caret); }
-            set { SetValue(value, () => Caret); }
+            get => GetValue(() => Caret);
+            set => SetValue(value, () => Caret);
         }
 
         public bool CarriageReturn
         {
-            get { return GetValue(() => CarriageReturn); }
-            set { SetValue(value, () => CarriageReturn); }
+            get => GetValue(() => CarriageReturn);
+            set => SetValue(value, () => CarriageReturn);
         }
 
         [CorrespondingCharacter(':')]
         public bool Colon
         {
-            get { return GetValue(() => Colon); }
-            set { SetValue(value, () => Colon); }
+            get => GetValue(() => Colon);
+            set => SetValue(value, () => Colon);
         }
 
         [CorrespondingCharacter(',')]
         public bool Comma
         {
-            get { return GetValue(() => Comma); }
-            set { SetValue(value, () => Comma); }
+            get => GetValue(() => Comma);
+            set => SetValue(value, () => Comma);
         }
 
-        public NotifyingList<char> Custom
-        {
-            get { return GetValue(() => Custom); }
-        }
+        public NotifyingList<char> Custom => GetValue(() => Custom);
 
         [SuppressMessage("ReSharper", "InvertIf")]
-        public IEnumerable<char> Delimiters => GetValue(() => Delimiters,
-                                                        () =>
-                                                        {
-                                                            var delimiters = new List<char>(Custom);
-                                                            if (CarriageReturn)
-                                                            {
-                                                                delimiters.Add('\r');
-                                                                delimiters.Add('\n');
-                                                            }
+        public IEnumerable<char> Delimiters =>
+            GetValue(() => Delimiters,
+                     () =>
+                     {
+                         var delimiters = new List<char>(Custom);
+                         if (CarriageReturn)
+                         {
+                             delimiters.Add('\r');
+                             delimiters.Add('\n');
+                         }
 
-                                                            delimiters.AddRange(from prop in GetType()
-                                                                                    .GetProperties(Public | Instance)
-                                                                                    .Where(p => p.PropertyType == typeof(bool))
-                                                                                where (bool)prop.GetValue(this)
-                                                                                select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                                                           .FirstOrDefault()
-                                                                                into attr
-                                                                                where attr != null
-                                                                                select attr.Character);
+                         delimiters.AddRange(from prop in GetType()
+                                                          .GetProperties(Public | Instance)
+                                                          .Where(p => p.PropertyType == typeof(bool))
+                                             where (bool)prop.GetValue(this)
+                                             select prop.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                        .FirstOrDefault()
+                                             into attr
+                                             where attr != null
+                                             select attr.Character);
 
-                                                            return delimiters;
-                                                        });
+                         return delimiters;
+                     });
 
         [CorrespondingCharacter('$')]
         public bool DollarSign
         {
-            get { return GetValue(() => DollarSign); }
-            set { SetValue(value, () => DollarSign); }
+            get => GetValue(() => DollarSign);
+            set => SetValue(value, () => DollarSign);
         }
 
         [CorrespondingCharacter('=')]
         public bool EqualSign
         {
-            get { return GetValue(() => EqualSign); }
-            set { SetValue(value, () => EqualSign); }
+            get => GetValue(() => EqualSign);
+            set => SetValue(value, () => EqualSign);
         }
 
         [CorrespondingCharacter('!')]
         public bool ExclamationPoint
         {
-            get { return GetValue(() => ExclamationPoint); }
-            set { SetValue(value, () => ExclamationPoint); }
+            get => GetValue(() => ExclamationPoint);
+            set => SetValue(value, () => ExclamationPoint);
         }
 
         [CorrespondingCharacter('`')]
         public bool GraveAccent
         {
-            get { return GetValue(() => GraveAccent); }
-            set { SetValue(value, () => GraveAccent); }
+            get => GetValue(() => GraveAccent);
+            set => SetValue(value, () => GraveAccent);
         }
 
         [CorrespondingCharacter('-')]
         public bool Hyphen
         {
-            get { return GetValue(() => Hyphen); }
-            set { SetValue(value, () => Hyphen); }
+            get => GetValue(() => Hyphen);
+            set => SetValue(value, () => Hyphen);
         }
 
         [CorrespondingCharacter('%')]
         public bool PercentSign
         {
-            get { return GetValue(() => PercentSign); }
-            set { SetValue(value, () => PercentSign); }
+            get => GetValue(() => PercentSign);
+            set => SetValue(value, () => PercentSign);
         }
 
         [CorrespondingCharacter('.')]
         public bool Period
         {
-            get { return GetValue(() => Period); }
-            set { SetValue(value, () => Period); }
+            get => GetValue(() => Period);
+            set => SetValue(value, () => Period);
         }
 
         [CorrespondingCharacter('+')]
         public bool PlusSign
         {
-            get { return GetValue(() => PlusSign); }
-            set { SetValue(value, () => PlusSign); }
+            get => GetValue(() => PlusSign);
+            set => SetValue(value, () => PlusSign);
         }
 
         [CorrespondingCharacter('#')]
         public bool PoundSign
         {
-            get { return GetValue(() => PoundSign); }
-            set { SetValue(value, () => PoundSign); }
+            get => GetValue(() => PoundSign);
+            set => SetValue(value, () => PoundSign);
         }
 
         [CorrespondingCharacter('?')]
         public bool QuestionMark
         {
-            get { return GetValue(() => QuestionMark); }
-            set { SetValue(value, () => QuestionMark); }
+            get => GetValue(() => QuestionMark);
+            set => SetValue(value, () => QuestionMark);
         }
 
         [CorrespondingCharacter('"')]
         public bool Quotation
         {
-            get { return GetValue(() => Quotation); }
-            set { SetValue(value, () => Quotation); }
+            get => GetValue(() => Quotation);
+            set => SetValue(value, () => Quotation);
         }
 
         [CorrespondingCharacter(';')]
         public bool Semicolon
         {
-            get { return GetValue(() => Semicolon); }
-            set { SetValue(value, () => Semicolon); }
+            get => GetValue(() => Semicolon);
+            set => SetValue(value, () => Semicolon);
         }
 
         [CorrespondingCharacter('/')]
         public bool Slash
         {
-            get { return GetValue(() => Slash); }
-            set { SetValue(value, () => Slash); }
+            get => GetValue(() => Slash);
+            set => SetValue(value, () => Slash);
         }
 
         [CorrespondingCharacter(' ')]
         public bool Space
         {
-            get { return GetValue(() => Space); }
-            set { SetValue(value, () => Space); }
+            get => GetValue(() => Space);
+            set => SetValue(value, () => Space);
         }
 
         [CorrespondingCharacter('\t')]
         public bool Tab
         {
-            get { return GetValue(() => Tab); }
-            set { SetValue(value, () => Tab); }
+            get => GetValue(() => Tab);
+            set => SetValue(value, () => Tab);
         }
 
         [CorrespondingCharacter('~')]
         public bool Tilde
         {
-            get { return GetValue(() => Tilde); }
-            set { SetValue(value, () => Tilde); }
+            get => GetValue(() => Tilde);
+            set => SetValue(value, () => Tilde);
         }
 
         [CorrespondingCharacter('_')]
         public bool Underscore
         {
-            get { return GetValue(() => Underscore); }
-            set { SetValue(value, () => Underscore); }
+            get => GetValue(() => Underscore);
+            set => SetValue(value, () => Underscore);
         }
 
         public override string ViewTitle => "delimiters";
@@ -279,8 +277,8 @@ namespace Gar.Client.Ui.ViewModels
             Custom?.RemoveAll(_ => _.Equals(@char));
 
             (from prop in GetType()
-                 .GetProperties(Public | Instance)
-                 .Where(p => p.PropertyType == typeof(bool))
+                          .GetProperties(Public | Instance)
+                          .Where(p => p.PropertyType == typeof(bool))
              where (bool)prop.GetValue(this)
              select new
                     {
