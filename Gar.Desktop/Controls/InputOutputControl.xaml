@@ -6,7 +6,8 @@
                         xmlns:gdr="clr-namespace:Gar.Desktop.Root"
                         mc:Ignorable="d"
                         d:DesignWidth="1600"
-                        d:DesignHeight="900">
+                        d:DesignHeight="900" 
+                        DataContext="{Binding}">
     <Grid x:Name="LayoutRoot">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1" />

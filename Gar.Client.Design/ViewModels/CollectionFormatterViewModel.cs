@@ -55,7 +55,7 @@ namespace Gar.Client.Design.ViewModels
         public string Output => "\"1000\",\"2000\",\"3000\",\"4000\"";
         public string Prefix { get; set; } = "select * from table where column in (";
         public IQualifiersViewModel QualifiersViewModel { get; } = new QualifiersViewModel();
-        public ISeperatorsViewModel SeperatorsViewModel { get; } = new SeperatorsViewModel();
+        public ISeparatorsViewModel SeparatorsViewModel { get; } = new SeparatorsViewModel();
         public RelayCommand SqlOutputCommand { get; }
         public string Suffix { get; set; } = ")";
         public override string ViewTitle => "collections";

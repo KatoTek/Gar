@@ -33,13 +33,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="INotify.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\INotify.Core.1.0.0\lib\net40\INotify.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="INotify.Core, Version=2.0.2018.801, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\INotify.Core.2.0.0\lib\net47\INotify.Core.dll</HintPath>
     </Reference>
-    <Reference Include="INotify.Core.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\INotify.Core.Commands.1.0.0\lib\net40\INotify.Core.Commands.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="INotify.Core.Commands, Version=2.0.2018.801, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\INotify.Core.Commands.2.0.0\lib\net47\INotify.Core.Commands.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -60,7 +58,7 @@
     </Compile>
     <Compile Include="Events\ICopyOutput.cs" />
     <Compile Include="Profiles\ICSharpOutputProfile.cs" />
-    <Compile Include="Profiles\ICsvOuputProfile.cs" />
+    <Compile Include="Profiles\ICsvOutputProfile.cs" />
     <Compile Include="Profiles\IJsonOutputProfile.cs" />
     <Compile Include="Profiles\ISqlOutputProfile.cs" />
     <Compile Include="Profiles\IWhitespaceInputProfile.cs" />
@@ -77,7 +75,7 @@
     <Compile Include="ViewModels\IMainViewModel.cs" />
     <Compile Include="ViewModels\IFormattingToolsViewModel.cs" />
     <Compile Include="ViewModels\IQualifiersViewModel.cs" />
-    <Compile Include="ViewModels\ISeperatorsViewModel.cs" />
+    <Compile Include="ViewModels\ISeparatorsViewModel.cs" />
     <Compile Include="Profiles\ICsvInputProfile.cs" />
     <Compile Include="ViewModels\IUrlDecoderViewModel.cs" />
     <Compile Include="ViewModels\IUrlEncoderViewModel.cs" />

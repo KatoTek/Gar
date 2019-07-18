@@ -1,4 +1,4 @@
-﻿<rui:UserControlViewRoot x:Class="Gar.Desktop.Views.SeperatorsView"
+﻿<rui:UserControlViewRoot x:Class="Gar.Desktop.Views.SeparatorsView"
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,7 +8,7 @@
                          mc:Ignorable="d"
                          d:DesignHeight="300"
                          d:DesignWidth="300"
-                         d:DataContext="{d:DesignInstance Type=uid:SeperatorsViewModel, IsDesignTimeCreatable=True}">
+                         d:DataContext="{d:DesignInstance Type=uid:SeparatorsViewModel, IsDesignTimeCreatable=True}">
     <DockPanel>
         <Grid DockPanel.Dock="Left">
             <Grid.ColumnDefinitions>
@@ -26,9 +26,9 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="1" Grid.Row="1" Text="Line Breaks" VerticalAlignment="Center" />
-            <ToggleButton Grid.Column="1" Grid.Row="3" Content="before" ToolTip="Insert line breaks before seperator"
+            <ToggleButton Grid.Column="1" Grid.Row="3" Content="before" ToolTip="Insert line breaks before separator"
                           IsChecked="{Binding InsertLineBefore}" />
-            <ToggleButton Grid.Column="1" Grid.Row="5" Content="after" ToolTip="Insert line breaks after seperator"
+            <ToggleButton Grid.Column="1" Grid.Row="5" Content="after" ToolTip="Insert line breaks after separator"
                           IsChecked="{Binding InsertLineAfter}" />
         </Grid>
         <Grid>
@@ -62,8 +62,8 @@
                           IsChecked="{Binding Ampersand}" />
             <ToggleButton Grid.Column="1" Grid.Row="3" Content="' apostrophe" ToolTip="Apostrophe"
                           IsChecked="{Binding Apostrophe}" />
-            <ToggleButton Grid.Column="1" Grid.Row="5" Content="* asterik" ToolTip="Asterik"
-                          IsChecked="{Binding Asterik}" />
+            <ToggleButton Grid.Column="1" Grid.Row="5" Content="* asterisk" ToolTip="Asterisk"
+                          IsChecked="{Binding Asterisk}" />
             <ToggleButton Grid.Column="1" Grid.Row="7" Content="@ at sign" ToolTip="At Sign"
                           IsChecked="{Binding AtSign}" />
             <ToggleButton Grid.Column="1" Grid.Row="9" Content="\ backslash" ToolTip="Backslash"

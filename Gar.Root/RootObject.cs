@@ -22,8 +22,8 @@ namespace Gar.Root
 
         #region constructors
 
-        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        [SuppressMessage("ReSharper", "DoNotCallOverridableMethodsInConstructor")]
+        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors", Justification = "Controlled Scenario")]
+        [SuppressMessage("ReSharper", "DoNotCallOverridableMethodsInConstructor", Justification = "Controlled Scenario")]
         protected RootObject()
         {
             _nonReactantProperties = new[]
@@ -87,6 +87,7 @@ namespace Gar.Root
         {
             var errors = _validator?.Validate(this)
                                    ?.Errors;
+
             if (errors != null)
                 SetValue(new NotifyingList<ValidationFailure>(errors), () => ValidationErrors);
         }
@@ -96,6 +97,7 @@ namespace Gar.Root
         protected void InvokeForgoValidate(Action action)
         {
             PropertyChanged -= Validate;
+
             try
             {
                 action?.Invoke();

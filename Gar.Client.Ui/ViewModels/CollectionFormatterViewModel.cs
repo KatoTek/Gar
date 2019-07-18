@@ -15,7 +15,7 @@ namespace Gar.Client.Ui.ViewModels
 
         public CollectionFormatterViewModel(IDelimitersViewModel delimitersViewModel,
                                             IQualifiersViewModel qualifiersViewModel,
-                                            ISeperatorsViewModel seperatorsViewModel,
+                                            ISeparatorsViewModel separatorsViewModel,
                                             IGroupersViewModel groupersViewModel,
                                             ICollectionOptionsViewModel collectionOptionsViewModel)
         {
@@ -30,7 +30,7 @@ namespace Gar.Client.Ui.ViewModels
 
             InitializeValue(delimitersViewModel, () => DelimitersViewModel);
             InitializeValue(qualifiersViewModel, () => QualifiersViewModel);
-            InitializeValue(seperatorsViewModel, () => SeperatorsViewModel);
+            InitializeValue(separatorsViewModel, () => SeparatorsViewModel);
             InitializeValue(groupersViewModel, () => GroupersViewModel);
             InitializeValue(collectionOptionsViewModel, () => CollectionOptionsViewModel);
 
@@ -46,7 +46,7 @@ namespace Gar.Client.Ui.ViewModels
                 .DependsOnProperty(() => Prefix)
                 .DependsOnProperty(() => Suffix)
                 .DependsOnProperty(() => Collection)
-                .DependsOnReferenceProperty(() => SeperatorsViewModel, (ISeperatorsViewModel _) => _.Seperator)
+                .DependsOnReferenceProperty(() => SeparatorsViewModel, (ISeparatorsViewModel _) => _.Separator)
                 .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupStart)
                 .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupEnd)
                 .DependsOnReferenceProperty(() => GroupersViewModel, (IGroupersViewModel _) => _.Forced)
@@ -62,13 +62,13 @@ namespace Gar.Client.Ui.ViewModels
                                                   .ForEach(_ => QualifiersViewModel?.Deselect(_)));
 
             PropertyChangeFor(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupStart)
-                .Execute(() => SeperatorsViewModel?.Deselect(GroupersViewModel?.GroupStart));
+                .Execute(() => SeparatorsViewModel?.Deselect(GroupersViewModel?.GroupStart));
 
             PropertyChangeFor(() => GroupersViewModel, (IGroupersViewModel _) => _.GroupEnd)
-                .Execute(() => SeperatorsViewModel?.Deselect(GroupersViewModel?.GroupEnd));
+                .Execute(() => SeparatorsViewModel?.Deselect(GroupersViewModel?.GroupEnd));
 
-            PropertyChangeFor(() => SeperatorsViewModel, (ISeperatorsViewModel _) => _.Seperator)
-                .Execute(() => SeperatorsViewModel?.Seperator?.ToCharArray()
+            PropertyChangeFor(() => SeparatorsViewModel, (ISeparatorsViewModel _) => _.Separator)
+                .Execute(() => SeparatorsViewModel?.Separator?.ToCharArray()
                                                   .ToList()
                                                   .ForEach(_ => GroupersViewModel?.Deselect(_)));
 
@@ -131,8 +131,8 @@ namespace Gar.Client.Ui.ViewModels
                      () =>
                      {
                          var output = GroupersViewModel?.Custom ?? false
-                                          ? Collection.GroupJoin(SeperatorsViewModel?.Seperator, GroupersViewModel?.CustomGroupStart, GroupersViewModel?.CustomGroupEnd)
-                                          : Collection.GroupJoin(SeperatorsViewModel?.Seperator, GroupersViewModel?.GroupStart, GroupersViewModel?.GroupEnd, GroupersViewModel?.Forced ?? true);
+                                          ? Collection.GroupJoin(SeparatorsViewModel?.Separator, GroupersViewModel?.CustomGroupStart, GroupersViewModel?.CustomGroupEnd)
+                                          : Collection.GroupJoin(SeparatorsViewModel?.Separator, GroupersViewModel?.GroupStart, GroupersViewModel?.GroupEnd, GroupersViewModel?.Forced ?? true);
 
                          return $"{Prefix ?? Empty}{output ?? Empty}{Suffix ?? Empty}";
                      });
@@ -144,7 +144,7 @@ namespace Gar.Client.Ui.ViewModels
         }
 
         public IQualifiersViewModel QualifiersViewModel => GetValue(() => QualifiersViewModel);
-        public ISeperatorsViewModel SeperatorsViewModel => GetValue(() => SeperatorsViewModel);
+        public ISeparatorsViewModel SeparatorsViewModel => GetValue(() => SeparatorsViewModel);
         public RelayCommand SqlOutputCommand { get; }
 
         public string Suffix
@@ -186,7 +186,7 @@ namespace Gar.Client.Ui.ViewModels
 
         static void SetCSharpOutputProfile(ICSharpOutputProfile cSharpOutputProfile) => cSharpOutputProfile.SetCSharpOutputProfile();
         static void SetCsvInputProfile(ICsvInputProfile csvInputProfile) => csvInputProfile.SetCsvInputProfile();
-        static void SetCsvOutputProfile(ICsvOuputProfile csvOutputProfile) => csvOutputProfile.SetCsvOutputProfile();
+        static void SetCsvOutputProfile(ICsvOutputProfile csvOutputProfile) => csvOutputProfile.SetCsvOutputProfile();
         static void SetJsonOutputProfile(IJsonOutputProfile jsonOutputProfile) => jsonOutputProfile.SetJsonOutputProfile();
         static void SetSqlOutputProfile(ISqlOutputProfile sqlOutputProfile) => sqlOutputProfile.SetSqlOutputProfile();
         static void SetWhitespaceInputProfile(IWhitespaceInputProfile whitespaceInputProfile) => whitespaceInputProfile.SetWhitespaceInputProfile();
@@ -196,7 +196,7 @@ namespace Gar.Client.Ui.ViewModels
         void CSharpOutputCommandExecute()
         {
             SetCSharpOutputProfile(this);
-            SetCSharpOutputProfile(SeperatorsViewModel);
+            SetCSharpOutputProfile(SeparatorsViewModel);
             SetCSharpOutputProfile(GroupersViewModel);
         }
 
@@ -209,14 +209,14 @@ namespace Gar.Client.Ui.ViewModels
         void CsvOutputCommandExecute()
         {
             SetCsvOutputProfile(this);
-            SetCsvOutputProfile(SeperatorsViewModel);
+            SetCsvOutputProfile(SeparatorsViewModel);
             SetCsvOutputProfile(GroupersViewModel);
         }
 
         void JsonOutputCommandExecute()
         {
             SetJsonOutputProfile(this);
-            SetJsonOutputProfile(SeperatorsViewModel);
+            SetJsonOutputProfile(SeparatorsViewModel);
             SetJsonOutputProfile(GroupersViewModel);
         }
 
@@ -226,7 +226,7 @@ namespace Gar.Client.Ui.ViewModels
         void SqlOutputCommandExecute()
         {
             SetSqlOutputProfile(this);
-            SetSqlOutputProfile(SeperatorsViewModel);
+            SetSqlOutputProfile(SeparatorsViewModel);
             SetSqlOutputProfile(GroupersViewModel);
         }
 

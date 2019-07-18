@@ -58,13 +58,13 @@
             <Button DockPanel.Dock="Left" Content="Whitespace" Command="{Binding WhitespaceInputCommand}"
                     Style="{DynamicResource SquareButtonStyle}" Margin="0 0 5 0" />
         </DockPanel>
-        <Expander Grid.Row="7" Grid.Column="3" x:Name="SeperatorsExpander"
-                  DataContext="{Binding SeperatorsViewModel}"
+        <Expander Grid.Row="7" Grid.Column="3" x:Name="SeparatorsExpander"
+                  DataContext="{Binding SeparatorsViewModel}"
                   Header="{Binding ViewTitle}"
                   Content="{Binding}"
                   IsExpanded="True" />
         <Expander Grid.Row="7" Grid.Column="5"
-                  IsExpanded="{Binding IsExpanded, ElementName=SeperatorsExpander}"
+                  IsExpanded="{Binding IsExpanded, ElementName=SeparatorsExpander}"
                   DataContext="{Binding GroupersViewModel}"
                   Header="{Binding ViewTitle}"
                   Content="{Binding}" />

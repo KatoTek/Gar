@@ -2,7 +2,7 @@
 using StructureMap;
 using static StructureMap.Container;
 
-namespace Gar.Client.Bootstrapper.Structuremap
+namespace Gar.Client.Bootstrapper.StructureMap
 {
     public static class Loader
     {

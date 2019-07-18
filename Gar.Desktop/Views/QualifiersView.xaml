@@ -40,7 +40,7 @@
                       IsChecked="{Binding Ampersand}" />
         <ToggleButton Grid.Column="1" Grid.Row="3" Content="' apostrophe" ToolTip="Apostrophe"
                       IsChecked="{Binding Apostrophe}" />
-        <ToggleButton Grid.Column="1" Grid.Row="5" Content="* asterik" ToolTip="Asterik" IsChecked="{Binding Asterik}" />
+        <ToggleButton Grid.Column="1" Grid.Row="5" Content="* asterisk" ToolTip="Asterisk" IsChecked="{Binding Asterisk}" />
         <ToggleButton Grid.Column="1" Grid.Row="7" Content="@ at sign" ToolTip="At Sign" IsChecked="{Binding AtSign}" />
         <ToggleButton Grid.Column="1" Grid.Row="9" Content="\ backslash" ToolTip="Backslash"
                       IsChecked="{Binding Backslash}" />

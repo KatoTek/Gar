@@ -33,9 +33,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="INotify.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\INotify.Core.1.0.0\lib\net40\INotify.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="INotify.Core, Version=2.0.2018.801, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\INotify.Core.2.0.0\lib\net47\INotify.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

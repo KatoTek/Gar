@@ -5,7 +5,7 @@ using INotify.Core.Commands;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface ICollectionFormatterViewModel : IViewModelRoot, IInputOutputViewModel, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOuputProfile, ICopyOutput
+    public interface ICollectionFormatterViewModel : IViewModelRoot, IInputOutputViewModel, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOutputProfile, ICopyOutput
     {
         #region properties
 
@@ -19,7 +19,7 @@ namespace Gar.Client.Contracts.ViewModels
         RelayCommand JsonOutputCommand { get; }
         string Prefix { get; set; }
         IQualifiersViewModel QualifiersViewModel { get; }
-        ISeperatorsViewModel SeperatorsViewModel { get; }
+        ISeparatorsViewModel SeparatorsViewModel { get; }
         RelayCommand SqlOutputCommand { get; }
         string Suffix { get; set; }
         RelayCommand WhitespaceInputCommand { get; }

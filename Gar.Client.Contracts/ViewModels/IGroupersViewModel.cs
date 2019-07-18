@@ -3,7 +3,7 @@ using Gar.Root.Contracts;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface IGroupersViewModel : IViewModelRoot, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOuputProfile
+    public interface IGroupersViewModel : IViewModelRoot, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOutputProfile
     {
         #region properties
 

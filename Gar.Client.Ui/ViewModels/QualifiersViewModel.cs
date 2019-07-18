@@ -19,7 +19,7 @@ namespace Gar.Client.Ui.ViewModels
             PropertyOf(() => Qualifier)
                 .DependsOnProperty(() => Ampersand)
                 .DependsOnProperty(() => Apostrophe)
-                .DependsOnProperty(() => Asterik)
+                .DependsOnProperty(() => Asterisk)
                 .DependsOnProperty(() => AtSign)
                 .DependsOnProperty(() => Backslash)
                 .DependsOnProperty(() => Caret)
@@ -62,10 +62,10 @@ namespace Gar.Client.Ui.ViewModels
         }
 
         [CorrespondingCharacter('*')]
-        public bool Asterik
+        public bool Asterisk
         {
-            get => GetValue(() => Asterik);
-            set => SetValue(Synchronize(value), () => Asterik);
+            get => GetValue(() => Asterisk);
+            set => SetValue(Synchronize(value), () => Asterisk);
         }
 
         [CorrespondingCharacter('@')]
@@ -181,25 +181,27 @@ namespace Gar.Client.Ui.ViewModels
                                                  {
                                                      Custom.Value
                                                  }
-                                               : new char[0]).Union(from propertyInfo in GetType()
-                                                                                         .GetProperties(Public | Instance)
-                                                                                         .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
-                                                                    where (bool)propertyInfo.GetValue(this)
-                                                                    select propertyInfo.GetCustomAttributes<CorrespondingCharacterAttribute>()
-                                                                                       .FirstOrDefault()
-                                                                    into correspondingCharacterAttribute
-                                                                    where correspondingCharacterAttribute != null
-                                                                    select correspondingCharacterAttribute.Character)
-                                                             .ToArray();
+                                               : Array.Empty<char>()).Union(from propertyInfo in GetType()
+                                                                                                 .GetProperties(Public | Instance)
+                                                                                                 .Where(propertyInfo => propertyInfo.PropertyType == typeof(bool))
+                                                                            where (bool)propertyInfo.GetValue(this)
+                                                                            select propertyInfo.GetCustomAttributes<CorrespondingCharacterAttribute>()
+                                                                                               .FirstOrDefault()
+                                                                            into correspondingCharacterAttribute
+                                                                            where correspondingCharacterAttribute != null
+                                                                            select correspondingCharacterAttribute.Character)
+                                                                     .ToArray();
 
                          switch (qualifiers.Length)
                          {
                              case 0:
                                  return null;
+
                              case 1:
                                  return qualifiers.Single();
+
                              default:
-                                 throw new IndexOutOfRangeException();
+                                 throw new InvalidOperationException();
                          }
                      });
 
@@ -303,6 +305,7 @@ namespace Gar.Client.Ui.ViewModels
                 return value;
 
             property.SetValue(this, true);
+
             return null;
         }
 
@@ -313,7 +316,7 @@ namespace Gar.Client.Ui.ViewModels
 
             Ampersand = false;
             Apostrophe = false;
-            Asterik = false;
+            Asterisk = false;
             AtSign = false;
             Backslash = false;
             Caret = false;

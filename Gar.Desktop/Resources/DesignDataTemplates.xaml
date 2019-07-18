@@ -27,13 +27,13 @@
         <v:JsonFormatterView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type uid:DelimitersViewModel}">
-        <v:DelimetersView />
+        <v:DelimitersView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type uid:QualifiersViewModel}">
         <v:QualifiersView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type uid:SeperatorsViewModel}">
-        <v:SeperatorsView />
+    <DataTemplate DataType="{x:Type uid:SeparatorsViewModel}">
+        <v:SeparatorsView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type uid:GroupersViewModel}">
         <v:GroupersView />

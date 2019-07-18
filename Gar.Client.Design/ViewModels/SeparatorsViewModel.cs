@@ -1,15 +1,16 @@
 ﻿using Gar.Client.Contracts.ViewModels;
 using Gar.Root.Ui;
+using static System.String;
 
 namespace Gar.Client.Design.ViewModels
 {
-    public class SeperatorsViewModel : ViewModelRoot, ISeperatorsViewModel
+    public class SeparatorsViewModel : ViewModelRoot, ISeparatorsViewModel
     {
         #region properties
 
         public bool Ampersand { get; set; }
         public bool Apostrophe { get; set; }
-        public bool Asterik { get; set; }
+        public bool Asterisk { get; set; }
         public bool AtSign { get; set; }
         public bool Backslash { get; set; }
         public bool Caret { get; set; }
@@ -30,13 +31,13 @@ namespace Gar.Client.Design.ViewModels
         public bool QuestionMark { get; set; }
         public bool Quotation { get; set; }
         public bool Semicolon { get; set; }
-        public string Seperator { get; } = string.Empty;
+        public string Separator { get; } = Empty;
         public bool Slash { get; set; }
         public bool Space { get; set; }
         public bool Tab { get; set; }
         public bool Tilde { get; set; }
         public bool Underscore { get; set; }
-        public override string ViewTitle => "seperators";
+        public override string ViewTitle => "separators";
 
         #endregion
 

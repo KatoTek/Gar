@@ -28,15 +28,15 @@ namespace Gar.Root.Ui
 
         #region methods
 
-        protected virtual void OnUnwireViewModelEvents(ViewModelRoot viewModel) { }
+        protected virtual void OnUnWireViewModelEvents(ViewModelRoot viewModel) { }
         protected virtual void OnWireViewModelEvents(ViewModelRoot viewModel) { }
 
         void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue == null)
+            if (e.NewValue is null)
             {
-                if (e.OldValue != null)
-                    OnUnwireViewModelEvents(e.OldValue as ViewModelRoot);
+                if (!(e.OldValue is null))
+                    OnUnWireViewModelEvents(e.OldValue as ViewModelRoot);
             }
             else
                 OnWireViewModelEvents(e.NewValue as ViewModelRoot);

@@ -142,10 +142,12 @@ namespace Gar.Client.Ui.ViewModels
                          {
                              case 0:
                                  return null;
+
                              case 1:
                                  return groupEnds.Single();
+
                              default:
-                                 throw new IndexOutOfRangeException();
+                                 throw new InvalidOperationException();
                          }
                      });
 
@@ -167,10 +169,12 @@ namespace Gar.Client.Ui.ViewModels
                          {
                              case 0:
                                  return null;
+
                              case 1:
                                  return groupStarts.Single();
+
                              default:
-                                 throw new IndexOutOfRangeException();
+                                 throw new InvalidOperationException();
                          }
                      });
 

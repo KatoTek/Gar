@@ -9,7 +9,7 @@ namespace Gar.Client.Design.ViewModels
 
         public bool Ampersand { get; set; }
         public bool Apostrophe { get; set; }
-        public bool Asterik { get; set; }
+        public bool Asterisk { get; set; }
         public bool AtSign { get; set; }
         public bool Backslash { get; set; }
         public bool Caret { get; set; }

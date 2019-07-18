@@ -3,13 +3,13 @@ using Gar.Root.Contracts;
 
 namespace Gar.Client.Contracts.ViewModels
 {
-    public interface ISeperatorsViewModel : IViewModelRoot, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOuputProfile
+    public interface ISeparatorsViewModel : IViewModelRoot, ISqlOutputProfile, ICSharpOutputProfile, IJsonOutputProfile, ICsvOutputProfile
     {
         #region properties
 
         bool Ampersand { get; set; }
         bool Apostrophe { get; set; }
-        bool Asterik { get; set; }
+        bool Asterisk { get; set; }
         bool AtSign { get; set; }
         bool Backslash { get; set; }
         bool Caret { get; set; }
@@ -30,7 +30,7 @@ namespace Gar.Client.Contracts.ViewModels
         bool QuestionMark { get; set; }
         bool Quotation { get; set; }
         bool Semicolon { get; set; }
-        string Seperator { get; }
+        string Separator { get; }
         bool Slash { get; set; }
         bool Space { get; set; }
         bool Tab { get; set; }

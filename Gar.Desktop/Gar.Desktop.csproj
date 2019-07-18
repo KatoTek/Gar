@@ -41,26 +41,24 @@
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\ControlzEx.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentValidation.7.5.2\lib\net45\FluentValidation.dll</HintPath>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.8.4.0\lib\net45\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="INotify.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\INotify.Core.1.0.0\lib\net40\INotify.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="INotify.Core, Version=2.0.2018.801, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\INotify.Core.2.0.0\lib\net47\INotify.Core.dll</HintPath>
     </Reference>
-    <Reference Include="INotify.Core.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\INotify.Core.Commands.1.0.0\lib\net40\INotify.Core.Commands.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="INotify.Core.Commands, Version=2.0.2018.801, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\INotify.Core.Commands.2.0.0\lib\net47\INotify.Core.Commands.dll</HintPath>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=1.6.1.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.6.1\lib\net45\MahApps.Metro.dll</HintPath>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net47\MahApps.Metro.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap, Version=4.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StructureMap.4.6.1\lib\net45\StructureMap.dll</HintPath>
+    <Reference Include="StructureMap, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.7.1\lib\net45\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -103,8 +101,8 @@
     <Compile Include="Views\DecodingToolsView.xaml.cs">
       <DependentUpon>DecodingToolsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DelimetersView.xaml.cs">
-      <DependentUpon>DelimetersView.xaml</DependentUpon>
+    <Compile Include="Views\DelimitersView.xaml.cs">
+      <DependentUpon>DelimitersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EncodingToolsView.xaml.cs">
       <DependentUpon>EncodingToolsView.xaml</DependentUpon>
@@ -127,8 +125,8 @@
     <Compile Include="Views\QualifiersView.xaml.cs">
       <DependentUpon>QualifiersView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SeperatorsView.xaml.cs">
-      <DependentUpon>SeperatorsView.xaml</DependentUpon>
+    <Compile Include="Views\SeparatorsView.xaml.cs">
+      <DependentUpon>SeparatorsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UrlDecoderView.xaml.cs">
       <DependentUpon>UrlDecoderView.xaml</DependentUpon>
@@ -190,7 +188,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DelimetersView.xaml">
+    <Page Include="Views\DelimitersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,7 +220,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SeperatorsView.xaml">
+    <Page Include="Views\SeparatorsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

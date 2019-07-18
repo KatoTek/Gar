@@ -8,17 +8,15 @@ namespace Gar.Desktop.Root
     {
         #region methods
 
-        protected override void OnUnwireViewModelEvents(ViewModelRoot viewModel)
+        protected override void OnUnWireViewModelEvents(ViewModelRoot viewModel)
         {
-            var copyOutput = viewModel as ICopyOutput;
-            if (copyOutput != null)
+            if (viewModel is ICopyOutput copyOutput)
                 copyOutput.CopyOutput -= HandleCopyOutput;
         }
 
         protected override void OnWireViewModelEvents(ViewModelRoot viewModel)
         {
-            var copyOutput = viewModel as ICopyOutput;
-            if (copyOutput != null)
+            if (viewModel is ICopyOutput copyOutput)
                 copyOutput.CopyOutput += HandleCopyOutput;
         }
 

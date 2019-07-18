@@ -24,7 +24,7 @@ namespace Gar.Root
 
         public SettingsManager()
         {
-            _directory = ExpandEnvironmentVariables($"%APPDATA%\\{GetEntryAssembly() .GetName() .Name}\\");
+            _directory = ExpandEnvironmentVariables($"%APPDATA%\\{GetEntryAssembly()?.GetName().Name}\\");
             _file = $"{typeof(T).FullName}.json";
 
             if (!File.Exists(Location))

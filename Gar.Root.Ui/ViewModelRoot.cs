@@ -66,13 +66,14 @@ namespace Gar.Root.Ui
             {
                 var ret = Empty;
 
-                if (ValidationErrors == null)
+                if (ValidationErrors is null)
                     return ret;
 
-                var verb = ValidationErrors.Count == 1
+                var verb = ValidationErrors.Count is 1
                                ? "is"
                                : "are";
-                var suffix = ValidationErrors.Count == 1
+
+                var suffix = ValidationErrors.Count is 1
                                  ? Empty
                                  : "s";
 
@@ -90,6 +91,7 @@ namespace Gar.Root.Ui
             get
             {
                 OnViewLoaded();
+
                 return null;
             }
         }
@@ -104,13 +106,15 @@ namespace Gar.Root.Ui
 
         protected async Task ExecuteBusyActionAsync(Action busyAction)
         {
-            if (busyAction == null)
+            if (busyAction is null)
                 return;
 
             StartBusy();
+
             try
             {
-                await Run(busyAction);
+                await Run(busyAction)
+                    .ConfigureAwait(true);
             }
             finally
             {
@@ -121,14 +125,16 @@ namespace Gar.Root.Ui
         protected async Task<T> ExecuteBusyActionAsync<T>(Func<T> busyFunc)
         {
             var t = default(T);
-            if (busyFunc == null)
+
+            if (busyFunc is null)
                 return t;
 
             StartBusy();
 
             try
             {
-                t = await Run(busyFunc);
+                t = await Run(busyFunc)
+                        .ConfigureAwait(true);
             }
             finally
             {
@@ -144,7 +150,7 @@ namespace Gar.Root.Ui
 
         protected void ValidateModel()
         {
-            if (_models == null)
+            if (_models is null)
             {
                 _models = new List<RootObject>();
                 AddModels(_models);
@@ -158,7 +164,7 @@ namespace Gar.Root.Ui
                 {
                     modelObject?.Validate();
 
-                    if (modelObject != null)
+                    if (!(modelObject is null))
                     {
                         validationErrors = validationErrors.Union(modelObject.ValidationErrors)
                                                            .ToList();
@@ -171,10 +177,11 @@ namespace Gar.Root.Ui
 
         void StartBusy()
         {
-            if (_isBusyStack.Count == 0)
+            if (_isBusyStack.Count is 0)
                 IsBusy = true;
 
-            _isBusyStack.Push(new { });
+            _isBusyStack.Push(new
+                              { });
         }
 
         void StopBusy()
@@ -182,7 +189,7 @@ namespace Gar.Root.Ui
             if (_isBusyStack.Count > 0)
                 _isBusyStack.Pop();
 
-            if (_isBusyStack.Count == 0)
+            if (_isBusyStack.Count is 0)
                 IsBusy = false;
         }
 

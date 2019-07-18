@@ -20,6 +20,7 @@ namespace Gar.Client.Ui.ViewModels
             InitializeValue(new SelectableValueList<string>(from Accent accent in themesSection.Accents
                                                             select accent),
                             () => Accents);
+
             InitializeValue(new SelectableValueList<string>(from Theme theme in themesSection.Themes
                                                             select theme),
                             () => Themes);

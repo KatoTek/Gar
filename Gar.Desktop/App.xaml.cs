@@ -3,7 +3,7 @@ using Gar.Client.Settings;
 using Gar.Root.Contracts;
 using Gar.Root.EventArguments;
 using StructureMap;
-using static Gar.Client.Bootstrapper.Structuremap.Loader;
+using static Gar.Client.Bootstrapper.StructureMap.Loader;
 using static MahApps.Metro.ThemeManager;
 
 namespace Gar.Desktop

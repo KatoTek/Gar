@@ -11,7 +11,7 @@ namespace Gar.Client.Contracts.ViewModels
 
         bool Ampersand { get; set; }
         bool Apostrophe { get; set; }
-        bool Asterik { get; set; }
+        bool Asterisk { get; set; }
         bool AtSign { get; set; }
         bool Backslash { get; set; }
         bool Caret { get; set; }

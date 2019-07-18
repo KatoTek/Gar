@@ -17,6 +17,7 @@ namespace Gar.Desktop
             var mainViewModel = Container.GetInstance<IMainViewModel>();
 
             var appStyle = DetectAppStyle(Current);
+
             ThemeSettingsManager.Initialize(new Theme
                                             {
                                                 Accent = appStyle?.Item2?.Name ?? mainViewModel.MainMenuViewModel.Accents.FirstItem.Value,

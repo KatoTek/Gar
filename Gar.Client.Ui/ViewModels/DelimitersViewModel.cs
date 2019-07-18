@@ -24,7 +24,7 @@ namespace Gar.Client.Ui.ViewModels
             PropertyOf(() => Delimiters)
                 .DependsOnProperty(() => Ampersand)
                 .DependsOnProperty(() => Apostrophe)
-                .DependsOnProperty(() => Asterik)
+                .DependsOnProperty(() => Asterisk)
                 .DependsOnProperty(() => AtSign)
                 .DependsOnProperty(() => Backslash)
                 .DependsOnProperty(() => Caret)
@@ -70,10 +70,10 @@ namespace Gar.Client.Ui.ViewModels
         }
 
         [CorrespondingCharacter('*')]
-        public bool Asterik
+        public bool Asterisk
         {
-            get => GetValue(() => Asterik);
-            set => SetValue(value, () => Asterik);
+            get => GetValue(() => Asterisk);
+            set => SetValue(value, () => Asterisk);
         }
 
         [CorrespondingCharacter('@')]
@@ -119,12 +119,13 @@ namespace Gar.Client.Ui.ViewModels
 
         public NotifyingList<char> Custom => GetValue(() => Custom);
 
-        [SuppressMessage("ReSharper", "InvertIf")]
+        [SuppressMessage("ReSharper", "InvertIf", Justification = "Readability")]
         public IEnumerable<char> Delimiters =>
             GetValue(() => Delimiters,
                      () =>
                      {
                          var delimiters = new List<char>(Custom);
+
                          if (CarriageReturn)
                          {
                              delimiters.Add('\r');
@@ -295,6 +296,7 @@ namespace Gar.Client.Ui.ViewModels
         public void SetCsvInputProfile()
         {
             CarriageReturn = false;
+
             Delimiters.ToList()
                       .ForEach(_ => Deselect(_));
 

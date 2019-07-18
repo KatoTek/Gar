@@ -28,12 +28,7 @@ namespace Gar.Desktop.Controls
 
         #region constructors
 
-        public InputOutputControl()
-        {
-            InitializeComponent();
-
-            LayoutRoot.DataContext = this;
-        }
+        public InputOutputControl() => InitializeComponent();
 
         #endregion
 

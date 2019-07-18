@@ -1,6 +1,6 @@
 ﻿namespace Gar.Client.Contracts.Profiles
 {
-    public interface ICsvOuputProfile
+    public interface ICsvOutputProfile
     {
         #region methods
 

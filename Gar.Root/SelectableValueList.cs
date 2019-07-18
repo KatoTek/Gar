@@ -47,7 +47,7 @@ namespace Gar.Root
             GetValue(() => SelectedValue,
                      () => SelectedItem != null
                                ? SelectedItem.Value
-                               : default(T));
+                               : default);
 
         #endregion
 
@@ -106,6 +106,7 @@ namespace Gar.Root
         {
             PropertyOf(() => SelectedText)
                 .DependsOnReferenceProperty(() => SelectedItem, (ISelectableValue<T> selectedItem) => selectedItem.Text);
+
             PropertyOf(() => SelectedValue)
                 .DependsOnReferenceProperty(() => SelectedItem, (ISelectableValue<T> selectedItem) => selectedItem.Value);
 
@@ -124,15 +125,19 @@ namespace Gar.Root
                 {
                     case 1:
                         SelectedItem = selectedItems.Single();
+
                         break;
+
                     case 2:
                         var oldItem = selectedItems.Single(item => item == SelectedItem);
                         var newItem = selectedItems.Single(item => item != SelectedItem);
                         SelectedItem = newItem;
                         oldItem.IsSelected = false;
+
                         break;
+
                     default:
-                        throw new IndexOutOfRangeException("Too many items simultaneously selected.");
+                        throw new InvalidOperationException("Too many items simultaneously selected.");
                 }
             }
             else
@@ -153,6 +158,7 @@ namespace Gar.Root
         void SetSingleSelected(IEnumerable<ISelectableValue<T>> collection, Action action = null)
         {
             var selectedItem = collection.SingleOrDefault(item => item.IsSelected);
+
             if (selectedItem?.IsSelected ?? false)
                 ForEach(selectableItem => selectableItem.IsSelected = false);
 
